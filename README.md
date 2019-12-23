@@ -53,5 +53,5 @@ GuanKe Cloud Framework
  |
  |-- sa-sync  项目同步模块 
  |
- |-- sa-wx 经销宝微信相关模块
+ |-- sa-wx 项目微信相关模块
 ```
