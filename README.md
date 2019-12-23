@@ -41,17 +41,17 @@ GuanKe Cloud Framework
 
 -sales_aux
  |
- |-- sa-core 经销宝核心模块（Eureka注册中心）
+ |-- sa-core 项目核心模块（Eureka注册中心）
  |
- |-- vinda-gate 经销宝网关 
+ |-- vinda-gate  项目网关 
  |
  |-- sa-models 公用持久层 
  |
  |-- sa-schedule 公用定时任务 
  |
- |-- sa-func 经销宝功能模块 
+ |-- sa-func 项目功能模块 
  |
- |-- sa-sync 经销宝同步模块 
+ |-- sa-sync  项目同步模块 
  |
  |-- sa-wx 经销宝微信相关模块
 ```
