@@ -1,0 +1,1104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkExpenseEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkExpenseEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_expense-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="activityId" jdbcType="VARCHAR" property="activityId"/>
+        <result column="dealerId" jdbcType="VARCHAR" property="dealerId"/>
+        <result column="expenseNumber" jdbcType="VARCHAR" property="expenseNumber"/>
+        <result column="intId" jdbcType="VARCHAR" property="intId"/>
+        <result column="planId" jdbcType="VARCHAR" property="planId"/>
+        <result column="productSectionIntId" jdbcType="VARCHAR" property="productSectionIntId"/>
+        <result column="shopId" jdbcType="VARCHAR" property="shopId"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="activityNumber" jdbcType="VARCHAR" property="activityNumber"/>
+        <result column="applyEmpId" jdbcType="VARCHAR" property="applyEmpId"/>
+        <result column="applyTime" jdbcType="TIMESTAMP" property="applyTime"/>
+        <result column="applyTotle" jdbcType="DECIMAL" property="applyTotle"/>
+        <result column="dealerCost" jdbcType="DECIMAL" property="dealerCost"/>
+        <result column="displayQty" jdbcType="INTEGER" property="displayQty"/>
+        <result column="expenseRatio" jdbcType="DECIMAL" property="expenseRatio"/>
+        <result column="foreseeSales" jdbcType="DECIMAL" property="foreseeSales"/>
+        <result column="month" jdbcType="INTEGER" property="month"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="orgId" jdbcType="VARCHAR" property="orgId"/>
+        <result column="positionId" jdbcType="VARCHAR" property="positionId"/>
+        <result column="productBrand" jdbcType="VARCHAR" property="productBrand"/>
+        <result column="productSectionId" jdbcType="VARCHAR" property="productSectionId"/>
+        <result column="productSubjects" jdbcType="VARCHAR" property="productSubjects"/>
+        <result column="productVcode" jdbcType="VARCHAR" property="productVcode"/>
+        <result column="promotionSales" jdbcType="DECIMAL" property="promotionSales"/>
+        <result column="year" jdbcType="INTEGER" property="year"/>
+        <result column="vCode" jdbcType="VARCHAR" property="vCode"/>
+        <result column="approveTime" jdbcType="TIMESTAMP" property="approveTime"/>
+        <result column="oaTheme" jdbcType="VARCHAR" property="oaTheme"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, activityId, dealerId,
+        expenseNumber, intId, planId, productSectionIntId, shopId, `status`, `type`, activityNumber,
+        applyEmpId, applyTime, applyTotle, dealerCost, displayQty, expenseRatio, foreseeSales,
+        `month`, `name`, orgId, positionId, productBrand, productSectionId, productSubjects,
+        productVcode, promotionSales, `year`, vCode, approveTime, oaTheme
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_expense
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_expense
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkExpenseEntity">
+        <!--@mbg.generated-->
+        insert into gk_expense (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        activityId, dealerId, expenseNumber,
+        intId, planId, productSectionIntId,
+        shopId, `status`, `type`,
+        activityNumber, applyEmpId, applyTime,
+        applyTotle, dealerCost, displayQty,
+        expenseRatio, foreseeSales, `month`,
+        `name`, orgId, positionId,
+        productBrand, productSectionId, productSubjects,
+        productVcode, promotionSales, `year`,
+        vCode, approveTime, oaTheme
+        )
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{activityId,jdbcType=VARCHAR}, #{dealerId,jdbcType=VARCHAR}, #{expenseNumber,jdbcType=VARCHAR},
+        #{intId,jdbcType=VARCHAR}, #{planId,jdbcType=VARCHAR}, #{productSectionIntId,jdbcType=VARCHAR},
+        #{shopId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+        #{activityNumber,jdbcType=VARCHAR}, #{applyEmpId,jdbcType=VARCHAR}, #{applyTime,jdbcType=TIMESTAMP},
+        #{applyTotle,jdbcType=DECIMAL}, #{dealerCost,jdbcType=DECIMAL}, #{displayQty,jdbcType=INTEGER},
+        #{expenseRatio,jdbcType=DECIMAL}, #{foreseeSales,jdbcType=DECIMAL}, #{month,jdbcType=INTEGER},
+        #{name,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{positionId,jdbcType=VARCHAR},
+        #{productBrand,jdbcType=VARCHAR}, #{productSectionId,jdbcType=VARCHAR}, #{productSubjects,jdbcType=VARCHAR},
+        #{productVcode,jdbcType=VARCHAR}, #{promotionSales,jdbcType=DECIMAL}, #{year,jdbcType=INTEGER},
+        #{vCode,jdbcType=VARCHAR}, #{approveTime,jdbcType=TIMESTAMP}, #{oaTheme,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkExpenseEntity">
+        <!--@mbg.generated-->
+        insert into gk_expense
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="activityId != null">
+                activityId,
+            </if>
+            <if test="dealerId != null">
+                dealerId,
+            </if>
+            <if test="expenseNumber != null">
+                expenseNumber,
+            </if>
+            <if test="intId != null">
+                intId,
+            </if>
+            <if test="planId != null">
+                planId,
+            </if>
+            <if test="productSectionIntId != null">
+                productSectionIntId,
+            </if>
+            <if test="shopId != null">
+                shopId,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="activityNumber != null">
+                activityNumber,
+            </if>
+            <if test="applyEmpId != null">
+                applyEmpId,
+            </if>
+            <if test="applyTime != null">
+                applyTime,
+            </if>
+            <if test="applyTotle != null">
+                applyTotle,
+            </if>
+            <if test="dealerCost != null">
+                dealerCost,
+            </if>
+            <if test="displayQty != null">
+                displayQty,
+            </if>
+            <if test="expenseRatio != null">
+                expenseRatio,
+            </if>
+            <if test="foreseeSales != null">
+                foreseeSales,
+            </if>
+            <if test="month != null">
+                `month`,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="orgId != null">
+                orgId,
+            </if>
+            <if test="positionId != null">
+                positionId,
+            </if>
+            <if test="productBrand != null">
+                productBrand,
+            </if>
+            <if test="productSectionId != null">
+                productSectionId,
+            </if>
+            <if test="productSubjects != null">
+                productSubjects,
+            </if>
+            <if test="productVcode != null">
+                productVcode,
+            </if>
+            <if test="promotionSales != null">
+                promotionSales,
+            </if>
+            <if test="year != null">
+                `year`,
+            </if>
+            <if test="vCode != null">
+                vCode,
+            </if>
+            <if test="approveTime != null">
+                approveTime,
+            </if>
+            <if test="oaTheme != null">
+                oaTheme,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="activityId != null">
+                #{activityId,jdbcType=VARCHAR},
+            </if>
+            <if test="dealerId != null">
+                #{dealerId,jdbcType=VARCHAR},
+            </if>
+            <if test="expenseNumber != null">
+                #{expenseNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="intId != null">
+                #{intId,jdbcType=VARCHAR},
+            </if>
+            <if test="planId != null">
+                #{planId,jdbcType=VARCHAR},
+            </if>
+            <if test="productSectionIntId != null">
+                #{productSectionIntId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="activityNumber != null">
+                #{activityNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="applyEmpId != null">
+                #{applyEmpId,jdbcType=VARCHAR},
+            </if>
+            <if test="applyTime != null">
+                #{applyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="applyTotle != null">
+                #{applyTotle,jdbcType=DECIMAL},
+            </if>
+            <if test="dealerCost != null">
+                #{dealerCost,jdbcType=DECIMAL},
+            </if>
+            <if test="displayQty != null">
+                #{displayQty,jdbcType=INTEGER},
+            </if>
+            <if test="expenseRatio != null">
+                #{expenseRatio,jdbcType=DECIMAL},
+            </if>
+            <if test="foreseeSales != null">
+                #{foreseeSales,jdbcType=DECIMAL},
+            </if>
+            <if test="month != null">
+                #{month,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="orgId != null">
+                #{orgId,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="productBrand != null">
+                #{productBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="productSectionId != null">
+                #{productSectionId,jdbcType=VARCHAR},
+            </if>
+            <if test="productSubjects != null">
+                #{productSubjects,jdbcType=VARCHAR},
+            </if>
+            <if test="productVcode != null">
+                #{productVcode,jdbcType=VARCHAR},
+            </if>
+            <if test="promotionSales != null">
+                #{promotionSales,jdbcType=DECIMAL},
+            </if>
+            <if test="year != null">
+                #{year,jdbcType=INTEGER},
+            </if>
+            <if test="vCode != null">
+                #{vCode,jdbcType=VARCHAR},
+            </if>
+            <if test="approveTime != null">
+                #{approveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="oaTheme != null">
+                #{oaTheme,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkExpenseEntity">
+        <!--@mbg.generated-->
+        update gk_expense
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="activityId != null">
+                activityId = #{activityId,jdbcType=VARCHAR},
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId,jdbcType=VARCHAR},
+            </if>
+            <if test="expenseNumber != null">
+                expenseNumber = #{expenseNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="intId != null">
+                intId = #{intId,jdbcType=VARCHAR},
+            </if>
+            <if test="planId != null">
+                planId = #{planId,jdbcType=VARCHAR},
+            </if>
+            <if test="productSectionIntId != null">
+                productSectionIntId = #{productSectionIntId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                shopId = #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="activityNumber != null">
+                activityNumber = #{activityNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="applyEmpId != null">
+                applyEmpId = #{applyEmpId,jdbcType=VARCHAR},
+            </if>
+            <if test="applyTime != null">
+                applyTime = #{applyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="applyTotle != null">
+                applyTotle = #{applyTotle,jdbcType=DECIMAL},
+            </if>
+            <if test="dealerCost != null">
+                dealerCost = #{dealerCost,jdbcType=DECIMAL},
+            </if>
+            <if test="displayQty != null">
+                displayQty = #{displayQty,jdbcType=INTEGER},
+            </if>
+            <if test="expenseRatio != null">
+                expenseRatio = #{expenseRatio,jdbcType=DECIMAL},
+            </if>
+            <if test="foreseeSales != null">
+                foreseeSales = #{foreseeSales,jdbcType=DECIMAL},
+            </if>
+            <if test="month != null">
+                `month` = #{month,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="orgId != null">
+                orgId = #{orgId,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                positionId = #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="productBrand != null">
+                productBrand = #{productBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="productSectionId != null">
+                productSectionId = #{productSectionId,jdbcType=VARCHAR},
+            </if>
+            <if test="productSubjects != null">
+                productSubjects = #{productSubjects,jdbcType=VARCHAR},
+            </if>
+            <if test="productVcode != null">
+                productVcode = #{productVcode,jdbcType=VARCHAR},
+            </if>
+            <if test="promotionSales != null">
+                promotionSales = #{promotionSales,jdbcType=DECIMAL},
+            </if>
+            <if test="year != null">
+                `year` = #{year,jdbcType=INTEGER},
+            </if>
+            <if test="vCode != null">
+                vCode = #{vCode,jdbcType=VARCHAR},
+            </if>
+            <if test="approveTime != null">
+                approveTime = #{approveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="oaTheme != null">
+                oaTheme = #{oaTheme,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkExpenseEntity">
+        <!--@mbg.generated-->
+        update gk_expense
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        activityId = #{activityId,jdbcType=VARCHAR},
+        dealerId = #{dealerId,jdbcType=VARCHAR},
+        expenseNumber = #{expenseNumber,jdbcType=VARCHAR},
+        intId = #{intId,jdbcType=VARCHAR},
+        planId = #{planId,jdbcType=VARCHAR},
+        productSectionIntId = #{productSectionIntId,jdbcType=VARCHAR},
+        shopId = #{shopId,jdbcType=VARCHAR},
+        `status` = #{status,jdbcType=VARCHAR},
+        `type` = #{type,jdbcType=VARCHAR},
+        activityNumber = #{activityNumber,jdbcType=VARCHAR},
+        applyEmpId = #{applyEmpId,jdbcType=VARCHAR},
+        applyTime = #{applyTime,jdbcType=TIMESTAMP},
+        applyTotle = #{applyTotle,jdbcType=DECIMAL},
+        dealerCost = #{dealerCost,jdbcType=DECIMAL},
+        displayQty = #{displayQty,jdbcType=INTEGER},
+        expenseRatio = #{expenseRatio,jdbcType=DECIMAL},
+        foreseeSales = #{foreseeSales,jdbcType=DECIMAL},
+        `month` = #{month,jdbcType=INTEGER},
+        `name` = #{name,jdbcType=VARCHAR},
+        orgId = #{orgId,jdbcType=VARCHAR},
+        positionId = #{positionId,jdbcType=VARCHAR},
+        productBrand = #{productBrand,jdbcType=VARCHAR},
+        productSectionId = #{productSectionId,jdbcType=VARCHAR},
+        productSubjects = #{productSubjects,jdbcType=VARCHAR},
+        productVcode = #{productVcode,jdbcType=VARCHAR},
+        promotionSales = #{promotionSales,jdbcType=DECIMAL},
+        `year` = #{year,jdbcType=INTEGER},
+        vCode = #{vCode,jdbcType=VARCHAR},
+        approveTime = #{approveTime,jdbcType=TIMESTAMP},
+        oaTheme = #{oaTheme,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update gk_expense
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="createdBy = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.createdBy,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="createdTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.createdTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="updatedBy = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedBy,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="updatedTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="version = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.version,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="activityId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.activityId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="dealerId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.dealerId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="expenseNumber = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.expenseNumber,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="intId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.intId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="planId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.planId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="productSectionIntId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.productSectionIntId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="shopId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.shopId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="`status` = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.status,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="`type` = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.type,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="activityNumber = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.activityNumber,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="applyEmpId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.applyEmpId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="applyTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.applyTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="applyTotle = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.applyTotle,jdbcType=DECIMAL}
+                </foreach>
+            </trim>
+            <trim prefix="dealerCost = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.dealerCost,jdbcType=DECIMAL}
+                </foreach>
+            </trim>
+            <trim prefix="displayQty = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.displayQty,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="expenseRatio = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.expenseRatio,jdbcType=DECIMAL}
+                </foreach>
+            </trim>
+            <trim prefix="foreseeSales = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.foreseeSales,jdbcType=DECIMAL}
+                </foreach>
+            </trim>
+            <trim prefix="`month` = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.month,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="`name` = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.name,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="orgId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.orgId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="positionId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.positionId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="productBrand = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.productBrand,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="productSectionId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.productSectionId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="productSubjects = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.productSubjects,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="productVcode = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.productVcode,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="promotionSales = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.promotionSales,jdbcType=DECIMAL}
+                </foreach>
+            </trim>
+            <trim prefix="`year` = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.year,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="vCode = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.vCode,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="approveTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.approveTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="oaTheme = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.oaTheme,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+        </trim>
+        where id in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.id,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into gk_expense
+        (id, createdBy, createdTime, updatedBy, updatedTime, version, activityId, dealerId,
+        expenseNumber, intId, planId, productSectionIntId, shopId, `status`, `type`, activityNumber,
+        applyEmpId, applyTime, applyTotle, dealerCost, displayQty, expenseRatio, foreseeSales,
+        `month`, `name`, orgId, positionId, productBrand, productSectionId, productSubjects,
+        productVcode, promotionSales, `year`, vCode, approveTime, oaTheme)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id,jdbcType=VARCHAR}, #{item.createdBy,jdbcType=VARCHAR}, #{item.createdTime,jdbcType=TIMESTAMP},
+            #{item.updatedBy,jdbcType=VARCHAR}, #{item.updatedTime,jdbcType=TIMESTAMP},
+            #{item.version,jdbcType=INTEGER},
+            #{item.activityId,jdbcType=VARCHAR}, #{item.dealerId,jdbcType=VARCHAR},
+            #{item.expenseNumber,jdbcType=VARCHAR},
+            #{item.intId,jdbcType=VARCHAR}, #{item.planId,jdbcType=VARCHAR},
+            #{item.productSectionIntId,jdbcType=VARCHAR},
+            #{item.shopId,jdbcType=VARCHAR}, #{item.status,jdbcType=VARCHAR}, #{item.type,jdbcType=VARCHAR},
+            #{item.activityNumber,jdbcType=VARCHAR}, #{item.applyEmpId,jdbcType=VARCHAR},
+            #{item.applyTime,jdbcType=TIMESTAMP},
+            #{item.applyTotle,jdbcType=DECIMAL}, #{item.dealerCost,jdbcType=DECIMAL},
+            #{item.displayQty,jdbcType=INTEGER},
+            #{item.expenseRatio,jdbcType=DECIMAL}, #{item.foreseeSales,jdbcType=DECIMAL},
+            #{item.month,jdbcType=INTEGER},
+            #{item.name,jdbcType=VARCHAR}, #{item.orgId,jdbcType=VARCHAR}, #{item.positionId,jdbcType=VARCHAR},
+            #{item.productBrand,jdbcType=VARCHAR}, #{item.productSectionId,jdbcType=VARCHAR},
+            #{item.productSubjects,jdbcType=VARCHAR}, #{item.productVcode,jdbcType=VARCHAR},
+            #{item.promotionSales,jdbcType=DECIMAL}, #{item.year,jdbcType=INTEGER}, #{item.vCode,jdbcType=VARCHAR},
+            #{item.approveTime,jdbcType=TIMESTAMP}, #{item.oaTheme,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+    <insert id="insertOrUpdate" parameterType="com.guanke.vinda.samodels.model.entity.GkExpenseEntity">
+        <!--@mbg.generated-->
+        insert into gk_expense
+        (id, createdBy, createdTime, updatedBy, updatedTime, version, activityId, dealerId,
+        expenseNumber, intId, planId, productSectionIntId, shopId, `status`, `type`, activityNumber,
+        applyEmpId, applyTime, applyTotle, dealerCost, displayQty, expenseRatio, foreseeSales,
+        `month`, `name`, orgId, positionId, productBrand, productSectionId, productSubjects,
+        productVcode, promotionSales, `year`, vCode, approveTime, oaTheme)
+        values
+        (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{activityId,jdbcType=VARCHAR}, #{dealerId,jdbcType=VARCHAR}, #{expenseNumber,jdbcType=VARCHAR},
+        #{intId,jdbcType=VARCHAR}, #{planId,jdbcType=VARCHAR}, #{productSectionIntId,jdbcType=VARCHAR},
+        #{shopId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+        #{activityNumber,jdbcType=VARCHAR}, #{applyEmpId,jdbcType=VARCHAR}, #{applyTime,jdbcType=TIMESTAMP},
+        #{applyTotle,jdbcType=DECIMAL}, #{dealerCost,jdbcType=DECIMAL}, #{displayQty,jdbcType=INTEGER},
+        #{expenseRatio,jdbcType=DECIMAL}, #{foreseeSales,jdbcType=DECIMAL}, #{month,jdbcType=INTEGER},
+        #{name,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{positionId,jdbcType=VARCHAR},
+        #{productBrand,jdbcType=VARCHAR}, #{productSectionId,jdbcType=VARCHAR}, #{productSubjects,jdbcType=VARCHAR},
+        #{productVcode,jdbcType=VARCHAR}, #{promotionSales,jdbcType=DECIMAL}, #{year,jdbcType=INTEGER},
+        #{vCode,jdbcType=VARCHAR}, #{approveTime,jdbcType=TIMESTAMP}, #{oaTheme,jdbcType=VARCHAR}
+        )
+        on duplicate key update
+        id = #{id,jdbcType=VARCHAR},
+        createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        activityId = #{activityId,jdbcType=VARCHAR},
+        dealerId = #{dealerId,jdbcType=VARCHAR},
+        expenseNumber = #{expenseNumber,jdbcType=VARCHAR},
+        intId = #{intId,jdbcType=VARCHAR},
+        planId = #{planId,jdbcType=VARCHAR},
+        productSectionIntId = #{productSectionIntId,jdbcType=VARCHAR},
+        shopId = #{shopId,jdbcType=VARCHAR},
+        `status` = #{status,jdbcType=VARCHAR},
+        `type` = #{type,jdbcType=VARCHAR},
+        activityNumber = #{activityNumber,jdbcType=VARCHAR},
+        applyEmpId = #{applyEmpId,jdbcType=VARCHAR},
+        applyTime = #{applyTime,jdbcType=TIMESTAMP},
+        applyTotle = #{applyTotle,jdbcType=DECIMAL},
+        dealerCost = #{dealerCost,jdbcType=DECIMAL},
+        displayQty = #{displayQty,jdbcType=INTEGER},
+        expenseRatio = #{expenseRatio,jdbcType=DECIMAL},
+        foreseeSales = #{foreseeSales,jdbcType=DECIMAL},
+        `month` = #{month,jdbcType=INTEGER},
+        `name` = #{name,jdbcType=VARCHAR},
+        orgId = #{orgId,jdbcType=VARCHAR},
+        positionId = #{positionId,jdbcType=VARCHAR},
+        productBrand = #{productBrand,jdbcType=VARCHAR},
+        productSectionId = #{productSectionId,jdbcType=VARCHAR},
+        productSubjects = #{productSubjects,jdbcType=VARCHAR},
+        productVcode = #{productVcode,jdbcType=VARCHAR},
+        promotionSales = #{promotionSales,jdbcType=DECIMAL},
+        `year` = #{year,jdbcType=INTEGER},
+        vCode = #{vCode,jdbcType=VARCHAR},
+        approveTime = #{approveTime,jdbcType=TIMESTAMP},
+        oaTheme = #{oaTheme,jdbcType=VARCHAR}
+    </insert>
+    <insert id="insertOrUpdateSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkExpenseEntity">
+        <!--@mbg.generated-->
+        insert into gk_expense
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="activityId != null">
+                activityId,
+            </if>
+            <if test="dealerId != null">
+                dealerId,
+            </if>
+            <if test="expenseNumber != null">
+                expenseNumber,
+            </if>
+            <if test="intId != null">
+                intId,
+            </if>
+            <if test="planId != null">
+                planId,
+            </if>
+            <if test="productSectionIntId != null">
+                productSectionIntId,
+            </if>
+            <if test="shopId != null">
+                shopId,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="activityNumber != null">
+                activityNumber,
+            </if>
+            <if test="applyEmpId != null">
+                applyEmpId,
+            </if>
+            <if test="applyTime != null">
+                applyTime,
+            </if>
+            <if test="applyTotle != null">
+                applyTotle,
+            </if>
+            <if test="dealerCost != null">
+                dealerCost,
+            </if>
+            <if test="displayQty != null">
+                displayQty,
+            </if>
+            <if test="expenseRatio != null">
+                expenseRatio,
+            </if>
+            <if test="foreseeSales != null">
+                foreseeSales,
+            </if>
+            <if test="month != null">
+                `month`,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="orgId != null">
+                orgId,
+            </if>
+            <if test="positionId != null">
+                positionId,
+            </if>
+            <if test="productBrand != null">
+                productBrand,
+            </if>
+            <if test="productSectionId != null">
+                productSectionId,
+            </if>
+            <if test="productSubjects != null">
+                productSubjects,
+            </if>
+            <if test="productVcode != null">
+                productVcode,
+            </if>
+            <if test="promotionSales != null">
+                promotionSales,
+            </if>
+            <if test="year != null">
+                `year`,
+            </if>
+            <if test="vCode != null">
+                vCode,
+            </if>
+            <if test="approveTime != null">
+                approveTime,
+            </if>
+            <if test="oaTheme != null">
+                oaTheme,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="activityId != null">
+                #{activityId,jdbcType=VARCHAR},
+            </if>
+            <if test="dealerId != null">
+                #{dealerId,jdbcType=VARCHAR},
+            </if>
+            <if test="expenseNumber != null">
+                #{expenseNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="intId != null">
+                #{intId,jdbcType=VARCHAR},
+            </if>
+            <if test="planId != null">
+                #{planId,jdbcType=VARCHAR},
+            </if>
+            <if test="productSectionIntId != null">
+                #{productSectionIntId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="activityNumber != null">
+                #{activityNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="applyEmpId != null">
+                #{applyEmpId,jdbcType=VARCHAR},
+            </if>
+            <if test="applyTime != null">
+                #{applyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="applyTotle != null">
+                #{applyTotle,jdbcType=DECIMAL},
+            </if>
+            <if test="dealerCost != null">
+                #{dealerCost,jdbcType=DECIMAL},
+            </if>
+            <if test="displayQty != null">
+                #{displayQty,jdbcType=INTEGER},
+            </if>
+            <if test="expenseRatio != null">
+                #{expenseRatio,jdbcType=DECIMAL},
+            </if>
+            <if test="foreseeSales != null">
+                #{foreseeSales,jdbcType=DECIMAL},
+            </if>
+            <if test="month != null">
+                #{month,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="orgId != null">
+                #{orgId,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="productBrand != null">
+                #{productBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="productSectionId != null">
+                #{productSectionId,jdbcType=VARCHAR},
+            </if>
+            <if test="productSubjects != null">
+                #{productSubjects,jdbcType=VARCHAR},
+            </if>
+            <if test="productVcode != null">
+                #{productVcode,jdbcType=VARCHAR},
+            </if>
+            <if test="promotionSales != null">
+                #{promotionSales,jdbcType=DECIMAL},
+            </if>
+            <if test="year != null">
+                #{year,jdbcType=INTEGER},
+            </if>
+            <if test="vCode != null">
+                #{vCode,jdbcType=VARCHAR},
+            </if>
+            <if test="approveTime != null">
+                #{approveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="oaTheme != null">
+                #{oaTheme,jdbcType=VARCHAR},
+            </if>
+        </trim>
+        on duplicate key update
+        <trim suffixOverrides=",">
+            <if test="id != null">
+                id = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="activityId != null">
+                activityId = #{activityId,jdbcType=VARCHAR},
+            </if>
+            <if test="dealerId != null">
+                dealerId = #{dealerId,jdbcType=VARCHAR},
+            </if>
+            <if test="expenseNumber != null">
+                expenseNumber = #{expenseNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="intId != null">
+                intId = #{intId,jdbcType=VARCHAR},
+            </if>
+            <if test="planId != null">
+                planId = #{planId,jdbcType=VARCHAR},
+            </if>
+            <if test="productSectionIntId != null">
+                productSectionIntId = #{productSectionIntId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                shopId = #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="activityNumber != null">
+                activityNumber = #{activityNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="applyEmpId != null">
+                applyEmpId = #{applyEmpId,jdbcType=VARCHAR},
+            </if>
+            <if test="applyTime != null">
+                applyTime = #{applyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="applyTotle != null">
+                applyTotle = #{applyTotle,jdbcType=DECIMAL},
+            </if>
+            <if test="dealerCost != null">
+                dealerCost = #{dealerCost,jdbcType=DECIMAL},
+            </if>
+            <if test="displayQty != null">
+                displayQty = #{displayQty,jdbcType=INTEGER},
+            </if>
+            <if test="expenseRatio != null">
+                expenseRatio = #{expenseRatio,jdbcType=DECIMAL},
+            </if>
+            <if test="foreseeSales != null">
+                foreseeSales = #{foreseeSales,jdbcType=DECIMAL},
+            </if>
+            <if test="month != null">
+                `month` = #{month,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="orgId != null">
+                orgId = #{orgId,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                positionId = #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="productBrand != null">
+                productBrand = #{productBrand,jdbcType=VARCHAR},
+            </if>
+            <if test="productSectionId != null">
+                productSectionId = #{productSectionId,jdbcType=VARCHAR},
+            </if>
+            <if test="productSubjects != null">
+                productSubjects = #{productSubjects,jdbcType=VARCHAR},
+            </if>
+            <if test="productVcode != null">
+                productVcode = #{productVcode,jdbcType=VARCHAR},
+            </if>
+            <if test="promotionSales != null">
+                promotionSales = #{promotionSales,jdbcType=DECIMAL},
+            </if>
+            <if test="year != null">
+                `year` = #{year,jdbcType=INTEGER},
+            </if>
+            <if test="vCode != null">
+                vCode = #{vCode,jdbcType=VARCHAR},
+            </if>
+            <if test="approveTime != null">
+                approveTime = #{approveTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="oaTheme != null">
+                oaTheme = #{oaTheme,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectExpensePhotosByPositionIdAndEmpIdAndDate" resultType="map" parameterType="string">
+        SELECT c.name,
+        date_format(ep.createdTime, '%Y-%m-%d') AS writeTime,
+        ep.photoKey,
+        date_format(ep.createdTime, '%m-%d %H:%i') AS createdTime,
+        (CASE date_format(ep.createdTime, '%w')
+        WHEN 1 THEN '星期一'
+        WHEN 2 THEN '星期二'
+        WHEN 3 THEN '星期三'
+        WHEN 4 THEN '星期四'
+        WHEN 5 THEN '星期五'
+        WHEN 6 THEN '星期六'
+        WHEN 0 THEN '星期日'
+        END) AS weekDay_format
+        FROM gk_expense e
+        JOIN gk_expense_photo ep ON e.id = ep.expenseId
+        JOIN gk_account c ON c.id = e.shopId
+        WHERE ep.empId = #{empId,jdbcType=VARCHAR}
+        AND ep.positionId = #{positionId,jdbcType=VARCHAR}
+        AND date_format(ep.createdTime,'%Y-%m-%e') LIKE concat('%', #{date,jdbcType=VARCHAR}, '%')
+        ORDER BY ep.createdTime DESC
+    </select>
+</mapper>

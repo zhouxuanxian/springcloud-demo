@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkCompetitorMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkCompetitorEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_competitor-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="barCodeNumber" jdbcType="VARCHAR" property="barCodeNumber"/>
+        <result column="brand" jdbcType="VARCHAR" property="brand"/>
+        <result column="keywords" jdbcType="VARCHAR" property="keywords"/>
+        <result column="netweight" jdbcType="VARCHAR" property="netweight"/>
+        <result column="picUrl" jdbcType="VARCHAR" property="picUrl"/>
+        <result column="price" jdbcType="VARCHAR" property="price"/>
+        <result column="prodDepth" jdbcType="VARCHAR" property="prodDepth"/>
+        <result column="prodHeight" jdbcType="VARCHAR" property="prodHeight"/>
+        <result column="prodWidth" jdbcType="VARCHAR" property="prodWidth"/>
+        <result column="productName" jdbcType="VARCHAR" property="productName"/>
+        <result column="specification" jdbcType="VARCHAR" property="specification"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, barCodeNumber, brand,
+        keywords, netweight, picUrl, price, prodDepth, prodHeight, prodWidth, productName,
+        specification
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_competitor
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_competitor
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkCompetitorEntity">
+        <!--@mbg.generated-->
+        insert into gk_competitor (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        barCodeNumber, brand, keywords,
+        netweight, picUrl, price,
+        prodDepth, prodHeight, prodWidth,
+        productName, specification)
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{barCodeNumber,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR},
+        #{netweight,jdbcType=VARCHAR}, #{picUrl,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR},
+        #{prodDepth,jdbcType=VARCHAR}, #{prodHeight,jdbcType=VARCHAR}, #{prodWidth,jdbcType=VARCHAR},
+        #{productName,jdbcType=VARCHAR}, #{specification,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkCompetitorEntity">
+        <!--@mbg.generated-->
+        insert into gk_competitor
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="barCodeNumber != null">
+                barCodeNumber,
+            </if>
+            <if test="brand != null">
+                brand,
+            </if>
+            <if test="keywords != null">
+                keywords,
+            </if>
+            <if test="netweight != null">
+                netweight,
+            </if>
+            <if test="picUrl != null">
+                picUrl,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="prodDepth != null">
+                prodDepth,
+            </if>
+            <if test="prodHeight != null">
+                prodHeight,
+            </if>
+            <if test="prodWidth != null">
+                prodWidth,
+            </if>
+            <if test="productName != null">
+                productName,
+            </if>
+            <if test="specification != null">
+                specification,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="barCodeNumber != null">
+                #{barCodeNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="brand != null">
+                #{brand,jdbcType=VARCHAR},
+            </if>
+            <if test="keywords != null">
+                #{keywords,jdbcType=VARCHAR},
+            </if>
+            <if test="netweight != null">
+                #{netweight,jdbcType=VARCHAR},
+            </if>
+            <if test="picUrl != null">
+                #{picUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="prodDepth != null">
+                #{prodDepth,jdbcType=VARCHAR},
+            </if>
+            <if test="prodHeight != null">
+                #{prodHeight,jdbcType=VARCHAR},
+            </if>
+            <if test="prodWidth != null">
+                #{prodWidth,jdbcType=VARCHAR},
+            </if>
+            <if test="productName != null">
+                #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="specification != null">
+                #{specification,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkCompetitorEntity">
+        <!--@mbg.generated-->
+        update gk_competitor
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="barCodeNumber != null">
+                barCodeNumber = #{barCodeNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="brand != null">
+                brand = #{brand,jdbcType=VARCHAR},
+            </if>
+            <if test="keywords != null">
+                keywords = #{keywords,jdbcType=VARCHAR},
+            </if>
+            <if test="netweight != null">
+                netweight = #{netweight,jdbcType=VARCHAR},
+            </if>
+            <if test="picUrl != null">
+                picUrl = #{picUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=VARCHAR},
+            </if>
+            <if test="prodDepth != null">
+                prodDepth = #{prodDepth,jdbcType=VARCHAR},
+            </if>
+            <if test="prodHeight != null">
+                prodHeight = #{prodHeight,jdbcType=VARCHAR},
+            </if>
+            <if test="prodWidth != null">
+                prodWidth = #{prodWidth,jdbcType=VARCHAR},
+            </if>
+            <if test="productName != null">
+                productName = #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="specification != null">
+                specification = #{specification,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkCompetitorEntity">
+        <!--@mbg.generated-->
+        update gk_competitor
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        barCodeNumber = #{barCodeNumber,jdbcType=VARCHAR},
+        brand = #{brand,jdbcType=VARCHAR},
+        keywords = #{keywords,jdbcType=VARCHAR},
+        netweight = #{netweight,jdbcType=VARCHAR},
+        picUrl = #{picUrl,jdbcType=VARCHAR},
+        price = #{price,jdbcType=VARCHAR},
+        prodDepth = #{prodDepth,jdbcType=VARCHAR},
+        prodHeight = #{prodHeight,jdbcType=VARCHAR},
+        prodWidth = #{prodWidth,jdbcType=VARCHAR},
+        productName = #{productName,jdbcType=VARCHAR},
+        specification = #{specification,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectCountByDate" resultType="int" parameterType="string">
+        select count(1) count
+        from (
+        select 1
+        from gk_account_competitor ac
+        left join gk_competitor c on ac.competitorId = c.id
+        left join gk_visit gv on gv.id = ac.visitId
+        where gv.positionId = #{positionId,jdbcType=VARCHAR}
+        and gv.empId = #{empId,jdbcType=VARCHAR}
+        and gv.status = '已完成'
+        and date_format(gv.createdTime, '%Y-%m-%d') = #{date,jdbcType=VARCHAR}
+        ) as o
+    </select>
+
+    <select id="selectCompetitorPhotosByPositionIdAndEmpIdAndDate" resultType="map" parameterType="string">
+        SELECT gc.productName name,
+        date_format(gcp.createdTime, '%Y-%m-%d ') AS writeTime,
+        gcp.photoKey,
+        date_format(gcp.createdTime, '%m-%d %H:%i') AS createdTime,
+        (CASE date_format(gcp.createdTime, '%w')
+        WHEN 1 THEN '星期一'
+        WHEN 2 THEN '星期二'
+        WHEN 3 THEN '星期三'
+        WHEN 4 THEN '星期四'
+        WHEN 5 THEN '星期五'
+        WHEN 6 THEN '星期六'
+        WHEN 0 THEN '星期日'
+        END) AS weekDay_format
+        FROM gk_visit gv
+        left join gk_account_competitor gac on gac.visitId = gv.id
+        left join gk_competitor gc on gc.id = gac.competitorId
+        join gk_competitor_photo gcp on gcp.competitorId = gac.competitorId
+        WHERE gv.empId = #{empId,jdbcType=VARCHAR}
+        AND gv.positionId = #{positionId,jdbcType=VARCHAR}
+        AND date_format(gcp.createdTime, '%Y-%m-%e') LIKE concat('%', #{date,jdbcType=VARCHAR}, '%')
+        group by photoKey
+    </select>
+    <select id="selectCompetitorListByPositionIdAndEmpIdAndDate"
+            resultType="map">
+        select gv.id AS visitId,
+        gc.productName name,
+        gc.barCodeNumber,
+        date_format(gcp.createdTime, '%Y-%m-%d ') AS writeTime,
+        ga.name accountName,
+        gcp.photoKey,
+        (CASE date_format(gcp.createdTime, '%w')
+        WHEN 1 THEN '星期一'
+        WHEN 2 THEN '星期二'
+        WHEN 3 THEN '星期三'
+        WHEN 4 THEN '星期四'
+        WHEN 5 THEN '星期五'
+        WHEN 6 THEN '星期六'
+        WHEN 0 THEN '星期日'
+        END) AS weekDay_format
+        FROM gk_visit gv
+        left join gk_account ga on ga.id = gv.accountId
+        left join sa_visit_competitor_photo_connect svcpc on svcpc.visit_id = gv.id
+        inner join gk_competitor gc on gc.id = svcpc.competitor_id
+        inner join gk_competitor_photo gcp on gcp.id = svcpc.photo_id
+        WHERE gv.empId = #{empId,jdbcType=VARCHAR}
+        AND gv.positionId = #{positionId,jdbcType=VARCHAR}
+        AND date_format(gv.createdTime
+        , '%Y-%m-%e') = #{date,jdbcType=VARCHAR}
+        group by barCodeNumber
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-04-->
+    <select id="selectFirstByBarCodeNumber" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gk_competitor
+        where barCodeNumber=#{barCodeNumber,jdbcType=VARCHAR} limit 1
+    </select>
+
+    <select id="selectCompetitorByCondition" resultType="map" parameterType="string">
+        select gk_account_competitor.*,
+        gk_competitor.productName,
+        CONCAT(#{photoPrefix,jdbcType=VARCHAR},photo.photoKey) as photoKey
+        from gk_account_competitor
+        left join gk_competitor
+        on gk_account_competitor.competitorId = gk_competitor.id
+        left join
+        (select * from (
+        select * from gk_competitor_photo group by competitorId, createdTime
+        ) as base
+        group by competitorId) photo
+        on gk_account_competitor.id = photo.competitorId
+
+        where 1 = 1
+        <if test="accountId != null and accountId != '' and accountId != 'null'">
+            and gk_account_competitor.accountId = #{accountId,jdbcType=VARCHAR}
+        </if>
+        <if test="empId != null and empId != '' and empId != 'null'">
+            and gk_account_competitor.empId = #{empId,jdbcType=VARCHAR}
+        </if>
+        <if test="positionId != null and positionId != '' and positionId != 'null'">
+            and gk_account_competitor.positionId = #{positionId,jdbcType=VARCHAR}
+        </if>
+        order by gk_account_competitor.createdTime desc
+    </select>
+</mapper>

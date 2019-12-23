@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions
+ xmlns="http://schemas.xmlsoap.org/wsdl/"
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+ targetNamespace="http://siebel.com/CustomUI"
+ xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:tns="http://siebel.com/CustomUI"
+ xmlns:soapenv ="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:siebelwsh ="http://siebel.com/webservices"
+>
+<types
+>
+<xsd:schema elementFormDefault="qualified" attributeFormDefault="unqualified"
+            xmlns:xsd      ="http://www.w3.org/2001/XMLSchema"
+            xmlns:siebelwsh="http://siebel.com/webservices"
+            targetNamespace="http://siebel.com/webservices">
+
+    <xsd:element    name = "SessionToken" type="xsd:string" />
+
+    <xsd:element    name = "UsernameToken" type="siebelwsh:SiebelUsernameToken" />
+    <xsd:simpleType name = "SiebelUsernameToken">
+       <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:element    name = "PasswordText" type="siebelwsh:SiebelPasswordText" />
+    <xsd:simpleType name = "SiebelPasswordText">
+       <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+
+    <xsd:element    name = "SessionType" type="siebelwsh:SiebelSessionType" />
+    <xsd:simpleType name = "SiebelSessionType">
+       <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="None"/>
+          <xsd:enumeration value="Stateless"/>
+          <xsd:enumeration value="Statefull"/>
+          <xsd:enumeration value="ServerDetermine"/>
+       </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:element name = "LangCode"     type="xsd:string" />
+    <xsd:element name = "Locale"       type="xsd:string" />
+    <xsd:element name = "CurrencyCode" type="xsd:string" />
+
+</xsd:schema>
+
+<xsd:schema
+ elementFormDefault="qualified"
+ attributeFormDefault="unqualified"
+ targetNamespace="http://siebel.com/CustomUI"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+><xsd:element
+ name="InvokeMethod_Input"
+><xsd:complexType
+><xsd:sequence
+><xsd:element
+ name="attr15"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr18"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr28"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr06"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr07"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr22"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr25"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr11"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr14"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr02"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr03"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr12"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr20"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr23"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr24"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr08"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr01"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr10"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr05"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr19"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="objectname"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr27"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr04"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr09"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr16"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr17"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr13"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr21"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="attr26"
+ minOccurs="0"
+ type="xsd:string"
+></xsd:element
+></xsd:sequence
+></xsd:complexType
+></xsd:element
+><xsd:element
+ name="InvokeMethod_Output"
+><xsd:complexType
+><xsd:sequence
+><xsd:element
+ name="returnmsg"
+ type="xsd:string"
+></xsd:element
+><xsd:element
+ name="returnstatus"
+ type="xsd:string"
+></xsd:element
+></xsd:sequence
+></xsd:complexType
+></xsd:element
+></xsd:schema
+></types
+>
+<message name="SiebelWSHeader">
+<part name="UsernameToken" element="siebelwsh:UsernameToken"/>
+<part name="PasswordText" element="siebelwsh:PasswordText"/>
+<part name="SessionType" element="siebelwsh:SessionType"/>
+<part name="SessionToken" element="siebelwsh:SessionToken"/>
+</message><message
+ name="InvokeMethod_Input"
+><part
+ name="InvokeMethod_Input"
+ element="tns:InvokeMethod_Input"
+></part
+></message
+><message
+ name="InvokeMethod_Output"
+><part
+ name="InvokeMethod_Output"
+ element="tns:InvokeMethod_Output"
+></part
+></message
+><portType
+ name="VD_spcWeChat_spcDealer_spcIntegration_spcWS"
+><operation
+ name="InvokeMethod"
+><input
+ message="tns:InvokeMethod_Input"
+></input
+><output
+ message="tns:InvokeMethod_Output"
+></output
+></operation
+></portType
+><binding
+ name="VD_spcWeChat_spcDealer_spcIntegration_spcWS"
+ type="tns:VD_spcWeChat_spcDealer_spcIntegration_spcWS"
+><soap:binding
+ transport="http://schemas.xmlsoap.org/soap/http"
+ style="document"
+></soap:binding
+><operation
+ name="InvokeMethod"
+><soap:operation
+ soapAction="document/http://siebel.com/CustomUI:InvokeMethod"
+></soap:operation
+><input
+><soap:body
+ use="literal"
+></soap:body
+>
+<soap:header namespace="http://siebel.com/webservices" use="literal"
+message="tns:SiebelWSHeader" part="UsernameToken"/>
+<soap:header namespace="http://siebel.com/webservices" use="literal"
+message="tns:SiebelWSHeader" part="PasswordText"/>
+<soap:header namespace="http://siebel.com/webservices" use="literal"
+message="tns:SiebelWSHeader" part="SessionType"/>
+<soap:header namespace="http://siebel.com/webservices" use="literal"
+message="tns:SiebelWSHeader" part="SessionToken"/>
+</input
+><output
+><soap:body
+ use="literal"
+></soap:body
+>
+<soap:header namespace="http://siebel.com/webservices" use="literal"
+message="tns:SiebelWSHeader" part="SessionToken"/>
+</output
+></operation
+></binding
+><service
+ name="VD_spcWeChat_spcDeclare_spcIntegration_spcWS"
+><port
+ binding="tns:VD_spcWeChat_spcDealer_spcIntegration_spcWS"
+ name="VD_spcWeChat_spcDealer_spcIntegration_spcWS"
+><soap:address
+ location="http://10.100.240.16:88/eai_chs/start.swe?SWEExtSource=WebService&amp;SWEExtCmd=Execute&amp;WSSOAP=1"
+></soap:address
+></port
+></service
+></definitions
+>

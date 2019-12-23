@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkListOfValueEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkListOfValueEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_list_of_value-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="active" jdbcType="BOOLEAN" property="active"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="comments" jdbcType="VARCHAR" property="comments"/>
+        <result column="constraintValue" jdbcType="VARCHAR" property="constraintValue"/>
+        <result column="intId" jdbcType="VARCHAR" property="intId"/>
+        <result column="parentId" jdbcType="VARCHAR" property="parentId"/>
+        <result column="selectedFlag" jdbcType="INTEGER" property="selectedFlag"/>
+        <result column="seq" jdbcType="INTEGER" property="seq"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, active, code, comments,
+        constraintValue, intId, parentId, selectedFlag, seq, `type`, `value`
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_list_of_value
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_list_of_value
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkListOfValueEntity">
+        <!--@mbg.generated-->
+        insert into gk_list_of_value (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        active, code, comments,
+        constraintValue, intId, parentId,
+        selectedFlag, seq, `type`,
+        `value`)
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{active,jdbcType=BOOLEAN}, #{code,jdbcType=VARCHAR}, #{comments,jdbcType=VARCHAR},
+        #{constraintValue,jdbcType=VARCHAR}, #{intId,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR},
+        #{selectedFlag,jdbcType=INTEGER}, #{seq,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR},
+        #{value,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkListOfValueEntity">
+        <!--@mbg.generated-->
+        insert into gk_list_of_value
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="active != null">
+                active,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="comments != null">
+                comments,
+            </if>
+            <if test="constraintValue != null">
+                constraintValue,
+            </if>
+            <if test="intId != null">
+                intId,
+            </if>
+            <if test="parentId != null">
+                parentId,
+            </if>
+            <if test="selectedFlag != null">
+                selectedFlag,
+            </if>
+            <if test="seq != null">
+                seq,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="value != null">
+                `value`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="active != null">
+                #{active,jdbcType=BOOLEAN},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="comments != null">
+                #{comments,jdbcType=VARCHAR},
+            </if>
+            <if test="constraintValue != null">
+                #{constraintValue,jdbcType=VARCHAR},
+            </if>
+            <if test="intId != null">
+                #{intId,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="selectedFlag != null">
+                #{selectedFlag,jdbcType=INTEGER},
+            </if>
+            <if test="seq != null">
+                #{seq,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="value != null">
+                #{value,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkListOfValueEntity">
+        <!--@mbg.generated-->
+        update gk_list_of_value
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="active != null">
+                active = #{active,jdbcType=BOOLEAN},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="comments != null">
+                comments = #{comments,jdbcType=VARCHAR},
+            </if>
+            <if test="constraintValue != null">
+                constraintValue = #{constraintValue,jdbcType=VARCHAR},
+            </if>
+            <if test="intId != null">
+                intId = #{intId,jdbcType=VARCHAR},
+            </if>
+            <if test="parentId != null">
+                parentId = #{parentId,jdbcType=VARCHAR},
+            </if>
+            <if test="selectedFlag != null">
+                selectedFlag = #{selectedFlag,jdbcType=INTEGER},
+            </if>
+            <if test="seq != null">
+                seq = #{seq,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="value != null">
+                `value` = #{value,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkListOfValueEntity">
+        <!--@mbg.generated-->
+        update gk_list_of_value
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        active = #{active,jdbcType=BOOLEAN},
+        code = #{code,jdbcType=VARCHAR},
+        comments = #{comments,jdbcType=VARCHAR},
+        constraintValue = #{constraintValue,jdbcType=VARCHAR},
+        intId = #{intId,jdbcType=VARCHAR},
+        parentId = #{parentId,jdbcType=VARCHAR},
+        selectedFlag = #{selectedFlag,jdbcType=INTEGER},
+        seq = #{seq,jdbcType=INTEGER},
+        `type` = #{type,jdbcType=VARCHAR},
+        `value` = #{value,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectLovInfoByInitCodeAndKeyword" resultType="map">
+        select l.id, l.code, l.value, l.comments as category, l.parentId, 0 as selectedFlag, p.code as parentCode
+        from gk_list_of_value l
+        left join gk_list_of_value p on l.parentId = p.id
+        where l.type = 'PROD_V_CODE'
+        and l.active = 1
+        <if test="initCodeList != null and initCodeList.size() != 0">
+            <foreach collection="initCodeList" item="i">
+                and l.code != #{i,jdbcType=VARCHAR}
+            </foreach>
+        </if>
+        <if test="keyword != null and keyword != '' and keyword != 'null'">
+            and l.code like concat('%',#{keyword,jdbcType=VARCHAR}, '%')
+        </if>
+        group by l.code
+        order by l.code
+    </select>
+
+    <select id="selectLovListByType" resultType="map">
+        select l.id, l.code, l.value, l.parentId, 0 as selectedFlag, p.code as parentCode
+        from gk_list_of_value l
+        left join gk_list_of_value p on l.parentId = p.id
+        where l.type = #{type,jdbcType=VARCHAR}
+        and l.active = 1
+        order by l.value
+    </select>
+</mapper>

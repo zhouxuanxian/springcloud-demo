@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkDailyCommentEmpMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkDailyCommentEmpEntity">
+    <!--@mbg.generated-->
+    <!--@Table gk_daily_comment_emp-->
+    <id column="commentAccountId" jdbcType="VARCHAR" property="commentAccountId" />
+    <id column="dailyReportId" jdbcType="VARCHAR" property="dailyReportId" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="createdBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="commentContent" jdbcType="LONGVARCHAR" property="commentContent" />
+    <result column="commentLevel" jdbcType="INTEGER" property="commentLevel" />
+    <result column="commentTime" jdbcType="TIMESTAMP" property="commentTime" />
+    <result column="positionId" jdbcType="VARCHAR" property="positionId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    commentAccountId, dailyReportId, id, createdBy, createdTime, updatedBy, updatedTime, 
+    version, commentContent, commentLevel, commentTime, positionId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from gk_daily_comment_emp
+    where commentAccountId = #{commentAccountId,jdbcType=VARCHAR}
+      and dailyReportId = #{dailyReportId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from gk_daily_comment_emp
+    where commentAccountId = #{commentAccountId,jdbcType=VARCHAR}
+      and dailyReportId = #{dailyReportId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkDailyCommentEmpEntity">
+    <!--@mbg.generated-->
+    insert into gk_daily_comment_emp (commentAccountId, dailyReportId, 
+      id, createdBy, createdTime, 
+      updatedBy, updatedTime, version, 
+      commentContent, commentLevel, commentTime, 
+      positionId)
+    values (#{commentAccountId,jdbcType=VARCHAR}, #{dailyReportId,jdbcType=VARCHAR}, 
+      #{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, 
+      #{commentContent,jdbcType=LONGVARCHAR}, #{commentLevel,jdbcType=INTEGER}, #{commentTime,jdbcType=TIMESTAMP}, 
+      #{positionId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkDailyCommentEmpEntity">
+    <!--@mbg.generated-->
+    insert into gk_daily_comment_emp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="commentAccountId != null">
+        commentAccountId,
+      </if>
+      <if test="dailyReportId != null">
+        dailyReportId,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createdBy != null">
+        createdBy,
+      </if>
+      <if test="createdTime != null">
+        createdTime,
+      </if>
+      <if test="updatedBy != null">
+        updatedBy,
+      </if>
+      <if test="updatedTime != null">
+        updatedTime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="commentContent != null">
+        commentContent,
+      </if>
+      <if test="commentLevel != null">
+        commentLevel,
+      </if>
+      <if test="commentTime != null">
+        commentTime,
+      </if>
+      <if test="positionId != null">
+        positionId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="commentAccountId != null">
+        #{commentAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="dailyReportId != null">
+        #{dailyReportId,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="commentContent != null">
+        #{commentContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="commentLevel != null">
+        #{commentLevel,jdbcType=INTEGER},
+      </if>
+      <if test="commentTime != null">
+        #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="positionId != null">
+        #{positionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkDailyCommentEmpEntity">
+    <!--@mbg.generated-->
+    update gk_daily_comment_emp
+    <set>
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        createdBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="commentContent != null">
+        commentContent = #{commentContent,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="commentLevel != null">
+        commentLevel = #{commentLevel,jdbcType=INTEGER},
+      </if>
+      <if test="commentTime != null">
+        commentTime = #{commentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="positionId != null">
+        positionId = #{positionId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where commentAccountId = #{commentAccountId,jdbcType=VARCHAR}
+      and dailyReportId = #{dailyReportId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkDailyCommentEmpEntity">
+    <!--@mbg.generated-->
+    update gk_daily_comment_emp
+    set id = #{id,jdbcType=VARCHAR},
+      createdBy = #{createdBy,jdbcType=VARCHAR},
+      createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      commentContent = #{commentContent,jdbcType=LONGVARCHAR},
+      commentLevel = #{commentLevel,jdbcType=INTEGER},
+      commentTime = #{commentTime,jdbcType=TIMESTAMP},
+      positionId = #{positionId,jdbcType=VARCHAR}
+    where commentAccountId = #{commentAccountId,jdbcType=VARCHAR}
+      and dailyReportId = #{dailyReportId,jdbcType=VARCHAR}
+  </update>
+</mapper>

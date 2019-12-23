@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkVisitEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkVisitEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_visit-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="accountId" jdbcType="VARCHAR" property="accountId"/>
+        <result column="issue" jdbcType="VARCHAR" property="issue"/>
+        <result column="issueDesc" jdbcType="VARCHAR" property="issueDesc"/>
+        <result column="positionId" jdbcType="VARCHAR" property="positionId"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="visitDate" jdbcType="DATE" property="visitDate"/>
+        <result column="visitType" jdbcType="VARCHAR" property="visitType"/>
+        <result column="empId" jdbcType="VARCHAR" property="empId"/>
+        <result column="endframeQty" jdbcType="DECIMAL" property="endframeQty"/>
+        <result column="shelfQty" jdbcType="DECIMAL" property="shelfQty"/>
+        <result column="skuQty" jdbcType="INTEGER" property="skuQty"/>
+        <result column="stackQty" jdbcType="DECIMAL" property="stackQty"/>
+        <result column="likeQty" jdbcType="INTEGER" property="likeQty"/>
+        <result column="purpose" jdbcType="VARCHAR" property="purpose"/>
+        <result column="locationAddr" jdbcType="VARCHAR" property="locationAddr"/>
+        <result column="visitDateTime" jdbcType="TIMESTAMP" property="visitDateTime"/>
+        <result column="createdVisitEmpId" jdbcType="VARCHAR" property="createdVisitEmpId"/>
+        <result column="createdVisitPostnId" jdbcType="VARCHAR" property="createdVisitPostnId"/>
+        <result column="cancelReason" jdbcType="VARCHAR" property="cancelReason"/>
+        <result column="canceledTime" jdbcType="DATE" property="canceledTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, accountId, issue, issueDesc,
+        positionId, `status`, visitDate, visitType, empId, endframeQty, shelfQty, skuQty,
+        stackQty, likeQty, purpose, locationAddr, visitDateTime, createdVisitEmpId, createdVisitPostnId,
+        cancelReason, canceledTime
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_visit
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_visit
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkVisitEntity">
+        <!--@mbg.generated-->
+        insert into gk_visit (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        accountId, issue, issueDesc,
+        positionId, `status`, visitDate,
+        visitType, empId, endframeQty,
+        shelfQty, skuQty, stackQty,
+        likeQty, purpose, locationAddr,
+        visitDateTime, createdVisitEmpId, createdVisitPostnId,
+        cancelReason, canceledTime)
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{accountId,jdbcType=VARCHAR}, #{issue,jdbcType=VARCHAR}, #{issueDesc,jdbcType=VARCHAR},
+        #{positionId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{visitDate,jdbcType=DATE},
+        #{visitType,jdbcType=VARCHAR}, #{empId,jdbcType=VARCHAR}, #{endframeQty,jdbcType=DECIMAL},
+        #{shelfQty,jdbcType=DECIMAL}, #{skuQty,jdbcType=INTEGER}, #{stackQty,jdbcType=DECIMAL},
+        #{likeQty,jdbcType=INTEGER}, #{purpose,jdbcType=VARCHAR}, #{locationAddr,jdbcType=VARCHAR},
+        #{visitDateTime,jdbcType=TIMESTAMP}, #{createdVisitEmpId,jdbcType=VARCHAR},
+        #{createdVisitPostnId,jdbcType=VARCHAR},
+        #{cancelReason,jdbcType=VARCHAR}, #{canceledTime,jdbcType=DATE})
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkVisitEntity">
+        <!--@mbg.generated-->
+        insert into gk_visit
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="accountId != null">
+                accountId,
+            </if>
+            <if test="issue != null">
+                issue,
+            </if>
+            <if test="issueDesc != null">
+                issueDesc,
+            </if>
+            <if test="positionId != null">
+                positionId,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="visitDate != null">
+                visitDate,
+            </if>
+            <if test="visitType != null">
+                visitType,
+            </if>
+            <if test="empId != null">
+                empId,
+            </if>
+            <if test="endframeQty != null">
+                endframeQty,
+            </if>
+            <if test="shelfQty != null">
+                shelfQty,
+            </if>
+            <if test="skuQty != null">
+                skuQty,
+            </if>
+            <if test="stackQty != null">
+                stackQty,
+            </if>
+            <if test="likeQty != null">
+                likeQty,
+            </if>
+            <if test="purpose != null">
+                purpose,
+            </if>
+            <if test="locationAddr != null">
+                locationAddr,
+            </if>
+            <if test="visitDateTime != null">
+                visitDateTime,
+            </if>
+            <if test="createdVisitEmpId != null">
+                createdVisitEmpId,
+            </if>
+            <if test="createdVisitPostnId != null">
+                createdVisitPostnId,
+            </if>
+            <if test="cancelReason != null">
+                cancelReason,
+            </if>
+            <if test="canceledTime != null">
+                canceledTime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="accountId != null">
+                #{accountId,jdbcType=VARCHAR},
+            </if>
+            <if test="issue != null">
+                #{issue,jdbcType=VARCHAR},
+            </if>
+            <if test="issueDesc != null">
+                #{issueDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="visitDate != null">
+                #{visitDate,jdbcType=DATE},
+            </if>
+            <if test="visitType != null">
+                #{visitType,jdbcType=VARCHAR},
+            </if>
+            <if test="empId != null">
+                #{empId,jdbcType=VARCHAR},
+            </if>
+            <if test="endframeQty != null">
+                #{endframeQty,jdbcType=DECIMAL},
+            </if>
+            <if test="shelfQty != null">
+                #{shelfQty,jdbcType=DECIMAL},
+            </if>
+            <if test="skuQty != null">
+                #{skuQty,jdbcType=INTEGER},
+            </if>
+            <if test="stackQty != null">
+                #{stackQty,jdbcType=DECIMAL},
+            </if>
+            <if test="likeQty != null">
+                #{likeQty,jdbcType=INTEGER},
+            </if>
+            <if test="purpose != null">
+                #{purpose,jdbcType=VARCHAR},
+            </if>
+            <if test="locationAddr != null">
+                #{locationAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="visitDateTime != null">
+                #{visitDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createdVisitEmpId != null">
+                #{createdVisitEmpId,jdbcType=VARCHAR},
+            </if>
+            <if test="createdVisitPostnId != null">
+                #{createdVisitPostnId,jdbcType=VARCHAR},
+            </if>
+            <if test="cancelReason != null">
+                #{cancelReason,jdbcType=VARCHAR},
+            </if>
+            <if test="canceledTime != null">
+                #{canceledTime,jdbcType=DATE},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkVisitEntity">
+        <!--@mbg.generated-->
+        update gk_visit
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="accountId != null">
+                accountId = #{accountId,jdbcType=VARCHAR},
+            </if>
+            <if test="issue != null">
+                issue = #{issue,jdbcType=VARCHAR},
+            </if>
+            <if test="issueDesc != null">
+                issueDesc = #{issueDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                positionId = #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="visitDate != null">
+                visitDate = #{visitDate,jdbcType=DATE},
+            </if>
+            <if test="visitType != null">
+                visitType = #{visitType,jdbcType=VARCHAR},
+            </if>
+            <if test="empId != null">
+                empId = #{empId,jdbcType=VARCHAR},
+            </if>
+            <if test="endframeQty != null">
+                endframeQty = #{endframeQty,jdbcType=DECIMAL},
+            </if>
+            <if test="shelfQty != null">
+                shelfQty = #{shelfQty,jdbcType=DECIMAL},
+            </if>
+            <if test="skuQty != null">
+                skuQty = #{skuQty,jdbcType=INTEGER},
+            </if>
+            <if test="stackQty != null">
+                stackQty = #{stackQty,jdbcType=DECIMAL},
+            </if>
+            <if test="likeQty != null">
+                likeQty = #{likeQty,jdbcType=INTEGER},
+            </if>
+            <if test="purpose != null">
+                purpose = #{purpose,jdbcType=VARCHAR},
+            </if>
+            <if test="locationAddr != null">
+                locationAddr = #{locationAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="visitDateTime != null">
+                visitDateTime = #{visitDateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createdVisitEmpId != null">
+                createdVisitEmpId = #{createdVisitEmpId,jdbcType=VARCHAR},
+            </if>
+            <if test="createdVisitPostnId != null">
+                createdVisitPostnId = #{createdVisitPostnId,jdbcType=VARCHAR},
+            </if>
+            <if test="cancelReason != null">
+                cancelReason = #{cancelReason,jdbcType=VARCHAR},
+            </if>
+            <if test="canceledTime != null">
+                canceledTime = #{canceledTime,jdbcType=DATE},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkVisitEntity">
+        <!--@mbg.generated-->
+        update gk_visit
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        accountId = #{accountId,jdbcType=VARCHAR},
+        issue = #{issue,jdbcType=VARCHAR},
+        issueDesc = #{issueDesc,jdbcType=VARCHAR},
+        positionId = #{positionId,jdbcType=VARCHAR},
+        `status` = #{status,jdbcType=VARCHAR},
+        visitDate = #{visitDate,jdbcType=DATE},
+        visitType = #{visitType,jdbcType=VARCHAR},
+        empId = #{empId,jdbcType=VARCHAR},
+        endframeQty = #{endframeQty,jdbcType=DECIMAL},
+        shelfQty = #{shelfQty,jdbcType=DECIMAL},
+        skuQty = #{skuQty,jdbcType=INTEGER},
+        stackQty = #{stackQty,jdbcType=DECIMAL},
+        likeQty = #{likeQty,jdbcType=INTEGER},
+        purpose = #{purpose,jdbcType=VARCHAR},
+        locationAddr = #{locationAddr,jdbcType=VARCHAR},
+        visitDateTime = #{visitDateTime,jdbcType=TIMESTAMP},
+        createdVisitEmpId = #{createdVisitEmpId,jdbcType=VARCHAR},
+        createdVisitPostnId = #{createdVisitPostnId,jdbcType=VARCHAR},
+        cancelReason = #{cancelReason,jdbcType=VARCHAR},
+        canceledTime = #{canceledTime,jdbcType=DATE}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectMonthMissionByEmpIdAndPositionIdAndStartDayAndEndDay" parameterType="string" resultType="map">
+        select DATE_FORMAT(visitDate,'%Y-%m-%d') as date,
+        sum(CASE WHEN (status = 'SA_COMMIT' OR status = 'SA_COMMIT_DRAFT') THEN 1 ELSE 0 END) as undone,
+        count(1) as total
+        from gk_visit
+        where positionId = #{positionId,jdbcType=VARCHAR}
+        and empId = #{empId,jdbcType=VARCHAR}
+        and visitDate &gt;= #{start,jdbcType=VARCHAR}
+        and visitDate &lt;= #{end,jdbcType=VARCHAR}
+        and status != 'SA_DELETE'
+        group by visitDate
+        order by visitDate
+    </select>
+
+    <select id="selectMissionListByDateAndPositionIdAndEmpId" parameterType="string" resultType="map">
+        select v.id,
+        v.status,
+        a.id as accountId,
+        a.name as accountName,
+        a.address,
+        v.positionId,
+        v.purpose,
+        if(v.visitType = 'NonAccount', get_lov_value('GK_VISIT_PURPOSE', v.purpose), '') AS purpose_value,
+        v.skuQty,
+        v.stackQty,
+        v.shelfQty,
+        v.endframeQty,
+        v.likeQty,
+        v.visitType,
+        v.empId,
+        v.createdVisitEmpId,
+        emp.name as createdVisitEmp,
+        v.createdVisitPostnId,
+        v.createdTime,
+        get_lov_value('POSITION_TYPE', p.wxType) as wxType_value
+        from gk_visit v
+        left join gk_account a on v.accountId = a.id
+        left join gk_employee emp on emp.id = v.createdVisitEmpId
+        left join gk_position p on v.createdVisitPostnId = p.id
+        where 1 = 1
+        and v.positionId = #{positionId,jdbcType=VARCHAR}
+        and v.empId = #{empId,jdbcType=VARCHAR}
+        and v.visitDate = #{date,jdbcType=VARCHAR}
+        and v.status != 'SA_DELETE'
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-19-->
+    <select id="selectAllCancelVisitIdByAccountIdAndEmpIdAndPositionId" resultType="java.lang.String">
+        select id
+        from gk_visit
+        where accountId=#{accountId,jdbcType=VARCHAR}
+        and empId=#{empId,jdbcType=VARCHAR}
+        and positionId=#{positionId,jdbcType=VARCHAR}
+        and status = '已取消'
+    </select>
+
+    <select id="selectVisitByIdAndEmpId" resultType="java.util.Map">
+        select v.id,
+        v.visitDate as visitDateTime,
+        vle.id as vlikeEmpId,
+        a.name as accountName,
+        a.id as accountId,
+        a.province,
+        a.city,
+        a.district,
+        a.address,
+        v.stackQty,
+        a.shopBooth,
+        v.shelfQty,
+        a.shopShelf,
+        v.endframeQty as endFrameQty,
+        a.shopBracket,
+        e.photoUrl,
+        e.name as empName,
+        p.name as positionName
+        from gk_visit v
+        left join gk_visit_like_emp vle on vle.visitId = v.id
+        left join gk_account a on v.accountId = a.id
+        left join gk_employee e on v.empId = e.id
+        left join gk_position p on p.id = v.positionId
+        where v.id = #{id,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectVisitPuroseValueByCode" resultType="java.util.Map">
+        select value as purpose_value
+        from gk_list_of_value
+        where code = #{code,jdbcType=VARCHAR}
+        and type = 'GK_VISIT_PURPOSE'
+    </select>
+
+    <select id="selectPhotosByVisitId" resultType="java.util.Map">
+        select id, photoKey, photoNumber, '' as localId, '' as serverId, 0 as uploadTimes
+        from gk_visit_photo
+        where visitId = #{id,jdbcType=VARCHAR}
+        order by createdTime asc
+    </select>
+
+    <select id="selectGtShopByPositionIdAndQueryParams" resultType="map">
+        select
+
+        ga.id,
+        ga.name,
+        ga.province,
+        ga.city,
+        ga.district,
+        ga.address,
+        ga.type,
+        ga.shopFeature,
+        get_lov_value('VD_STORE_LEVEL', ga.shopLevel) shopLevel,
+
+        (case ga.shopThirdType
+        when 'A' then TimeStampDiff(DAY, v.visitDate, now())
+        else null end) timeInterval
+
+        from (
+        select * from gk_account_position
+        where positionId = #{positionId,jdbcType=VARCHAR}
+        ) gap
+        left join gk_account ga on gap.accountId = ga.id
+        left join
+
+        (
+        select accountId, MAX(visitDate) as "visitDate" from gk_visit
+        where positionId = #{positionId,jdbcType=VARCHAR} and status = 'SA_COMMIT' GROUP BY accountId
+        ) v
+        on ga.id = v.accountId
+
+        where ga.type = 'shop' and ga.shopType = 'GT Store'
+        AND (ga.status = 'Active' OR ga.status = 'New' OR ga.status = 'Wait Valid')
+        AND (to_days(v.visitDate) != to_days(now()) or v.visitDate is null)
+
+        <if test="keyword != null and keyword != '' and keyword != 'null'">
+            and ga.name like concat('%', #{keyword,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="district != null and district != '' and district != 'null'">
+            and ga.district like concat('%', #{district,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="level != null and level != '' and level != 'null'">
+            and get_lov_value('VD_STORE_LEVEL', ga.shopLevel) like concat('%', #{level,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="interval != null and interval != 0">
+            and TimeStampDiff(DAY, v.visitDate, now()) >= #{interval}
+        </if>
+        order by timeInterval desc, ga.name
+    </select>
+
+    <select id="selectVisitBaseInfoByAccountIdAndVisitDate" resultType="map" parameterType="string">
+        select v.id,
+        v.skuQty as skuQty,
+        v.stackQty as stackQty,
+        v.shelfQty as shelfQty,
+        v.endframeQty as endframeQty
+        from gk_visit v
+        where v.status = '已完成'
+        and v.accountId = #{accountId,jdbcType=VARCHAR}
+        and visitDateTime &lt; #{visitDate,jdbcType=DATE}
+        order by visitDateTime desc
+        limit 1
+    </select>
+
+
+    <select id="selectNextNeedVisitShopNameByPositionIdAndEmpIdAndDate" resultType="string">
+        select ga.name
+        from gk_visit gv
+        inner join sa_user_info sui on sui.position_id = gv.positionId and sui.emp_id = gv.empId
+        inner join gk_account ga on ga.id = gv.accountId
+        where gv.status = 'SA_COMMIT'
+        and sui.position_id = #{positionId,jdbcType=VARCHAR}
+        and sui.emp_id = #{empId,jdbcType=VARCHAR}
+        and gv.visitDate = date_format(#{date,jdbcType=VARCHAR},'%Y-%m-%d')
+        group by gv.accountId, gv.createdTime
+        order by gv.createdTime desc
+        limit 1
+    </select>
+
+    <select id="selectTodayTotalVisitMissionCountByPositionIdAndEmpIdAndDate" resultType="integer">
+        select count(1) as count
+        from (select count(*)
+        from gk_visit gv
+        inner join sa_user_info sui on sui.position_id = gv.positionId and sui.emp_id = gv.empId
+        where sui.position_id = #{positionId,jdbcType=VARCHAR}
+        and sui.emp_id = #{empId,jdbcType=VARCHAR}
+        and gv.visitDate = date_format(#{date,jdbcType=VARCHAR}, '%Y-%m-%d')
+        <if test="type==0">
+            and gv.status != 'SA_DELETE'
+        </if>
+        <if test="type==1">
+            and gv.status != 'SA_DELETE'
+            and gv.accountId is null
+        </if>
+        <if test="type==2">
+            and gv.status = '已完成'
+            and gv.accountId is not null
+        </if>
+        group by gv.accountId) o
+    </select>
+
+    <select id="selectVisitMissionByCondition" resultType="java.util.Map">
+        select gk_visit.*,
+        gk_employee.login,
+        gk_employee.name,
+        gk_employee.photoUrl
+        from gk_visit
+        left join gk_employee on gk_visit.empId = gk_employee.id
+        where 1 = 1
+        <if test="accountId != null and accountId != '' and accountId != 'null'">
+            and gk_visit.accountId = #{accountId,jdbcType=VARCHAR}
+        </if>
+        <if test="empId != null and empId != '' and empId != 'null'">
+            and gk_visit.empId = #{empId,jdbcType=VARCHAR}
+        </if>
+        <if test="positionId != null and positionId != '' and positionId != 'null'">
+            and gk_visit.positionId = #{positionId,jdbcType=VARCHAR}
+        </if>
+        <if test="visitDate != null and visitDate != '' and visitDate != 'null'">
+            and gk_visit.visitDate = #{visitDate,jdbcType=VARCHAR}
+        </if>
+        and (gk_visit.status = 'SA_COMMIT' or gk_visit.status = '已完成')
+        order by visitDate desc
+    </select>
+
+    <select id="getVisitMissionHistoryListByConditionForDaily" resultType="map" parameterType="string">
+        select (IF(isnull(ga.name) = 1, '非拜访事项', ga.name)) accountName,
+        gv.id visitId,
+        get_lov_value('VD_STORE_LEVEL', ga.shopLevel) shopLevel,
+        date_format(gv.visitDateTime, '%H:%i') visitDateTime,
+        get_lov_value('GK_VISIT_PURPOSE', gv.purpose) purpose,
+        gv.status status
+        from gk_visit gv
+        left join gk_account ga on ga.id = gv.accountId
+        left join gk_employee ge on gv.empId = ge.id
+        where gv.positionId = #{positionId,jdbcType=VARCHAR}
+        and gv.empId = #{empId,jdbcType=VARCHAR}
+        and gv.status = '已完成'
+        and date_format(gv.visitDate,'%Y-%m-%e') = #{date,jdbcType=VARCHAR}
+        order by gv.visitDate desc
+    </select>
+
+    <select id="selectVisitPhotosListByPositionIdAndEmpIdAndDate" resultType="map" parameterType="string">
+        SELECT IFNULL(ga.name, '非拜访事项') as accountName,
+        date_format(gvp.createdTime, '%Y-%m-%d') AS writeTime,
+        gvp.photoKey,
+        date_format(gvp.createdTime, '%m-%d %H:%i') AS createdTime,
+        (CASE date_format(gvp.createdTime, '%w')
+        WHEN 1 THEN '星期一'
+        WHEN 2 THEN '星期二'
+        WHEN 3 THEN '星期三'
+        WHEN 4 THEN '星期四'
+        WHEN 5 THEN '星期五'
+        WHEN 6 THEN '星期六'
+        WHEN 0 THEN '星期日'
+        END) AS weekDay_format
+        FROM gk_visit gv
+        left join sa_photo_conncet spc on spc.foreign_id = gv.id
+        left join gk_visit_photo gvp on gvp.visitId = gv.id
+        left join gk_account ga on ga.id = gv.accountId
+        WHERE gv.empId = #{empId,jdbcType=VARCHAR}
+        AND gv.positionId = #{positionId,jdbcType=VARCHAR}
+        AND date_format(gvp.createdTime, '%Y-%m-%e') LIKE concat('%', #{date,jdbcType=VARCHAR}, '%')
+        group by photoKey
+    </select>
+
+    <select id="selectCompareByAccountIdAndDate" resultType="map">
+        select v.id,
+        v.skuQty as skuQty,
+        v.stackQty as stackQty,
+        v.shelfQty as shelfQty,
+        v.endframeQty as endframeQty
+        from gk_visit v
+        where v.status = '已完成'
+        and v.accountId = #{accountId,jdbcType=VARCHAR}
+        and visitDateTime &lt; #{date,jdbcType=VARCHAR}
+        order by visitDateTime desc
+        limit 1
+    </select>
+
+    <select id="selectCancelReasonByVisitId" resultType="java.util.Map">
+        select get_lov_value('GK_VISIT_CANCEL_REASON', v.cancelReason) as cancelReason,
+        v.canceledTime
+        from gk_visit v
+        where v.id = #{visitId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectMaintainAccountByEmpIdAndDate" resultType="map">
+        SELECT t.*
+        FROM (
+        SELECT ac.accntId AS accountId,
+        ac.submitStatus,
+        ac.submitTime AS date,
+        a.name,
+        a.province,
+        a.city,
+        a.district,
+        a.address
+        FROM gk_account_change ac
+        INNER JOIN gk_account a on a.id = ac.accntId
+        WHERE ac.submitStatus = 'Submit'
+        AND ac.submitEmpId = #{empId,jdbcType=VARCHAR}
+        AND ac.submitTime LIKE concat(#{date,jdbcType=VARCHAR}, '%')
+        UNION ALL
+        SELECT id AS accountId,
+        'New' AS submitStatus,
+        createdTime AS date,
+        name,
+        province,
+        city,
+        district,
+        address
+        FROM gk_account
+        WHERE createEmpId = #{empId,jdbcType=VARCHAR}
+        AND createdTime LIKE concat(#{date,jdbcType=VARCHAR}, '%')) t
+        ORDER BY date DESC
+    </select>
+
+    <select id="checkVisitMissionByAccountId" resultType="int">
+        select count(1) from gk_visit where accountId = #{accountId,jdbcType=VARCHAR} and to_days(visitDate) =
+        to_days(now())
+    </select>
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.sasync.mapper.GkAccountSalesReportEntityMapper">
+
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    <!--@Table gk_account_sales_report-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="createdBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="accountId" jdbcType="VARCHAR" property="accountId" />
+    <result column="empId" jdbcType="VARCHAR" property="empId" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="submitTime" jdbcType="TIMESTAMP" property="submitTime" />
+    <result column="positionId" jdbcType="VARCHAR" property="positionId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, createdBy, createdTime, updatedBy, updatedTime, version, accountId, empId, `status`,
+    replace(submitTime,'-00','-01') submitTime, positionId
+  </sql>
+
+  <select id="selectByIdAndTime" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from gk_account_sales_report
+    where accountId = #{shopId,jdbcType=VARCHAR} and submitTime like concat(#{date,jdbcType=VARCHAR},'%')
+  </select>
+
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    insert into gk_account_sales_report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createdBy != null">
+        createdBy,
+      </if>
+      <if test="createdTime != null">
+        createdTime,
+      </if>
+      <if test="updatedBy != null">
+        updatedBy,
+      </if>
+      <if test="updatedTime != null">
+        updatedTime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="accountId != null">
+        accountId,
+      </if>
+      <if test="empId != null">
+        empId,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="submitTime != null">
+        submitTime,
+      </if>
+      <if test="positionId != null">
+        positionId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="positionId != null">
+        #{positionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+</mapper>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.SaUserInfoMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.SaUserInformationEntity">
+        <!--@mbg.generated-->
+        <!--@Table sa_user_info-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="row_version" jdbcType="INTEGER" property="rowVersion"/>
+        <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="register_time" jdbcType="TIMESTAMP" property="registerTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+        <result column="row_id" jdbcType="VARCHAR" property="rowId"/>
+        <result column="position_id" jdbcType="VARCHAR" property="positionId"/>
+        <result column="emp_id" jdbcType="VARCHAR" property="empId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, create_time, update_time, row_version, delete_flag, phone, `name`, register_time,
+        `status`, avatar, row_id, position_id, emp_id
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from sa_user_info
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByPositionIdAndEmpId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sa_user_info
+        where position_id = #{positionId,jdbcType=VARCHAR}
+        and emp_id = #{empId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from sa_user_info
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.SaUserInformationEntity">
+        <!--@mbg.generated-->
+        insert into sa_user_info (id, create_time, update_time,
+        row_version, delete_flag, phone,
+        `name`, register_time,
+        `status`, avatar,
+        row_id, position_id,emp_id)
+        values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+        #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR}, #{registerTime,jdbcType=TIMESTAMP},
+        #{status,jdbcType=INTEGER}, #{avatar,jdbcType=VARCHAR},
+        #{rowId,jdbcType=VARCHAR}, #{positionId,jdbcType=VARCHAR}, #{empId,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaUserInformationEntity">
+        <!--@mbg.generated-->
+        insert into sa_user_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="rowVersion != null">
+                row_version,
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="registerTime != null">
+                register_time,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="avatar != null">
+                avatar,
+            </if>
+            <if test="rowId != null">
+                row_id,
+            </if>
+            <if test="positionId != null">
+                position_id,
+            </if>
+            <if test="empId != null">
+                emp_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="rowVersion != null">
+                #{rowVersion,jdbcType=INTEGER},
+            </if>
+            <if test="deleteFlag != null">
+                #{deleteFlag,jdbcType=INTEGER},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="registerTime != null">
+                #{registerTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="avatar != null">
+                #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="rowId != null">
+                #{rowId,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="empId != null">
+                #{empId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.guanke.vinda.samodels.model.entity.SaUserInformationEntity">
+        <!--@mbg.generated-->
+        update sa_user_info
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="rowVersion != null">
+                row_version = #{rowVersion,jdbcType=INTEGER},
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag = #{deleteFlag,jdbcType=INTEGER},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="registerTime != null">
+                register_time = #{registerTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="avatar != null">
+                avatar = #{avatar,jdbcType=VARCHAR},
+            </if>
+            <if test="rowId != null">
+                row_id = #{rowId,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                position_id = #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="empId != null">
+                emp_id = #{empId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.SaUserInformationEntity">
+        <!--@mbg.generated-->
+        update sa_user_info
+        set create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        row_version = #{rowVersion,jdbcType=INTEGER},
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+        phone = #{phone,jdbcType=VARCHAR},
+        `name` = #{name,jdbcType=VARCHAR},
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+        `status` = #{status,jdbcType=INTEGER},
+        avatar = #{avatar,jdbcType=VARCHAR},
+        row_id = #{rowId,jdbcType=VARCHAR},
+        position_id = #{positionId,jdbcType=VARCHAR},
+        emp_id = #{empId,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <select id="selectCrmUserInfoByPhone" parameterType="java.lang.String" resultType="java.util.Map">
+        SELECT T.ROW_ID rowId,
+        T1.FST_NAME name,
+        T2.LOGIN login,
+        gp.id posId,
+        T1.BU_ID orgId,
+        ge.id empId
+        FROM S_PARTY T
+        INNER JOIN S_CONTACT T1 ON T.ROW_ID = T1.ROW_ID
+        INNER JOIN S_USER T2 ON T.ROW_ID = T2.ROW_ID
+        INNER JOIN s_contact_x scx ON T2.PAR_ROW_ID = scx.PAR_ROW_ID AND scx.ATTRIB_10 = 'Y'
+        INNER JOIN gk_position gp ON gp.intId = T1.PR_HELD_POSTN_ID
+        INNER JOIN gk_employee ge ON ge.status = '在职' AND ge.intId = T.ROW_ID
+        AND T2.LOGIN = #{phone,jdbcType=VARCHAR}
+    </select>
+
+    <select id="isOuterUserInCrmByPhone" parameterType="java.lang.String" resultType="boolean">
+        SELECT (CASE scx.ATTRIB_10 WHEN 'Y' THEN true ELSE false END) isOuter
+        FROM S_PARTY T
+        INNER JOIN S_USER T2 ON T.ROW_ID = T2.ROW_ID
+        INNER JOIN s_contact_x scx ON T2.PAR_ROW_ID = scx.PAR_ROW_ID
+        AND T2.LOGIN = #{phone,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectBusinessOfficeByPositionIdAndOrgIdAndWxType" resultType="map" parameterType="string">
+        select ga.province,
+        ga.city,
+        ga.district
+        from gk_account_position gap
+        inner join gk_account ga on ga.id = gap.accountId
+        where (ga.status = 'Active' OR ga.status = 'Wait Valid')
+        and gap.positionId = #{id,jdbcType=VARCHAR}
+        and (ga.shopType = 'GT Store')
+        and ga.type = 'shop'
+        and (ga.province is not null or ga.city is not null or ga.district is not null)
+        group by ga.province, ga.city
+    </select>
+
+    <select id="selectUserPositionInformationByRowId" resultType="map" parameterType="string">
+        select s.NAME name,
+        s.X_PRO_TYPE posType,
+        s.POSTN_TYPE_CD wxType,
+        s.BU_ID orgId,
+        s.ROW_ID postnId,
+        sp.PAR_PARTY_ID parId
+        from sa_user_info sui
+        inner join s_party_per spp on spp.PERSON_ID = sui.row_id
+        inner join s_party sp on sp.ROW_ID = spp.PARTY_ID
+        inner join s_postn s on s.ROW_ID = sp.ROW_ID
+        where sui.row_id = #{rowId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectUserSettingsInfoByEmpId" resultType="map" parameterType="string">
+        select sui.emp_id empId,
+        sui.name name,
+        (case isnull(sui.avatar)
+        when 1 then ''
+        else sui.avatar end) avatar,
+        get_lov_value('POSITION_TYPE', gp.wxType) as wxType_value,
+        gp.name positionName,
+        soe.name orgName,
+        sui.phone phone
+        from gk_employee ge
+        inner join sa_user_info sui on sui.emp_id = ge.id
+        inner join gk_position gp on gp.id = sui.position_id
+        inner join gk_org go on go.id = gp.orgId
+        inner join s_org_ext soe on soe.ROW_ID = go.intId
+        where sui.emp_id = #{empId,jdbcType=VARCHAR}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-09-->
+    <select id="selectByPhone" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sa_user_info
+        where phone=#{phone,jdbcType=VARCHAR}
+    </select>
+</mapper>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.saschedule.mapper.GkDailyMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkDailyEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_daily-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+        <result column="empId" jdbcType="VARCHAR" property="empId"/>
+        <result column="positionId" jdbcType="VARCHAR" property="positionId"/>
+        <result column="reportDate" jdbcType="TIMESTAMP" property="reportDate"/>
+        <result column="likeQty" jdbcType="INTEGER" property="likeQty"/>
+        <result column="coreWork" jdbcType="VARCHAR" property="coreWork"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="dailyDate" jdbcType="DATE" property="dailyDate"/>
+        <result column="draftDate" jdbcType="DATE" property="draftDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, content, empId, positionId,
+        reportDate, likeQty, coreWork, `status`, dailyDate, draftDate
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_daily
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByPositionAndEmpIdSortByUpdateTime" resultType="map">
+        select content,
+        coreWork,
+        gd.updatedTime,
+        dailyDate,
+        empId,
+        gd.positionId,
+        gd.id,
+        likeQty,
+        (select count(1) from gk_daily_comment_emp gdce where gdce.dailyReportId = gd.id) commentQty,
+        gd.status,
+        (select count(1)
+        from vddb.gk_daily_comment_emp gdce
+        where gdce.dailyReportId = gd.id
+        and gdce.createdTime >= sutr.daily_message_check) newComment,
+        (select count(1)
+        from vddb.gk_daily_like gdl
+        where gdl.dailyId = gd.id
+        and gdl.createdTime >= sutr.daily_message_check) newLike
+        from vddb.gk_daily gd
+        inner join sa_user_info sui on sui.emp_id = gd.empId and sui.position_id = gd.positionId
+        inner join sa_user_time_recode sutr on sutr.phone = sui.phone
+        where gd.positionId = #{positionId,jdbcType=VARCHAR}
+        and empId = #{empId,jdbcType=VARCHAR}
+        order by updatedTime desc
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_daily
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkDailyEntity">
+        <!--@mbg.generated-->
+        insert into gk_daily (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        content, empId, positionId,
+        reportDate, likeQty, coreWork,
+        `status`, dailyDate, draftDate
+        )
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{content,jdbcType=LONGVARCHAR}, #{empId,jdbcType=VARCHAR}, #{positionId,jdbcType=VARCHAR},
+        #{reportDate,jdbcType=TIMESTAMP}, #{likeQty,jdbcType=INTEGER}, #{coreWork,jdbcType=VARCHAR},
+        #{status,jdbcType=VARCHAR}, #{dailyDate,jdbcType=DATE}, #{draftDate,jdbcType=DATE}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkDailyEntity">
+        <!--@mbg.generated-->
+        insert into gk_daily
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="content != null">
+                content,
+            </if>
+            <if test="empId != null">
+                empId,
+            </if>
+            <if test="positionId != null">
+                positionId,
+            </if>
+            <if test="reportDate != null">
+                reportDate,
+            </if>
+            <if test="likeQty != null">
+                likeQty,
+            </if>
+            <if test="coreWork != null">
+                coreWork,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="dailyDate != null">
+                dailyDate,
+            </if>
+            <if test="draftDate != null">
+                draftDate,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="empId != null">
+                #{empId,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="reportDate != null">
+                #{reportDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="likeQty != null">
+                #{likeQty,jdbcType=INTEGER},
+            </if>
+            <if test="coreWork != null">
+                #{coreWork,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="dailyDate != null">
+                #{dailyDate,jdbcType=DATE},
+            </if>
+            <if test="draftDate != null">
+                #{draftDate,jdbcType=DATE},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkDailyEntity">
+        <!--@mbg.generated-->
+        update gk_daily
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="content != null">
+                content = #{content,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="empId != null">
+                empId = #{empId,jdbcType=VARCHAR},
+            </if>
+            <if test="positionId != null">
+                positionId = #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="reportDate != null">
+                reportDate = #{reportDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="likeQty != null">
+                likeQty = #{likeQty,jdbcType=INTEGER},
+            </if>
+            <if test="coreWork != null">
+                coreWork = #{coreWork,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="dailyDate != null">
+                dailyDate = #{dailyDate,jdbcType=DATE},
+            </if>
+            <if test="draftDate != null">
+                draftDate = #{draftDate,jdbcType=DATE},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkDailyEntity">
+        <!--@mbg.generated-->
+        update gk_daily
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        content = #{content,jdbcType=LONGVARCHAR},
+        empId = #{empId,jdbcType=VARCHAR},
+        positionId = #{positionId,jdbcType=VARCHAR},
+        reportDate = #{reportDate,jdbcType=TIMESTAMP},
+        likeQty = #{likeQty,jdbcType=INTEGER},
+        coreWork = #{coreWork,jdbcType=VARCHAR},
+        `status` = #{status,jdbcType=VARCHAR},
+        dailyDate = #{dailyDate,jdbcType=DATE},
+        draftDate = #{draftDate,jdbcType=DATE}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <select id="selectDailyCommentAndLikesCountByPositionIdAndEmpIdAfterDate" parameterType="java.lang.String"
+            resultType="java.util.Map">
+        select sum((select count(1)
+        from vddb.gk_daily_comment_emp gdce
+        where gdce.dailyReportId = gd.id
+        and gdce.createdTime >= sutr.daily_message_check)) commentQty,
+        sum((select count(1)
+        from vddb.gk_daily_like gdl
+        where gdl.dailyId = gd.id
+        and gdl.createdTime >= sutr.daily_message_check)) likeQty
+        from vddb.gk_daily gd
+        inner join sa_user_info sui on sui.emp_id = gd.empId and gd.positionId = sui.position_id
+        inner join sa_user_time_recode sutr on sui.phone = sutr.phone
+        where gd.positionId=#{positionId,jdbcType=VARCHAR}
+        and gd.empId=#{empId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectDailyCommentAndLikesCountDailyByPositionIdAndEmpId" parameterType="string" resultType="map">
+        select sum((select count(1)
+        from vddb.gk_daily_comment_emp gdce
+        where gdce.dailyReportId = gd.id
+        and gdce.createdTime >= date_format(current_date, '%Y-%m-%d'))) commentQty,
+        sum((select count(1)
+        from vddb.gk_daily_like gdl
+        where gdl.dailyId = gd.id
+        and gdl.createdTime >= date_format(current_date, '%Y-%m-%d'))) likeQty
+        from vddb.gk_daily gd
+        inner join sa_user_info sui on sui.emp_id = gd.empId and gd.positionId = sui.position_id
+        where gd.positionId = #{positionId,jdbcType=VARCHAR}
+        and gd.empId = #{empId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectVisitClientByEmpIdAndPositionIdAndDate" resultType="map">
+        SELECT v.id,
+        get_lov_value('VD_STORE_LEVEL', a.shopLevel) shopThirdType,
+        ifnull(a.NAME, '非拜访事项') AS name,
+        date_format(v.visitDateTime, '%H:%i') AS visitDateTime,
+        l.value
+        FROM gk_visit v
+        LEFT JOIN gk_account a ON v.accountId = a.id
+        LEFT JOIN gk_list_of_value l ON v.purpose = l.CODE
+        where v.empId = #{empId,jdbcType=VARCHAR}
+        and v.positionId = #{positionId,jdbcType=VARCHAR}
+        and v.visitDate LIKE concat('%', date_format(#{date,jdbcType=TIMESTAMP},'%Y-%m-%d'), '%')
+        and v.status = '已完成'
+        order by v.visitDateTime
+    </select>
+
+    <select id="selectCommentByDailyId" resultType="map" parameterType="string">
+        select gcm.commentAccountId,
+        gcm.commentContent content,
+        (case gcm.commentLevel
+        when 0 then '较差'
+        when 1 then '一般'
+        when 2 then '良好'
+        when 3 then '优秀'
+        when 4 then '完美'
+        else '' end) level,
+        (date_format(gcm.commentTime, '%Y-%m-%d %H:%i')) time,
+        (select ge.name from gk_employee ge where ge.id = gcm.commentAccountId) name,
+        (select gp.name from gk_position gp where gp.id = gcm.positionId) position
+        from gk_daily_comment_emp gcm
+        where gcm.dailyReportId = #{dailyId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectCountByPositionIdAndEmpIdAndDraftDate" resultType="integer" parameterType="string">
+        SELECT COUNT(1)
+        FROM gk_daily gd
+        WHERE gd.positionId = #{positionId,jdbcType=VARCHAR}
+        AND gd.empId = #{empId,jdbcType=VARCHAR}
+        AND gd.dailyDate = #{dailyDate,jdbcType=VARCHAR}
+        AND gd.status='SA_COMMIT'
+    </select>
+
+    <select id="selectDraftIdByPositionIdAndEmpIdAndDraftDate" resultType="string" parameterType="string">
+        SELECT gd.id
+        FROM gk_daily gd
+        WHERE gd.positionId = #{positionId,jdbcType=VARCHAR}
+        AND gd.empId = #{empId,jdbcType=VARCHAR}
+        AND gd.dailyDate = #{dailyDate,jdbcType=VARCHAR}
+        AND gd.status='SA_COMMIT_DRAFT'
+    </select>
+
+    <select id="selectalldailycommentmessagebypositionidandempId" resultType="map" parameterType="string">
+        select gdce.commentTime time,
+        gdce.commentContent content,
+        ge.name name,
+        gd.id id,
+        gd.dailyDate reportDate,
+        ge.photoUrl avatar
+        from gk_daily gd
+        inner join sa_user_info sui on sui.emp_id = gd.empId and sui.position_id = gd.positionId
+        inner join sa_user_time_recode sutr on sutr.phone = sui.phone
+        left join gk_daily_comment_emp gdce
+        on gdce.dailyReportId = gd.id
+        left join gk_employee ge on ge.id = gdce.commentAccountId
+        where gd.positionId = #{positionId,jdbcType=VARCHAR}
+        and gd.empId = #{empId,jdbcType=VARCHAR}
+        and gdce.createdTime >= sutr.daily_message_check
+        order by gdce.createdTime desc
+    </select>
+
+    <select id="selectAllDailyLikeMessageByPositionIdAndEmpId" resultType="map" parameterType="string">
+        select gdl.createdTime time,
+        '' content,
+        ge.name name,
+        gd.id id,
+        gd.dailyDate reportDate,
+        ge.photoUrl avatar
+        from gk_daily gd
+        inner join sa_user_info sui on sui.emp_id = gd.empId and sui.position_id = gd.positionId
+        inner join sa_user_time_recode sutr on sutr.phone = sui.phone
+        left join gk_daily_like gdl
+        on gdl.dailyId = gd.id
+        left join gk_employee ge on ge.id = gdl.empId
+        where gd.positionId = #{positionId,jdbcType=VARCHAR}
+        and gd.empId = #{empId,jdbcType=VARCHAR}
+        and gdl.createdTime >= sutr.daily_message_check
+        order by gdl.createdTime desc
+    </select>
+
+</mapper>

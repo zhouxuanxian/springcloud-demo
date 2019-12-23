@@ -1,0 +1,11 @@
+logging:
+  level:
+    com.guanke.vinda: DEBUG
+server:
+  port: 8102
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: sa-sync

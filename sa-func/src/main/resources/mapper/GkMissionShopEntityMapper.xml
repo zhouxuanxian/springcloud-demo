@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkMissionShopEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkMissionShopEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_mission_shop-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="missionId" jdbcType="VARCHAR" property="missionId"/>
+        <result column="shopId" jdbcType="VARCHAR" property="shopId"/>
+        <result column="auditTime" jdbcType="TIMESTAMP" property="auditTime"/>
+        <result column="qualifiedFlag" jdbcType="INTEGER" property="qualifiedFlag"/>
+        <result column="createMsgFlag" jdbcType="INTEGER" property="createMsgFlag"/>
+        <result column="auditEmpId" jdbcType="VARCHAR" property="auditEmpId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, missionId, shopId, auditTime,
+        qualifiedFlag, createMsgFlag, auditEmpId
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_mission_shop
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_mission_shop
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkMissionShopEntity">
+        <!--@mbg.generated-->
+        insert into gk_mission_shop (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        missionId, shopId, auditTime,
+        qualifiedFlag, createMsgFlag, auditEmpId
+        )
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{missionId,jdbcType=VARCHAR}, #{shopId,jdbcType=VARCHAR}, #{auditTime,jdbcType=TIMESTAMP},
+        #{qualifiedFlag,jdbcType=INTEGER}, #{createMsgFlag,jdbcType=INTEGER}, #{auditEmpId,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkMissionShopEntity">
+        <!--@mbg.generated-->
+        insert into gk_mission_shop
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="missionId != null">
+                missionId,
+            </if>
+            <if test="shopId != null">
+                shopId,
+            </if>
+            <if test="auditTime != null">
+                auditTime,
+            </if>
+            <if test="qualifiedFlag != null">
+                qualifiedFlag,
+            </if>
+            <if test="createMsgFlag != null">
+                createMsgFlag,
+            </if>
+            <if test="auditEmpId != null">
+                auditEmpId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="missionId != null">
+                #{missionId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="qualifiedFlag != null">
+                #{qualifiedFlag,jdbcType=INTEGER},
+            </if>
+            <if test="createMsgFlag != null">
+                #{createMsgFlag,jdbcType=INTEGER},
+            </if>
+            <if test="auditEmpId != null">
+                #{auditEmpId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkMissionShopEntity">
+        <!--@mbg.generated-->
+        update gk_mission_shop
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="missionId != null">
+                missionId = #{missionId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                shopId = #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                auditTime = #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="qualifiedFlag != null">
+                qualifiedFlag = #{qualifiedFlag,jdbcType=INTEGER},
+            </if>
+            <if test="createMsgFlag != null">
+                createMsgFlag = #{createMsgFlag,jdbcType=INTEGER},
+            </if>
+            <if test="auditEmpId != null">
+                auditEmpId = #{auditEmpId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkMissionShopEntity">
+        <!--@mbg.generated-->
+        update gk_mission_shop
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        missionId = #{missionId,jdbcType=VARCHAR},
+        shopId = #{shopId,jdbcType=VARCHAR},
+        auditTime = #{auditTime,jdbcType=TIMESTAMP},
+        qualifiedFlag = #{qualifiedFlag,jdbcType=INTEGER},
+        createMsgFlag = #{createMsgFlag,jdbcType=INTEGER},
+        auditEmpId = #{auditEmpId,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update gk_mission_shop
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="createdBy = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.createdBy,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="createdTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.createdTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="updatedBy = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedBy,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="updatedTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="version = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.version,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="missionId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.missionId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="shopId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.shopId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="auditTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.auditTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="qualifiedFlag = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.qualifiedFlag,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="createMsgFlag = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.createMsgFlag,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="auditEmpId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.auditEmpId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+        </trim>
+        where id in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.id,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into gk_mission_shop
+        (id, createdBy, createdTime, updatedBy, updatedTime, version, missionId, shopId,
+        auditTime, qualifiedFlag, createMsgFlag, auditEmpId)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id,jdbcType=VARCHAR}, #{item.createdBy,jdbcType=VARCHAR}, #{item.createdTime,jdbcType=TIMESTAMP},
+            #{item.updatedBy,jdbcType=VARCHAR}, #{item.updatedTime,jdbcType=TIMESTAMP},
+            #{item.version,jdbcType=INTEGER},
+            #{item.missionId,jdbcType=VARCHAR}, #{item.shopId,jdbcType=VARCHAR}, #{item.auditTime,jdbcType=TIMESTAMP},
+            #{item.qualifiedFlag,jdbcType=INTEGER}, #{item.createMsgFlag,jdbcType=INTEGER},
+            #{item.auditEmpId,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+    <insert id="insertOrUpdate" parameterType="com.guanke.vinda.samodels.model.entity.GkMissionShopEntity">
+        <!--@mbg.generated-->
+        insert into gk_mission_shop
+        (id, createdBy, createdTime, updatedBy, updatedTime, version, missionId, shopId,
+        auditTime, qualifiedFlag, createMsgFlag, auditEmpId)
+        values
+        (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{missionId,jdbcType=VARCHAR}, #{shopId,jdbcType=VARCHAR}, #{auditTime,jdbcType=TIMESTAMP},
+        #{qualifiedFlag,jdbcType=INTEGER}, #{createMsgFlag,jdbcType=INTEGER}, #{auditEmpId,jdbcType=VARCHAR}
+        )
+        on duplicate key update
+        id = #{id,jdbcType=VARCHAR},
+        createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        missionId = #{missionId,jdbcType=VARCHAR},
+        shopId = #{shopId,jdbcType=VARCHAR},
+        auditTime = #{auditTime,jdbcType=TIMESTAMP},
+        qualifiedFlag = #{qualifiedFlag,jdbcType=INTEGER},
+        createMsgFlag = #{createMsgFlag,jdbcType=INTEGER},
+        auditEmpId = #{auditEmpId,jdbcType=VARCHAR}
+    </insert>
+    <insert id="insertOrUpdateSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkMissionShopEntity">
+        <!--@mbg.generated-->
+        insert into gk_mission_shop
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="missionId != null">
+                missionId,
+            </if>
+            <if test="shopId != null">
+                shopId,
+            </if>
+            <if test="auditTime != null">
+                auditTime,
+            </if>
+            <if test="qualifiedFlag != null">
+                qualifiedFlag,
+            </if>
+            <if test="createMsgFlag != null">
+                createMsgFlag,
+            </if>
+            <if test="auditEmpId != null">
+                auditEmpId,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="missionId != null">
+                #{missionId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="qualifiedFlag != null">
+                #{qualifiedFlag,jdbcType=INTEGER},
+            </if>
+            <if test="createMsgFlag != null">
+                #{createMsgFlag,jdbcType=INTEGER},
+            </if>
+            <if test="auditEmpId != null">
+                #{auditEmpId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+        on duplicate key update
+        <trim suffixOverrides=",">
+            <if test="id != null">
+                id = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="missionId != null">
+                missionId = #{missionId,jdbcType=VARCHAR},
+            </if>
+            <if test="shopId != null">
+                shopId = #{shopId,jdbcType=VARCHAR},
+            </if>
+            <if test="auditTime != null">
+                auditTime = #{auditTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="qualifiedFlag != null">
+                qualifiedFlag = #{qualifiedFlag,jdbcType=INTEGER},
+            </if>
+            <if test="createMsgFlag != null">
+                createMsgFlag = #{createMsgFlag,jdbcType=INTEGER},
+            </if>
+            <if test="auditEmpId != null">
+                auditEmpId = #{auditEmpId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectMissionPhotoListByPositionIdAndEmpIdAndDate" resultType="map" parameterType="string">
+        SELECT c.name,
+        date_format(mp.createdTime, '%Y-%m-%d ') AS writeTime,
+        mp.photoKey,
+        date_format(mp.createdTime, '%m-%d %H:%i') AS createdTime,
+        (CASE date_format(mp.createdTime, '%w')
+        WHEN 1 THEN '星期一'
+        WHEN 2 THEN '星期二'
+        WHEN 3 THEN '星期三'
+        WHEN 4 THEN '星期四'
+        WHEN 5 THEN '星期五'
+        WHEN 6 THEN '星期六'
+        WHEN 0 THEN '星期日'
+        END) AS weekDay_format
+        FROM gk_mission_shop ms
+        JOIN gk_mission_photo mp
+        ON ms.id = mp.missionShopId
+        JOIN gk_account c ON c.id = ms.shopId
+        WHERE mp.empId = #{empId,jdbcType=VARCHAR}
+        AND mp.positionId = #{positionId,jdbcType=VARCHAR}
+        AND date_format(mp.createdTime,'%Y-%m-%e') LIKE concat('%', #{date,jdbcType=VARCHAR}, '%')
+        ORDER BY mp.createdTime DESC
+    </select>
+</mapper>

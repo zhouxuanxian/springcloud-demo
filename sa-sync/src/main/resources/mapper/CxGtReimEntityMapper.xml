@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.sasync.mapper.CxGtReimEntityMapper">
+    <sql id="Base_Column_List">
+            ROW_ID,
+            CREATED,
+            CREATED_BY,
+            LAST_UPD,
+            LAST_UPD_BY,
+            MODIFICATION_NUM,
+            CONFLICT_ID,
+            ADU_SHELF_NUM,
+            ADU_VD_SHELF_NUM,
+            COLUMN_STATUS,
+            DB_LAST_UPD,
+            DJ_CHECK_NUM,
+            DJ_SEND_NUM,
+            DRY_SHELF_NUM,
+            DRY_VD_SHELF_NUM,
+            HJ_CHECK_NUM,
+            HJ_SEND_NUM,
+            LAST_MON_SALES,
+            REIM_TIME,
+            STORE_TYPE_FLG,
+            TAMPON_SHELF_NUM,
+            TAMPON_VD_SHELF_NUM,
+            TG_CHECK_NUM,
+            TG_SEND_NUM,
+            WET_SHELF_NUM,
+            WET_VD_SHELF_NUM,
+            ADU_VD_SHELF_POS,
+            APPLY_NUM,
+            APPLY_PHONE,
+            APPLY_POS_ID,
+            APPRO_STATUS,
+            CHECK_PROBLEM,
+            CHECK_STORE_TYPE,
+            CITY_APPRO_RESULT,
+            CREATOR_POS_ID,
+            DB_LAST_UPD_SRC,
+            DIFF_CONTANT,
+            DIFF_TYPE,
+            DJ_LIST_POS,
+            DRY_VD_SHELF_POS,
+            END_EXECUTE_TIME,
+            EXPENSE_TYPE,
+            GROUNDING_TYPE,
+            GT_EXP_VERF_CODE,
+            HJ_LIST_POS,
+            POSITION_INFO,
+            PROM_APPRO_RESULT,
+            PROV_APPRO_RESULT,
+            REIM_STATUS,
+            START_EXECUTE_TIME,
+            STORE_ID,
+            SUBMIT_NUM,
+            TAMPON_VD_SHELF_POS,
+            TG_POS,
+            WET_VD_SHELF_POS,
+            syncflag,
+            SEND_STORE_TYPE
+    </sql>
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.CxGtReimEntity">
+        <!--@mbg.generated-->
+        <!--@Table cx_gt_reim-->
+        <result column="ROW_ID" jdbcType="VARCHAR" property="rowId" />
+        <result column="CREATED" jdbcType="TIMESTAMP" property="created" />
+        <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+        <result column="LAST_UPD" jdbcType="TIMESTAMP" property="lastUpd" />
+        <result column="LAST_UPD_BY" jdbcType="VARCHAR" property="lastUpdBy" />
+        <result column="MODIFICATION_NUM" jdbcType="DECIMAL" property="modificationNum" />
+        <result column="CONFLICT_ID" jdbcType="VARCHAR" property="conflictId" />
+        <result column="ADU_SHELF_NUM" jdbcType="DECIMAL" property="aduShelfNum" />
+        <result column="ADU_VD_SHELF_NUM" jdbcType="DECIMAL" property="aduVdShelfNum" />
+        <result column="COLUMN_STATUS" jdbcType="CHAR" property="columnStatus" />
+        <result column="DB_LAST_UPD" jdbcType="TIMESTAMP" property="dbLastUpd" />
+        <result column="DJ_CHECK_NUM" jdbcType="DECIMAL" property="djCheckNum" />
+        <result column="DJ_SEND_NUM" jdbcType="DECIMAL" property="djSendNum" />
+        <result column="DRY_SHELF_NUM" jdbcType="DECIMAL" property="dryShelfNum" />
+        <result column="DRY_VD_SHELF_NUM" jdbcType="DECIMAL" property="dryVdShelfNum" />
+        <result column="HJ_CHECK_NUM" jdbcType="DECIMAL" property="hjCheckNum" />
+        <result column="HJ_SEND_NUM" jdbcType="DECIMAL" property="hjSendNum" />
+        <result column="LAST_MON_SALES" jdbcType="VARCHAR" property="lastMonSales" />
+        <result column="REIM_TIME" jdbcType="TIMESTAMP" property="reimTime" />
+        <result column="STORE_TYPE_FLG" jdbcType="CHAR" property="storeTypeFlg" />
+        <result column="TAMPON_SHELF_NUM" jdbcType="DECIMAL" property="tamponShelfNum" />
+        <result column="TAMPON_VD_SHELF_NUM" jdbcType="DECIMAL" property="tamponVdShelfNum" />
+        <result column="TG_CHECK_NUM" jdbcType="DECIMAL" property="tgCheckNum" />
+        <result column="TG_SEND_NUM" jdbcType="DECIMAL" property="tgSendNum" />
+        <result column="WET_SHELF_NUM" jdbcType="DECIMAL" property="wetShelfNum" />
+        <result column="WET_VD_SHELF_NUM" jdbcType="DECIMAL" property="wetVdShelfNum" />
+        <result column="ADU_VD_SHELF_POS" jdbcType="VARCHAR" property="aduVdShelfPos" />
+        <result column="APPLY_NUM" jdbcType="VARCHAR" property="applyNum" />
+        <result column="APPLY_PHONE" jdbcType="VARCHAR" property="applyPhone" />
+        <result column="APPLY_POS_ID" jdbcType="VARCHAR" property="applyPosId" />
+        <result column="APPRO_STATUS" jdbcType="VARCHAR" property="approStatus" />
+        <result column="CHECK_PROBLEM" jdbcType="VARCHAR" property="checkProblem" />
+        <result column="CHECK_STORE_TYPE" jdbcType="VARCHAR" property="checkStoreType" />
+        <result column="CITY_APPRO_RESULT" jdbcType="VARCHAR" property="cityApproResult" />
+        <result column="CREATOR_POS_ID" jdbcType="VARCHAR" property="creatorPosId" />
+        <result column="DB_LAST_UPD_SRC" jdbcType="VARCHAR" property="dbLastUpdSrc" />
+        <result column="DIFF_CONTANT" jdbcType="VARCHAR" property="diffContant" />
+        <result column="DIFF_TYPE" jdbcType="VARCHAR" property="diffType" />
+        <result column="DJ_LIST_POS" jdbcType="VARCHAR" property="djListPos" />
+        <result column="DRY_VD_SHELF_POS" jdbcType="VARCHAR" property="dryVdShelfPos" />
+        <result column="END_EXECUTE_TIME" jdbcType="VARCHAR" property="endExecuteTime" />
+        <result column="EXPENSE_TYPE" jdbcType="VARCHAR" property="expenseType" />
+        <result column="GROUNDING_TYPE" jdbcType="VARCHAR" property="groundingType" />
+        <result column="GT_EXP_VERF_CODE" jdbcType="VARCHAR" property="gtExpVerfCode" />
+        <result column="HJ_LIST_POS" jdbcType="VARCHAR" property="hjListPos" />
+        <result column="POSITION_INFO" jdbcType="VARCHAR" property="positionInfo" />
+        <result column="PROM_APPRO_RESULT" jdbcType="VARCHAR" property="promApproResult" />
+        <result column="PROV_APPRO_RESULT" jdbcType="VARCHAR" property="provApproResult" />
+        <result column="REIM_STATUS" jdbcType="VARCHAR" property="reimStatus" />
+        <result column="START_EXECUTE_TIME" jdbcType="VARCHAR" property="startExecuteTime" />
+        <result column="STORE_ID" jdbcType="VARCHAR" property="storeId" />
+        <result column="SUBMIT_NUM" jdbcType="VARCHAR" property="submitNum" />
+        <result column="TAMPON_VD_SHELF_POS" jdbcType="VARCHAR" property="tamponVdShelfPos" />
+        <result column="TG_POS" jdbcType="VARCHAR" property="tgPos" />
+        <result column="WET_VD_SHELF_POS" jdbcType="VARCHAR" property="wetVdShelfPos" />
+        <result column="syncflag" jdbcType="INTEGER" property="syncflag" />
+        <result column="SEND_STORE_TYPE" jdbcType="VARCHAR" property="sendStoreType" />
+    </resultMap>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.CxGtReimEntity">
+        <!--@mbg.generated-->
+        insert into cx_gt_reim (ROW_ID, CREATED, CREATED_BY,
+        LAST_UPD, LAST_UPD_BY, MODIFICATION_NUM,
+        CONFLICT_ID, ADU_SHELF_NUM, ADU_VD_SHELF_NUM,
+        COLUMN_STATUS, DB_LAST_UPD, DJ_CHECK_NUM,
+        DJ_SEND_NUM, DRY_SHELF_NUM, DRY_VD_SHELF_NUM,
+        HJ_CHECK_NUM, HJ_SEND_NUM, LAST_MON_SALES,
+        REIM_TIME, STORE_TYPE_FLG, TAMPON_SHELF_NUM,
+        TAMPON_VD_SHELF_NUM, TG_CHECK_NUM, TG_SEND_NUM,
+        WET_SHELF_NUM, WET_VD_SHELF_NUM, ADU_VD_SHELF_POS,
+        APPLY_NUM, APPLY_PHONE, APPLY_POS_ID,
+        APPRO_STATUS, CHECK_PROBLEM, CHECK_STORE_TYPE,
+        CITY_APPRO_RESULT, CREATOR_POS_ID, DB_LAST_UPD_SRC,
+        DIFF_CONTANT, DIFF_TYPE, DJ_LIST_POS,
+        DRY_VD_SHELF_POS, END_EXECUTE_TIME, EXPENSE_TYPE,
+        GROUNDING_TYPE, GT_EXP_VERF_CODE, HJ_LIST_POS,
+        POSITION_INFO, PROM_APPRO_RESULT, PROV_APPRO_RESULT,
+        REIM_STATUS, START_EXECUTE_TIME, STORE_ID,
+        SUBMIT_NUM, TAMPON_VD_SHELF_POS, TG_POS,
+        WET_VD_SHELF_POS, syncflag, SEND_STORE_TYPE
+        )
+        values (#{rowId,jdbcType=VARCHAR}, #{created,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR},
+        #{lastUpd,jdbcType=TIMESTAMP}, #{lastUpdBy,jdbcType=VARCHAR}, #{modificationNum,jdbcType=DECIMAL},
+        #{conflictId,jdbcType=VARCHAR}, #{aduShelfNum,jdbcType=DECIMAL}, #{aduVdShelfNum,jdbcType=DECIMAL},
+        #{columnStatus,jdbcType=CHAR}, #{dbLastUpd,jdbcType=TIMESTAMP}, #{djCheckNum,jdbcType=DECIMAL},
+        #{djSendNum,jdbcType=DECIMAL}, #{dryShelfNum,jdbcType=DECIMAL}, #{dryVdShelfNum,jdbcType=DECIMAL},
+        #{hjCheckNum,jdbcType=DECIMAL}, #{hjSendNum,jdbcType=DECIMAL}, #{lastMonSales,jdbcType=VARCHAR},
+        #{reimTime,jdbcType=TIMESTAMP}, #{storeTypeFlg,jdbcType=CHAR}, #{tamponShelfNum,jdbcType=DECIMAL},
+        #{tamponVdShelfNum,jdbcType=DECIMAL}, #{tgCheckNum,jdbcType=DECIMAL}, #{tgSendNum,jdbcType=DECIMAL},
+        #{wetShelfNum,jdbcType=DECIMAL}, #{wetVdShelfNum,jdbcType=DECIMAL}, #{aduVdShelfPos,jdbcType=VARCHAR},
+        #{applyNum,jdbcType=VARCHAR}, #{applyPhone,jdbcType=VARCHAR}, #{applyPosId,jdbcType=VARCHAR},
+        #{approStatus,jdbcType=VARCHAR}, #{checkProblem,jdbcType=VARCHAR}, #{checkStoreType,jdbcType=VARCHAR},
+        #{cityApproResult,jdbcType=VARCHAR}, #{creatorPosId,jdbcType=VARCHAR}, #{dbLastUpdSrc,jdbcType=VARCHAR},
+        #{diffContant,jdbcType=VARCHAR}, #{diffType,jdbcType=VARCHAR}, #{djListPos,jdbcType=VARCHAR},
+        #{dryVdShelfPos,jdbcType=VARCHAR}, #{endExecuteTime,jdbcType=VARCHAR}, #{expenseType,jdbcType=VARCHAR},
+        #{groundingType,jdbcType=VARCHAR}, #{gtExpVerfCode,jdbcType=VARCHAR}, #{hjListPos,jdbcType=VARCHAR},
+        #{positionInfo,jdbcType=VARCHAR}, #{promApproResult,jdbcType=VARCHAR}, #{provApproResult,jdbcType=VARCHAR},
+        #{reimStatus,jdbcType=VARCHAR}, #{startExecuteTime,jdbcType=VARCHAR}, #{storeId,jdbcType=VARCHAR},
+        #{submitNum,jdbcType=VARCHAR}, #{tamponVdShelfPos,jdbcType=VARCHAR}, #{tgPos,jdbcType=VARCHAR},
+        #{wetVdShelfPos,jdbcType=VARCHAR}, #{syncflag,jdbcType=INTEGER}, #{sendStoreType,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.CxGtReimEntity">
+        <!--@mbg.generated-->
+        insert into cx_gt_reim
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="rowId != null">
+                ROW_ID,
+            </if>
+            <if test="created != null">
+                CREATED,
+            </if>
+            <if test="createdBy != null">
+                CREATED_BY,
+            </if>
+            <if test="lastUpd != null">
+                LAST_UPD,
+            </if>
+            <if test="lastUpdBy != null">
+                LAST_UPD_BY,
+            </if>
+            <if test="modificationNum != null">
+                MODIFICATION_NUM,
+            </if>
+            <if test="conflictId != null">
+                CONFLICT_ID,
+            </if>
+            <if test="aduShelfNum != null">
+                ADU_SHELF_NUM,
+            </if>
+            <if test="aduVdShelfNum != null">
+                ADU_VD_SHELF_NUM,
+            </if>
+            <if test="columnStatus != null">
+                COLUMN_STATUS,
+            </if>
+            <if test="dbLastUpd != null">
+                DB_LAST_UPD,
+            </if>
+            <if test="djCheckNum != null">
+                DJ_CHECK_NUM,
+            </if>
+            <if test="djSendNum != null">
+                DJ_SEND_NUM,
+            </if>
+            <if test="dryShelfNum != null">
+                DRY_SHELF_NUM,
+            </if>
+            <if test="dryVdShelfNum != null">
+                DRY_VD_SHELF_NUM,
+            </if>
+            <if test="hjCheckNum != null">
+                HJ_CHECK_NUM,
+            </if>
+            <if test="hjSendNum != null">
+                HJ_SEND_NUM,
+            </if>
+            <if test="lastMonSales != null">
+                LAST_MON_SALES,
+            </if>
+            <if test="reimTime != null">
+                REIM_TIME,
+            </if>
+            <if test="storeTypeFlg != null">
+                STORE_TYPE_FLG,
+            </if>
+            <if test="tamponShelfNum != null">
+                TAMPON_SHELF_NUM,
+            </if>
+            <if test="tamponVdShelfNum != null">
+                TAMPON_VD_SHELF_NUM,
+            </if>
+            <if test="tgCheckNum != null">
+                TG_CHECK_NUM,
+            </if>
+            <if test="tgSendNum != null">
+                TG_SEND_NUM,
+            </if>
+            <if test="wetShelfNum != null">
+                WET_SHELF_NUM,
+            </if>
+            <if test="wetVdShelfNum != null">
+                WET_VD_SHELF_NUM,
+            </if>
+            <if test="aduVdShelfPos != null">
+                ADU_VD_SHELF_POS,
+            </if>
+            <if test="applyNum != null">
+                APPLY_NUM,
+            </if>
+            <if test="applyPhone != null">
+                APPLY_PHONE,
+            </if>
+            <if test="applyPosId != null">
+                APPLY_POS_ID,
+            </if>
+            <if test="approStatus != null">
+                APPRO_STATUS,
+            </if>
+            <if test="checkProblem != null">
+                CHECK_PROBLEM,
+            </if>
+            <if test="checkStoreType != null">
+                CHECK_STORE_TYPE,
+            </if>
+            <if test="cityApproResult != null">
+                CITY_APPRO_RESULT,
+            </if>
+            <if test="creatorPosId != null">
+                CREATOR_POS_ID,
+            </if>
+            <if test="dbLastUpdSrc != null">
+                DB_LAST_UPD_SRC,
+            </if>
+            <if test="diffContant != null">
+                DIFF_CONTANT,
+            </if>
+            <if test="diffType != null">
+                DIFF_TYPE,
+            </if>
+            <if test="djListPos != null">
+                DJ_LIST_POS,
+            </if>
+            <if test="dryVdShelfPos != null">
+                DRY_VD_SHELF_POS,
+            </if>
+            <if test="endExecuteTime != null">
+                END_EXECUTE_TIME,
+            </if>
+            <if test="expenseType != null">
+                EXPENSE_TYPE,
+            </if>
+            <if test="groundingType != null">
+                GROUNDING_TYPE,
+            </if>
+            <if test="gtExpVerfCode != null">
+                GT_EXP_VERF_CODE,
+            </if>
+            <if test="hjListPos != null">
+                HJ_LIST_POS,
+            </if>
+            <if test="positionInfo != null">
+                POSITION_INFO,
+            </if>
+            <if test="promApproResult != null">
+                PROM_APPRO_RESULT,
+            </if>
+            <if test="provApproResult != null">
+                PROV_APPRO_RESULT,
+            </if>
+            <if test="reimStatus != null">
+                REIM_STATUS,
+            </if>
+            <if test="startExecuteTime != null">
+                START_EXECUTE_TIME,
+            </if>
+            <if test="storeId != null">
+                STORE_ID,
+            </if>
+            <if test="submitNum != null">
+                SUBMIT_NUM,
+            </if>
+            <if test="tamponVdShelfPos != null">
+                TAMPON_VD_SHELF_POS,
+            </if>
+            <if test="tgPos != null">
+                TG_POS,
+            </if>
+            <if test="wetVdShelfPos != null">
+                WET_VD_SHELF_POS,
+            </if>
+            <if test="syncflag != null">
+                syncflag,
+            </if>
+            <if test="sendStoreType != null">
+                SEND_STORE_TYPE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="rowId != null">
+                #{rowId,jdbcType=VARCHAR},
+            </if>
+            <if test="created != null">
+                #{created,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpd != null">
+                #{lastUpd,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdBy != null">
+                #{lastUpdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="modificationNum != null">
+                #{modificationNum,jdbcType=DECIMAL},
+            </if>
+            <if test="conflictId != null">
+                #{conflictId,jdbcType=VARCHAR},
+            </if>
+            <if test="aduShelfNum != null">
+                #{aduShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="aduVdShelfNum != null">
+                #{aduVdShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="columnStatus != null">
+                #{columnStatus,jdbcType=CHAR},
+            </if>
+            <if test="dbLastUpd != null">
+                #{dbLastUpd,jdbcType=TIMESTAMP},
+            </if>
+            <if test="djCheckNum != null">
+                #{djCheckNum,jdbcType=DECIMAL},
+            </if>
+            <if test="djSendNum != null">
+                #{djSendNum,jdbcType=DECIMAL},
+            </if>
+            <if test="dryShelfNum != null">
+                #{dryShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="dryVdShelfNum != null">
+                #{dryVdShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="hjCheckNum != null">
+                #{hjCheckNum,jdbcType=DECIMAL},
+            </if>
+            <if test="hjSendNum != null">
+                #{hjSendNum,jdbcType=DECIMAL},
+            </if>
+            <if test="lastMonSales != null">
+                #{lastMonSales,jdbcType=VARCHAR},
+            </if>
+            <if test="reimTime != null">
+                #{reimTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="storeTypeFlg != null">
+                #{storeTypeFlg,jdbcType=CHAR},
+            </if>
+            <if test="tamponShelfNum != null">
+                #{tamponShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="tamponVdShelfNum != null">
+                #{tamponVdShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="tgCheckNum != null">
+                #{tgCheckNum,jdbcType=DECIMAL},
+            </if>
+            <if test="tgSendNum != null">
+                #{tgSendNum,jdbcType=DECIMAL},
+            </if>
+            <if test="wetShelfNum != null">
+                #{wetShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="wetVdShelfNum != null">
+                #{wetVdShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="aduVdShelfPos != null">
+                #{aduVdShelfPos,jdbcType=VARCHAR},
+            </if>
+            <if test="applyNum != null">
+                #{applyNum,jdbcType=VARCHAR},
+            </if>
+            <if test="applyPhone != null">
+                #{applyPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="applyPosId != null">
+                #{applyPosId,jdbcType=VARCHAR},
+            </if>
+            <if test="approStatus != null">
+                #{approStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="checkProblem != null">
+                #{checkProblem,jdbcType=VARCHAR},
+            </if>
+            <if test="checkStoreType != null">
+                #{checkStoreType,jdbcType=VARCHAR},
+            </if>
+            <if test="cityApproResult != null">
+                #{cityApproResult,jdbcType=VARCHAR},
+            </if>
+            <if test="creatorPosId != null">
+                #{creatorPosId,jdbcType=VARCHAR},
+            </if>
+            <if test="dbLastUpdSrc != null">
+                #{dbLastUpdSrc,jdbcType=VARCHAR},
+            </if>
+            <if test="diffContant != null">
+                #{diffContant,jdbcType=VARCHAR},
+            </if>
+            <if test="diffType != null">
+                #{diffType,jdbcType=VARCHAR},
+            </if>
+            <if test="djListPos != null">
+                #{djListPos,jdbcType=VARCHAR},
+            </if>
+            <if test="dryVdShelfPos != null">
+                #{dryVdShelfPos,jdbcType=VARCHAR},
+            </if>
+            <if test="endExecuteTime != null">
+                #{endExecuteTime,jdbcType=VARCHAR},
+            </if>
+            <if test="expenseType != null">
+                #{expenseType,jdbcType=VARCHAR},
+            </if>
+            <if test="groundingType != null">
+                #{groundingType,jdbcType=VARCHAR},
+            </if>
+            <if test="gtExpVerfCode != null">
+                #{gtExpVerfCode,jdbcType=VARCHAR},
+            </if>
+            <if test="hjListPos != null">
+                #{hjListPos,jdbcType=VARCHAR},
+            </if>
+            <if test="positionInfo != null">
+                #{positionInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="promApproResult != null">
+                #{promApproResult,jdbcType=VARCHAR},
+            </if>
+            <if test="provApproResult != null">
+                #{provApproResult,jdbcType=VARCHAR},
+            </if>
+            <if test="reimStatus != null">
+                #{reimStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="startExecuteTime != null">
+                #{startExecuteTime,jdbcType=VARCHAR},
+            </if>
+            <if test="storeId != null">
+                #{storeId,jdbcType=VARCHAR},
+            </if>
+            <if test="submitNum != null">
+                #{submitNum,jdbcType=VARCHAR},
+            </if>
+            <if test="tamponVdShelfPos != null">
+                #{tamponVdShelfPos,jdbcType=VARCHAR},
+            </if>
+            <if test="tgPos != null">
+                #{tgPos,jdbcType=VARCHAR},
+            </if>
+            <if test="wetVdShelfPos != null">
+                #{wetVdShelfPos,jdbcType=VARCHAR},
+            </if>
+            <if test="syncflag != null">
+                #{syncflag,jdbcType=INTEGER},
+            </if>
+            <if test="sendStoreType != null">
+                #{sendStoreType,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into cx_gt_reim
+        (ROW_ID, CREATED, CREATED_BY, LAST_UPD, LAST_UPD_BY, MODIFICATION_NUM, CONFLICT_ID,
+        ADU_SHELF_NUM, ADU_VD_SHELF_NUM, COLUMN_STATUS, DB_LAST_UPD, DJ_CHECK_NUM, DJ_SEND_NUM,
+        DRY_SHELF_NUM, DRY_VD_SHELF_NUM, HJ_CHECK_NUM, HJ_SEND_NUM, LAST_MON_SALES, REIM_TIME,
+        STORE_TYPE_FLG, TAMPON_SHELF_NUM, TAMPON_VD_SHELF_NUM, TG_CHECK_NUM, TG_SEND_NUM,
+        WET_SHELF_NUM, WET_VD_SHELF_NUM, ADU_VD_SHELF_POS, APPLY_NUM, APPLY_PHONE, APPLY_POS_ID,
+        APPRO_STATUS, CHECK_PROBLEM, CHECK_STORE_TYPE, CITY_APPRO_RESULT, CREATOR_POS_ID,
+        DB_LAST_UPD_SRC, DIFF_CONTANT, DIFF_TYPE, DJ_LIST_POS, DRY_VD_SHELF_POS, END_EXECUTE_TIME,
+        EXPENSE_TYPE, GROUNDING_TYPE, GT_EXP_VERF_CODE, HJ_LIST_POS, POSITION_INFO, PROM_APPRO_RESULT,
+        PROV_APPRO_RESULT, REIM_STATUS, START_EXECUTE_TIME, STORE_ID, SUBMIT_NUM, TAMPON_VD_SHELF_POS,
+        TG_POS, WET_VD_SHELF_POS, syncflag, SEND_STORE_TYPE)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.rowId,jdbcType=VARCHAR}, #{item.created,jdbcType=TIMESTAMP}, #{item.createdBy,jdbcType=VARCHAR},
+            #{item.lastUpd,jdbcType=TIMESTAMP}, #{item.lastUpdBy,jdbcType=VARCHAR}, #{item.modificationNum,jdbcType=DECIMAL},
+            #{item.conflictId,jdbcType=VARCHAR}, #{item.aduShelfNum,jdbcType=DECIMAL}, #{item.aduVdShelfNum,jdbcType=DECIMAL},
+            #{item.columnStatus,jdbcType=CHAR}, #{item.dbLastUpd,jdbcType=TIMESTAMP}, #{item.djCheckNum,jdbcType=DECIMAL},
+            #{item.djSendNum,jdbcType=DECIMAL}, #{item.dryShelfNum,jdbcType=DECIMAL}, #{item.dryVdShelfNum,jdbcType=DECIMAL},
+            #{item.hjCheckNum,jdbcType=DECIMAL}, #{item.hjSendNum,jdbcType=DECIMAL}, #{item.lastMonSales,jdbcType=VARCHAR},
+            #{item.reimTime,jdbcType=TIMESTAMP}, #{item.storeTypeFlg,jdbcType=CHAR}, #{item.tamponShelfNum,jdbcType=DECIMAL},
+            #{item.tamponVdShelfNum,jdbcType=DECIMAL}, #{item.tgCheckNum,jdbcType=DECIMAL},
+            #{item.tgSendNum,jdbcType=DECIMAL}, #{item.wetShelfNum,jdbcType=DECIMAL}, #{item.wetVdShelfNum,jdbcType=DECIMAL},
+            #{item.aduVdShelfPos,jdbcType=VARCHAR}, #{item.applyNum,jdbcType=VARCHAR}, #{item.applyPhone,jdbcType=VARCHAR},
+            #{item.applyPosId,jdbcType=VARCHAR}, #{item.approStatus,jdbcType=VARCHAR}, #{item.checkProblem,jdbcType=VARCHAR},
+            #{item.checkStoreType,jdbcType=VARCHAR}, #{item.cityApproResult,jdbcType=VARCHAR},
+            #{item.creatorPosId,jdbcType=VARCHAR}, #{item.dbLastUpdSrc,jdbcType=VARCHAR}, #{item.diffContant,jdbcType=VARCHAR},
+            #{item.diffType,jdbcType=VARCHAR}, #{item.djListPos,jdbcType=VARCHAR}, #{item.dryVdShelfPos,jdbcType=VARCHAR},
+            #{item.endExecuteTime,jdbcType=VARCHAR}, #{item.expenseType,jdbcType=VARCHAR},
+            #{item.groundingType,jdbcType=VARCHAR}, #{item.gtExpVerfCode,jdbcType=VARCHAR},
+            #{item.hjListPos,jdbcType=VARCHAR}, #{item.positionInfo,jdbcType=VARCHAR}, #{item.promApproResult,jdbcType=VARCHAR},
+            #{item.provApproResult,jdbcType=VARCHAR}, #{item.reimStatus,jdbcType=VARCHAR},
+            #{item.startExecuteTime,jdbcType=VARCHAR}, #{item.storeId,jdbcType=VARCHAR}, #{item.submitNum,jdbcType=VARCHAR},
+            #{item.tamponVdShelfPos,jdbcType=VARCHAR}, #{item.tgPos,jdbcType=VARCHAR}, #{item.wetVdShelfPos,jdbcType=VARCHAR},
+            #{item.syncflag,jdbcType=INTEGER}, #{item.sendStoreType,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <select id="selectNoDoneCostListByPositionAndEmpIdSortByUpdTime" resultType="map">
+        select distinct a.id AcountId,a.name Name,cr.Gt_Exp_Verf_Code,cr.Row_Id ,cr.Store_Id,cr.LAST_UPD newTime,
+        ifnull(cr.REIM_STATUS,'新建') Reim_Status,ifnull(cr.APPRO_STATUS,'新建' ) Approval_Status, a2.name as Systems
+        from  gk_employee e
+        inner join gk_emp_postn ep on e.Id = ep.empId
+        inner join gk_position p on p.Id = ep.positionId
+        inner join gk_account_position ap on ep.positionId = ap.positionId
+        inner join gk_account a on ap.accountId = a.Id
+        inner join cx_gt_reim cr on a.intId = cr.STORE_ID
+        left join gk_gt_reim_Temp tem on tem.reimId = cr.row_id
+        left join gk_account a1 on a.parentid=a1.id left join gk_account a2 on a1.parentid=a2.id
+        where p.wxtype in ('GT Store Clerk','GT Director','External GT Store Clerk')
+        and ep.positionId=#{positionId,jdbcType=VARCHAR} and  e.id = #{empId,jdbcType=VARCHAR} and cr.REIM_STATUS!='无效' and (
+        (cr.APPRO_STATUS like '%已驳回' )
+        or (cr.APPRO_STATUS ='新建' and cr.REIM_STATUS!='草稿' )
+        or (cr.APPRO_STATUS ='新建' and cr.REIM_STATUS ='草稿' and p.intId=tem.ApplyPosId ))
+        <if test="Keyword == null and Keyword != 'null' ">
+            <choose>
+                <when test="WxType == 'GT Region Finance'">
+                    and (a.name like concat('%', #{Keyword,jdbcType=VARCHAR}, '%')  or cr.Gt_Exp_Verf_Code like concat('%', #{Keyword,jdbcType=VARCHAR}, '%') )
+                </when>
+                <otherwise> and a.name like concat('%', #{Keyword,jdbcType=VARCHAR}, '%')  </otherwise>
+            </choose>
+        </if>
+        order by newTime desc
+
+    </select>
+
+    <select id="selectMoreCostListByPositionAndEmpIdSortByUpdTime" resultType="map">
+        select distinct a.id AcountId,a.name Name,cr.Row_Id ,cr.Gt_Exp_Verf_Code,cr.Store_Id,cr.LAST_UPD newTime,
+        ifnull(cr.REIM_STATUS,'新建') Reim_Status, ifnull(cr.APPRO_STATUS,'新建' ) Approval_Status,a2.name as Systems
+        from (select appro_emp_pos_id,appro_emp_id,Reim_Id from CX_GT_APRO_DTL
+        union select appro_emp_pos_id,appro_emp_id,Reim_Id from GK_COST_HISTORY_TEMP ) cad
+        inner join gk_position p on cad.appro_emp_pos_id=p.intid inner join gk_employee e on cad.appro_emp_id=e.intId
+        inner join cx_gt_reim cr on cad.Reim_Id = cr.row_Id inner join gk_account a on a.intId = cr.STORE_ID
+        left join gk_account a1 on a.parentid=a1.id left join gk_account a2 on a1.parentid=a2.id
+        left join gk_gt_reim_Temp tem on tem.reimId = cr.row_id
+        where p.Id = #{positionId,jdbcType=VARCHAR} and cr.REIM_STATUS in ('异常','正常')
+        and ( ( tem.ApplyPosId = p.intid  and cr.APPRO_STATUS not like '%已驳回' ) )
+        <if test="Approval_Status!=null">
+            and cr.APPRO_STATUS=#{Approval_Status}
+        </if>
+        <if test="Reim_Status!=null">
+            and cr.Reim_Status=#{Reim_Status}
+        </if>
+        <if test="Keyword != null and Keyword != 'null' ">
+            <choose>
+                <when test="WxType == 'GT Region Finance'">
+                    and (a.name like concat('%', #{Keyword,jdbcType=VARCHAR}, '%')  or cr.Gt_Exp_Verf_Code like concat('%', #{Keyword,jdbcType=VARCHAR}, '%') )
+                </when>
+                <otherwise> and a.name like concat('%', #{Keyword,jdbcType=VARCHAR}, '%')  </otherwise>
+            </choose>
+        </if>
+        order by newTime desc
+    </select>
+
+    <select id="getWxType" parameterType="java.lang.String" resultType="map">
+        select intId,WxType,get_lov_value('POSITION_TYPE',WXTYPE) WxName from gk_position where 1=1
+        <if test="positionId != null ">
+            and Id= #{positionId,jdbcType=VARCHAR}
+        </if>
+        <if test="intId != null ">
+            and intId= #{intId,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <select id="selectEmployeeById" parameterType="java.lang.String" resultType="map">
+        select id,login,intId,name from gk_employee where 1=1
+        <if test="id != null ">
+            and id= #{id,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <select id="checkSuperiorManByPosId" parameterType="java.lang.String" resultType="map">
+        select e.id empId,e.name eName,p.name pName,p.id positionId from cx_gt_reim cr
+        inner join gk_account a on a.intId = cr.STORE_ID
+        inner join gk_account_position ap on ap.accountId = a.Id
+        inner join gk_position p on p.id = ap.positionId
+        inner join gk_emp_postn ep on p.id = ep.positionId
+        inner join gk_employee e on ep.empId=e.id
+        where e.STATUS = '在职'
+        <if test="wxType != null and wxType!='null' ">
+            and p.wxType= #{wxType,jdbcType=VARCHAR}
+        </if>
+        <if test="row_Id != null and row_Id!='null' ">
+            and cr.row_Id=#{row_Id,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <select id="checkCityAndProvinceOffice" parameterType="java.lang.String" resultType="map">
+        select e.id empId,e.name eName,p.name pName,p.id positionId from gk_position p1
+        inner join gk_party_rpt_rel prr on p1.orgid = prr.subobjid
+        inner join gk_position p on prr.objid=p.orgid
+        inner join gk_emp_postn ep on ep.positionId=p.id
+        inner join gk_employee e on e.id= ep.empId
+        where  e.STATUS = '在职'
+        <if test="positionId != null and positionId!='null' ">
+            and p1.id= #{positionId,jdbcType=VARCHAR}
+        </if>
+        <if test="wxType != null and wxType!='null' ">
+            and p.wxType= #{wxType,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <select id="checkPromoteByPosId" parameterType="java.lang.String" resultType="map">
+        select cr.row_id,e.id empId,e.name eName,p.name pName,p.id positionId from cx_gt_reim cr
+        inner join gk_account aa on aa.intId = cr.STORE_ID inner join gk_account a on aa.parentId=a.id
+        inner join gk_account_position ap on ap.accountId = a.Id
+        inner join gk_position p on p.id = ap.positionId
+        inner join gk_emp_postn ep on p.id = ep.positionId
+        inner join gk_employee e on ep.empId=e.id
+        where e.STATUS = '在职' and a.VirtualClientType ='REGION SPLIT' and p.wxType='GT Promote Director'
+        <if test="row_Id != null and row_Id!='null' ">
+            and cr.row_Id= #{row_Id,jdbcType=VARCHAR}
+        </if>
+    </select>
+
+
+    <select id="getGtCode" parameterType="java.lang.String" resultType="java.lang.String">
+        select Gt_Exp_Verf_Code from cx_gt_reim where Gt_Exp_Verf_Code like #{code,jdbcType=VARCHAR}"%" order by Gt_Exp_Verf_Code desc limit 1
+    </select>
+
+
+    <select id="selctSuperiorPosition" parameterType="java.lang.String" resultType="map">
+        select e.id empId,e.name eName,p.name pName,p.id positionId from gk_position p1
+        inner join gk_party_rpt_rel prr on p1.orgid = prr.subobjid
+        inner join gk_position p on prr.objid=p.orgid
+        inner join gk_emp_postn ep on ep.positionId=p.id
+        inner join gk_employee e on e.id= ep.empId
+        where e.STATUS = '在职'
+        <if test="positionId != null ">
+            and p1= #{positionId,jdbcType=VARCHAR}
+        </if>
+        <if test="wxType != null ">
+            and p.wxType= #{wxType,jdbcType=VARCHAR}
+        </if>
+    </select>
+
+
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-18-->
+    <update id="updateByRowId">
+        update cx_gt_reim
+        <set>
+            <if test="updated.rowId != null">
+                ROW_ID = #{updated.rowId,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.created != null">
+                CREATED = #{updated.created,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updated.createdBy != null">
+                CREATED_BY = #{updated.createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.lastUpd != null">
+                LAST_UPD = #{updated.lastUpd,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updated.lastUpdBy != null">
+                LAST_UPD_BY = #{updated.lastUpdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.modificationNum != null">
+                MODIFICATION_NUM = #{updated.modificationNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.conflictId != null">
+                CONFLICT_ID = #{updated.conflictId,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.aduShelfNum != null">
+                ADU_SHELF_NUM = #{updated.aduShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.aduVdShelfNum != null">
+                ADU_VD_SHELF_NUM = #{updated.aduVdShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.columnStatus != null">
+                COLUMN_STATUS = #{updated.columnStatus,jdbcType=CHAR},
+            </if>
+            <if test="updated.dbLastUpd != null">
+                DB_LAST_UPD = #{updated.dbLastUpd,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updated.djCheckNum != null">
+                DJ_CHECK_NUM = #{updated.djCheckNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.djSendNum != null">
+                DJ_SEND_NUM = #{updated.djSendNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.dryShelfNum != null">
+                DRY_SHELF_NUM = #{updated.dryShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.dryVdShelfNum != null">
+                DRY_VD_SHELF_NUM = #{updated.dryVdShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.hjCheckNum != null">
+                HJ_CHECK_NUM = #{updated.hjCheckNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.hjSendNum != null">
+                HJ_SEND_NUM = #{updated.hjSendNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.lastMonSales != null">
+                LAST_MON_SALES = #{updated.lastMonSales,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.reimTime != null">
+                REIM_TIME = #{updated.reimTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updated.storeTypeFlg != null">
+                STORE_TYPE_FLG = #{updated.storeTypeFlg,jdbcType=CHAR},
+            </if>
+            <if test="updated.tamponShelfNum != null">
+                TAMPON_SHELF_NUM = #{updated.tamponShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.tamponVdShelfNum != null">
+                TAMPON_VD_SHELF_NUM = #{updated.tamponVdShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.tgCheckNum != null">
+                TG_CHECK_NUM = #{updated.tgCheckNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.tgSendNum != null">
+                TG_SEND_NUM = #{updated.tgSendNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.wetShelfNum != null">
+                WET_SHELF_NUM = #{updated.wetShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.wetVdShelfNum != null">
+                WET_VD_SHELF_NUM = #{updated.wetVdShelfNum,jdbcType=DECIMAL},
+            </if>
+            <if test="updated.aduVdShelfPos != null">
+                ADU_VD_SHELF_POS = #{updated.aduVdShelfPos,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.applyNum != null">
+                APPLY_NUM = #{updated.applyNum,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.applyPhone != null">
+                APPLY_PHONE = #{updated.applyPhone,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.applyPosId != null">
+                APPLY_POS_ID = #{updated.applyPosId,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.approStatus != null">
+                APPRO_STATUS = #{updated.approStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.checkProblem != null">
+                CHECK_PROBLEM = #{updated.checkProblem,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.checkStoreType != null">
+                CHECK_STORE_TYPE = #{updated.checkStoreType,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.cityApproResult != null">
+                CITY_APPRO_RESULT = #{updated.cityApproResult,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.creatorPosId != null">
+                CREATOR_POS_ID = #{updated.creatorPosId,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.dbLastUpdSrc != null">
+                DB_LAST_UPD_SRC = #{updated.dbLastUpdSrc,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.diffContant != null">
+                DIFF_CONTANT = #{updated.diffContant,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.diffType != null">
+                DIFF_TYPE = #{updated.diffType,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.djListPos != null">
+                DJ_LIST_POS = #{updated.djListPos,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.dryVdShelfPos != null">
+                DRY_VD_SHELF_POS = #{updated.dryVdShelfPos,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.endExecuteTime != null">
+                END_EXECUTE_TIME = #{updated.endExecuteTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.expenseType != null">
+                EXPENSE_TYPE = #{updated.expenseType,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.groundingType != null">
+                GROUNDING_TYPE = #{updated.groundingType,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.gtExpVerfCode != null">
+                GT_EXP_VERF_CODE = #{updated.gtExpVerfCode,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.hjListPos != null">
+                HJ_LIST_POS = #{updated.hjListPos,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.positionInfo != null">
+                POSITION_INFO = #{updated.positionInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.promApproResult != null">
+                PROM_APPRO_RESULT = #{updated.promApproResult,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.provApproResult != null">
+                PROV_APPRO_RESULT = #{updated.provApproResult,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.reimStatus != null">
+                REIM_STATUS = #{updated.reimStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.startExecuteTime != null">
+                START_EXECUTE_TIME = #{updated.startExecuteTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.storeId != null">
+                STORE_ID = #{updated.storeId,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.submitNum != null">
+                SUBMIT_NUM = #{updated.submitNum,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.tamponVdShelfPos != null">
+                TAMPON_VD_SHELF_POS = #{updated.tamponVdShelfPos,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.tgPos != null">
+                TG_POS = #{updated.tgPos,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.wetVdShelfPos != null">
+                WET_VD_SHELF_POS = #{updated.wetVdShelfPos,jdbcType=VARCHAR},
+            </if>
+            <if test="updated.syncflag != null">
+                syncflag = #{updated.syncflag,jdbcType=INTEGER},
+            </if>
+            <if test="updated.sendStoreType != null">
+                SEND_STORE_TYPE = #{updated.sendStoreType,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ROW_ID=#{rowId,jdbcType=VARCHAR}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-19-->
+    <select id="selectByRowId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from cx_gt_reim
+        where ROW_ID=#{rowId,jdbcType=VARCHAR}
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-19-->
+
+
+</mapper>

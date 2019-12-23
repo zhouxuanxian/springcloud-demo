@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.SaCompetitorTemplateEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.SaCompetitorTemplateEntity">
+        <!--@mbg.generated-->
+        <!--@Table sa_competitor_template-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="row_version" jdbcType="INTEGER" property="rowVersion"/>
+        <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag"/>
+        <result column="visit_id" jdbcType="VARCHAR" property="visitId"/>
+        <result column="competitor_id" jdbcType="VARCHAR" property="competitorId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, create_time, update_time, row_version, delete_flag, visit_id, competitor_id
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from sa_competitor_template
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from sa_competitor_template
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorTemplateEntity">
+        <!--@mbg.generated-->
+        insert into sa_competitor_template (id, create_time, update_time,
+        row_version, delete_flag, visit_id,
+        competitor_id)
+        values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+        #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{visitId,jdbcType=VARCHAR},
+        #{competitorId,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorTemplateEntity">
+        <!--@mbg.generated-->
+        insert into sa_competitor_template
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="rowVersion != null">
+                row_version,
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag,
+            </if>
+            <if test="visitId != null">
+                visit_id,
+            </if>
+            <if test="competitorId != null">
+                competitor_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="rowVersion != null">
+                #{rowVersion,jdbcType=INTEGER},
+            </if>
+            <if test="deleteFlag != null">
+                #{deleteFlag,jdbcType=INTEGER},
+            </if>
+            <if test="visitId != null">
+                #{visitId,jdbcType=VARCHAR},
+            </if>
+            <if test="competitorId != null">
+                #{competitorId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorTemplateEntity">
+        <!--@mbg.generated-->
+        update sa_competitor_template
+        <set>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="rowVersion != null">
+                row_version = #{rowVersion,jdbcType=INTEGER},
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag = #{deleteFlag,jdbcType=INTEGER},
+            </if>
+            <if test="visitId != null">
+                visit_id = #{visitId,jdbcType=VARCHAR},
+            </if>
+            <if test="competitorId != null">
+                competitor_id = #{competitorId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorTemplateEntity">
+        <!--@mbg.generated-->
+        update sa_competitor_template
+        set create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        row_version = #{rowVersion,jdbcType=INTEGER},
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+        visit_id = #{visitId,jdbcType=VARCHAR},
+        competitor_id = #{competitorId,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update sa_competitor_template
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="create_time = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.createTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="update_time = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.updateTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="row_version = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.rowVersion,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="delete_flag = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.deleteFlag,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="visit_id = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.visitId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="competitor_id = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when id = #{item.id,jdbcType=VARCHAR} then #{item.competitorId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+        </trim>
+        where id in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.id,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into sa_competitor_template
+        (id, create_time, update_time, row_version, delete_flag, visit_id, competitor_id)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP},
+            #{item.rowVersion,jdbcType=INTEGER}, #{item.deleteFlag,jdbcType=INTEGER}, #{item.visitId,jdbcType=VARCHAR},
+            #{item.competitorId,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+    <insert id="insertOrUpdate" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorTemplateEntity">
+        <!--@mbg.generated-->
+        insert into sa_competitor_template
+        (id, create_time, update_time, row_version, delete_flag, visit_id, competitor_id)
+        values
+        (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+        #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{visitId,jdbcType=VARCHAR},
+        #{competitorId,jdbcType=VARCHAR})
+        on duplicate key update
+        id = #{id,jdbcType=VARCHAR},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+        row_version = #{rowVersion,jdbcType=INTEGER},
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+        visit_id = #{visitId,jdbcType=VARCHAR},
+        competitor_id = #{competitorId,jdbcType=VARCHAR}
+    </insert>
+    <insert id="insertOrUpdateSelective"
+            parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorTemplateEntity">
+        <!--@mbg.generated-->
+        insert into sa_competitor_template
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="rowVersion != null">
+                row_version,
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag,
+            </if>
+            <if test="visitId != null">
+                visit_id,
+            </if>
+            <if test="competitorId != null">
+                competitor_id,
+            </if>
+        </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="rowVersion != null">
+                #{rowVersion,jdbcType=INTEGER},
+            </if>
+            <if test="deleteFlag != null">
+                #{deleteFlag,jdbcType=INTEGER},
+            </if>
+            <if test="visitId != null">
+                #{visitId,jdbcType=VARCHAR},
+            </if>
+            <if test="competitorId != null">
+                #{competitorId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+        on duplicate key update
+        <trim suffixOverrides=",">
+            <if test="id != null">
+                id = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="rowVersion != null">
+                row_version = #{rowVersion,jdbcType=INTEGER},
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag = #{deleteFlag,jdbcType=INTEGER},
+            </if>
+            <if test="visitId != null">
+                visit_id = #{visitId,jdbcType=VARCHAR},
+            </if>
+            <if test="competitorId != null">
+                competitor_id = #{competitorId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-04-->
+    <delete id="deleteByVisitId">
+        delete from sa_competitor_template
+        where visit_id=#{visitId,jdbcType=VARCHAR}
+    </delete>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-04-->
+    <update id="updateDeleteFlagByVisitId">
+        update sa_competitor_template
+        set delete_flag=#{updatedDeleteFlag,jdbcType=INTEGER}
+        where visit_id=#{visitId,jdbcType=VARCHAR}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-09-->
+    <select id="selectByVisitId" resultType="map">
+        select sct.id,
+        c.productName,
+        c.picUrl,
+        c.barCodeNumber,
+        sct.competitor_id
+        from sa_competitor_template sct
+        left join gk_competitor c on c.id = sct.competitor_id
+        where sct.visit_id=#{visitId,jdbcType=VARCHAR}
+        and sct.delete_flag = 0
+    </select>
+</mapper>

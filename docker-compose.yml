@@ -1,0 +1,146 @@
+version: '2'
+services:
+  sa-wx:
+    image: registry.cn-shenzhen.aliyuncs.com/dmpcloud/vinda-salesaux-weixin:1.0.0
+    environment:
+      EUREKA_HOST: sa-core
+      EUREKA_PORT: '8761'
+      MYSQL_HOST: 10.10.109.251
+      MYSQL_PORT: '3306'
+      MYSQL_DB: vddb
+      MYSQL_ROOT_USERNAME: guanke
+      MYSQL_ROOT_PASSWORD: Guanke12#
+      TZ: Asia/Shanghai
+      REDIS_HOST: redis
+      REDIS_PORT: '6379'
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: hostgroup=worker
+  qywechat-fronted:
+    image: registry.cn-shenzhen.aliyuncs.com/dmpcloud/vinda-salesaux-qywechat-fronted:1.0.0
+    stdin_open: true
+    tty: true
+    ports:
+    - 80:8080/tcp
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: hostgroup=worker
+  WEB:
+    image: rancher/lb-service-haproxy:v0.9.1
+    ports:
+    - 8200:8200/tcp
+    - 18761:18761/tcp
+    - 18058:18058/tcp
+    - 8201:8201/tcp
+    - 16379:16379/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: hostgroup=controller
+      io.rancher.container.agent.role: environmentAdmin,agent
+      io.rancher.container.agent_service.drain_provider: 'true'
+      io.rancher.container.create_agent: 'true'
+  sa-core:
+    image: registry.cn-shenzhen.aliyuncs.com/dmpcloud/vinda-salesaux-core:1.0.0
+    environment:
+      EUREKA_HOST: sa-core
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: hostgroup=worker
+  sa-schedule:
+    image: registry.cn-shenzhen.aliyuncs.com/dmpcloud/vinda-salesaux-schedule:1.0.0
+    environment:
+      EUREKA_HOST: sa-core
+      EUREKA_PORT: '8761'
+      MYSQL_HOST: 10.10.109.251
+      MYSQL_PORT: '3306'
+      MYSQL_DB: sa_v1
+      MYSQL_ROOT_USERNAME: guanke
+      MYSQL_ROOT_PASSWORD: Guanke12#
+      TZ: Asia/Shanghai
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: hostgroup=worker
+  sa-sync:
+    image: registry.cn-shenzhen.aliyuncs.com/dmpcloud/vinda-salesaux-sync:1.0.0
+    environment:
+      EUREKA_HOST: sa-core
+      EUREKA_PORT: '8761'
+      MYSQL_HOST: 10.10.109.251
+      MYSQL_PORT: '3306'
+      MYSQL_DB: vddb
+      MYSQL_ROOT_USERNAME: guanke
+      MYSQL_ROOT_PASSWORD: Guanke12#
+      TZ: Asia/Shanghai
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: hostgroup=worker
+  vinda-gate:
+    image: registry.cn-shenzhen.aliyuncs.com/dmpcloud/vinda-salesaux-gate:1.0.0
+    environment:
+      EUREKA_HOST: sa-core
+      EUREKA_PORT: '8761'
+      SA-FUNC: sa-func
+      SA-SCHE: sa-schedule
+      SA-WX: sa-wx
+      TZ: Asia/Shanghai
+      SA-SYNC: sa-sync
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: hostgroup=worker
+  rabbitmq:
+    image: rabbitmq:management
+    environment:
+      TZ: Asia/Shanghai
+    stdin_open: true
+    volumes:
+    - /d01/test/rabbitmq.data:/data
+    - /d01/test/rabbitmq:/var/lib/rabbitmq
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  redis:
+    image: redis:4.0
+    environment:
+      TZ: Asia/Shanghai
+    stdin_open: true
+    volumes:
+    - /d02/data/redis:/data
+    tty: true
+    ports:
+    - 16379:6379/tcp
+    command:
+    - redis-server
+    - --appendonly
+    - 'yes'
+    - --requirepass
+    - salesaux
+    - --notify-keyspace-events
+    - Ex
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: hostgroup=worker
+  sa-func:
+    image: registry.cn-shenzhen.aliyuncs.com/dmpcloud/vinda-salesaux-func:1.0.0
+    environment:
+      EUREKA_HOST: sa-core
+      EUREKA_PORT: '8761'
+      MYSQL_HOST: 10.10.109.251
+      MYSQL_PORT: '3306'
+      MYSQL_DB: vddb
+      MYSQL_ROOT_USERNAME: guanke
+      MYSQL_ROOT_PASSWORD: Guanke12#
+      TZ: Asia/Shanghai
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: hostgroup=worker

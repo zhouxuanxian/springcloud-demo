@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkGtReimTempEntityMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkGtReimTempEntity">
+    <!--@mbg.generated-->
+    <!--@Table gk_gt_reim_temp-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="createdBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="DJ_Check_NumberStr" jdbcType="VARCHAR" property="djCheckNumberstr" />
+    <result column="DJ_List_Position" jdbcType="VARCHAR" property="djListPosition" />
+    <result column="TG_Check_NumberStr" jdbcType="VARCHAR" property="tgCheckNumberstr" />
+    <result column="TG_Position" jdbcType="VARCHAR" property="tgPosition" />
+    <result column="adult_Shelf_NumberStr" jdbcType="VARCHAR" property="adultShelfNumberstr" />
+    <result column="adult_Vinda_Shelf_NumberStr" jdbcType="VARCHAR" property="adultVindaShelfNumberstr" />
+    <result column="adult_Vinda_Shelf_Position" jdbcType="VARCHAR" property="adultVindaShelfPosition" />
+    <result column="check_Problem" jdbcType="VARCHAR" property="checkProblem" />
+    <result column="dry_Shelf_NumberStr" jdbcType="VARCHAR" property="dryShelfNumberstr" />
+    <result column="dry_Vinda_Shelf_NumberStr" jdbcType="VARCHAR" property="dryVindaShelfNumberstr" />
+    <result column="dry_Vinda_Shelf_Position" jdbcType="VARCHAR" property="dryVindaShelfPosition" />
+    <result column="grounding_TypeStr" jdbcType="VARCHAR" property="groundingTypestr" />
+    <result column="position_Info" jdbcType="VARCHAR" property="positionInfo" />
+    <result column="reimId" jdbcType="VARCHAR" property="reimid" />
+    <result column="sales_Predict" jdbcType="VARCHAR" property="salesPredict" />
+    <result column="shelf_Check_NumberStr" jdbcType="VARCHAR" property="shelfCheckNumberstr" />
+    <result column="shelf_Position" jdbcType="VARCHAR" property="shelfPosition" />
+    <result column="storeEq" jdbcType="VARCHAR" property="storeeq" />
+    <result column="store_Type" jdbcType="VARCHAR" property="storeType" />
+    <result column="tampon_Shelf_NumberStr" jdbcType="VARCHAR" property="tamponShelfNumberstr" />
+    <result column="tampon_Vinda_Shelf_NumberStr" jdbcType="VARCHAR" property="tamponVindaShelfNumberstr" />
+    <result column="tampon_Vinda_Shelf_Position" jdbcType="VARCHAR" property="tamponVindaShelfPosition" />
+    <result column="wet_Shelf_NumberStr" jdbcType="VARCHAR" property="wetShelfNumberstr" />
+    <result column="wet_Vinda_Shelf_NumberStr" jdbcType="VARCHAR" property="wetVindaShelfNumberstr" />
+    <result column="wet_Vinda_Shelf_Position" jdbcType="VARCHAR" property="wetVindaShelfPosition" />
+    <result column="cored_Promotion_Number" jdbcType="VARCHAR" property="coredPromotionNumber" />
+    <result column="coreless_Promotion_Number" jdbcType="VARCHAR" property="corelessPromotionNumber" />
+    <result column="hand_Page_Promotion_Number" jdbcType="VARCHAR" property="handPagePromotionNumber" />
+    <result column="soft_Promotion_Number" jdbcType="VARCHAR" property="softPromotionNumber" />
+    <result column="wipes_Promotion_Number" jdbcType="VARCHAR" property="wipesPromotionNumber" />
+    <result column="ApplyPosId" jdbcType="VARCHAR" property="applyPosId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, createdBy, createdTime, updatedBy, updatedTime, version, DJ_Check_NumberStr, 
+    DJ_List_Position, TG_Check_NumberStr, TG_Position, adult_Shelf_NumberStr, adult_Vinda_Shelf_NumberStr, 
+    adult_Vinda_Shelf_Position, check_Problem, dry_Shelf_NumberStr, dry_Vinda_Shelf_NumberStr, 
+    dry_Vinda_Shelf_Position, grounding_TypeStr, position_Info, reimId, sales_Predict, 
+    shelf_Check_NumberStr, shelf_Position, storeEq, store_Type, tampon_Shelf_NumberStr, 
+    tampon_Vinda_Shelf_NumberStr, tampon_Vinda_Shelf_Position, wet_Shelf_NumberStr, wet_Vinda_Shelf_NumberStr, 
+    wet_Vinda_Shelf_Position, cored_Promotion_Number, coreless_Promotion_Number, hand_Page_Promotion_Number, 
+    soft_Promotion_Number, wipes_Promotion_Number, ApplyPosId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from gk_gt_reim_temp
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectTempListByRowId" resultType="map">
+      select ReimId,Dry_Shelf_NumberStr,Dry_Vinda_Shelf_NumberStr,Wet_Shelf_NumberStr,Wet_Vinda_Shelf_NumberStr,
+      Tampon_Shelf_NumberStr,Tampon_Vinda_Shelf_NumberStr,Adult_Shelf_NumberStr,Adult_Vinda_Shelf_NumberStr,
+      TG_Check_NumberStr,DJ_Check_NumberStr,Shelf_Check_NumberStr,Shelf_Position,StoreEq,
+      Dry_Vinda_Shelf_Position,Wet_Vinda_Shelf_Position,Tampon_Vinda_Shelf_Position,Adult_Vinda_Shelf_Position,
+      TG_Position,DJ_List_Position,Check_Problem,Grounding_TypeStr,Position_Info as locationAddr,Sales_Predict
+      from gk_gt_reim_Temp
+      where reimId = #{rowId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from gk_gt_reim_temp
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkGtReimTempEntity">
+    <!--@mbg.generated-->
+    insert into gk_gt_reim_temp (id, createdBy, createdTime, 
+      updatedBy, updatedTime, version, 
+      DJ_Check_NumberStr, DJ_List_Position, TG_Check_NumberStr, 
+      TG_Position, adult_Shelf_NumberStr, adult_Vinda_Shelf_NumberStr, 
+      adult_Vinda_Shelf_Position, check_Problem, 
+      dry_Shelf_NumberStr, dry_Vinda_Shelf_NumberStr, 
+      dry_Vinda_Shelf_Position, grounding_TypeStr, 
+      position_Info, reimId, sales_Predict, 
+      shelf_Check_NumberStr, shelf_Position, storeEq, 
+      store_Type, tampon_Shelf_NumberStr, tampon_Vinda_Shelf_NumberStr, 
+      tampon_Vinda_Shelf_Position, wet_Shelf_NumberStr, 
+      wet_Vinda_Shelf_NumberStr, wet_Vinda_Shelf_Position, 
+      cored_Promotion_Number, coreless_Promotion_Number, 
+      hand_Page_Promotion_Number, soft_Promotion_Number, 
+      wipes_Promotion_Number, ApplyPosId)
+    values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, 
+      #{djCheckNumberstr,jdbcType=VARCHAR}, #{djListPosition,jdbcType=VARCHAR}, #{tgCheckNumberstr,jdbcType=VARCHAR}, 
+      #{tgPosition,jdbcType=VARCHAR}, #{adultShelfNumberstr,jdbcType=VARCHAR}, #{adultVindaShelfNumberstr,jdbcType=VARCHAR}, 
+      #{adultVindaShelfPosition,jdbcType=VARCHAR}, #{checkProblem,jdbcType=VARCHAR}, 
+      #{dryShelfNumberstr,jdbcType=VARCHAR}, #{dryVindaShelfNumberstr,jdbcType=VARCHAR}, 
+      #{dryVindaShelfPosition,jdbcType=VARCHAR}, #{groundingTypestr,jdbcType=VARCHAR}, 
+      #{positionInfo,jdbcType=VARCHAR}, #{reimid,jdbcType=VARCHAR}, #{salesPredict,jdbcType=VARCHAR}, 
+      #{shelfCheckNumberstr,jdbcType=VARCHAR}, #{shelfPosition,jdbcType=VARCHAR}, #{storeeq,jdbcType=VARCHAR}, 
+      #{storeType,jdbcType=VARCHAR}, #{tamponShelfNumberstr,jdbcType=VARCHAR}, #{tamponVindaShelfNumberstr,jdbcType=VARCHAR}, 
+      #{tamponVindaShelfPosition,jdbcType=VARCHAR}, #{wetShelfNumberstr,jdbcType=VARCHAR}, 
+      #{wetVindaShelfNumberstr,jdbcType=VARCHAR}, #{wetVindaShelfPosition,jdbcType=VARCHAR}, 
+      #{coredPromotionNumber,jdbcType=VARCHAR}, #{corelessPromotionNumber,jdbcType=VARCHAR}, 
+      #{handPagePromotionNumber,jdbcType=VARCHAR}, #{softPromotionNumber,jdbcType=VARCHAR}, 
+      #{wipesPromotionNumber,jdbcType=VARCHAR}, #{applyPosId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkGtReimTempEntity">
+    <!--@mbg.generated-->
+    insert into gk_gt_reim_temp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createdBy != null">
+        createdBy,
+      </if>
+      <if test="createdTime != null">
+        createdTime,
+      </if>
+      <if test="updatedBy != null">
+        updatedBy,
+      </if>
+      <if test="updatedTime != null">
+        updatedTime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="djCheckNumberstr != null">
+        DJ_Check_NumberStr,
+      </if>
+      <if test="djListPosition != null">
+        DJ_List_Position,
+      </if>
+      <if test="tgCheckNumberstr != null">
+        TG_Check_NumberStr,
+      </if>
+      <if test="tgPosition != null">
+        TG_Position,
+      </if>
+      <if test="adultShelfNumberstr != null">
+        adult_Shelf_NumberStr,
+      </if>
+      <if test="adultVindaShelfNumberstr != null">
+        adult_Vinda_Shelf_NumberStr,
+      </if>
+      <if test="adultVindaShelfPosition != null">
+        adult_Vinda_Shelf_Position,
+      </if>
+      <if test="checkProblem != null">
+        check_Problem,
+      </if>
+      <if test="dryShelfNumberstr != null">
+        dry_Shelf_NumberStr,
+      </if>
+      <if test="dryVindaShelfNumberstr != null">
+        dry_Vinda_Shelf_NumberStr,
+      </if>
+      <if test="dryVindaShelfPosition != null">
+        dry_Vinda_Shelf_Position,
+      </if>
+      <if test="groundingTypestr != null">
+        grounding_TypeStr,
+      </if>
+      <if test="positionInfo != null">
+        position_Info,
+      </if>
+      <if test="reimid != null">
+        reimId,
+      </if>
+      <if test="salesPredict != null">
+        sales_Predict,
+      </if>
+      <if test="shelfCheckNumberstr != null">
+        shelf_Check_NumberStr,
+      </if>
+      <if test="shelfPosition != null">
+        shelf_Position,
+      </if>
+      <if test="storeeq != null">
+        storeEq,
+      </if>
+      <if test="storeType != null">
+        store_Type,
+      </if>
+      <if test="tamponShelfNumberstr != null">
+        tampon_Shelf_NumberStr,
+      </if>
+      <if test="tamponVindaShelfNumberstr != null">
+        tampon_Vinda_Shelf_NumberStr,
+      </if>
+      <if test="tamponVindaShelfPosition != null">
+        tampon_Vinda_Shelf_Position,
+      </if>
+      <if test="wetShelfNumberstr != null">
+        wet_Shelf_NumberStr,
+      </if>
+      <if test="wetVindaShelfNumberstr != null">
+        wet_Vinda_Shelf_NumberStr,
+      </if>
+      <if test="wetVindaShelfPosition != null">
+        wet_Vinda_Shelf_Position,
+      </if>
+      <if test="coredPromotionNumber != null">
+        cored_Promotion_Number,
+      </if>
+      <if test="corelessPromotionNumber != null">
+        coreless_Promotion_Number,
+      </if>
+      <if test="handPagePromotionNumber != null">
+        hand_Page_Promotion_Number,
+      </if>
+      <if test="softPromotionNumber != null">
+        soft_Promotion_Number,
+      </if>
+      <if test="wipesPromotionNumber != null">
+        wipes_Promotion_Number,
+      </if>
+      <if test="applyPosId != null">
+        ApplyPosId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="djCheckNumberstr != null">
+        #{djCheckNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="djListPosition != null">
+        #{djListPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="tgCheckNumberstr != null">
+        #{tgCheckNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="tgPosition != null">
+        #{tgPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="adultShelfNumberstr != null">
+        #{adultShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="adultVindaShelfNumberstr != null">
+        #{adultVindaShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="adultVindaShelfPosition != null">
+        #{adultVindaShelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="checkProblem != null">
+        #{checkProblem,jdbcType=VARCHAR},
+      </if>
+      <if test="dryShelfNumberstr != null">
+        #{dryShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="dryVindaShelfNumberstr != null">
+        #{dryVindaShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="dryVindaShelfPosition != null">
+        #{dryVindaShelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="groundingTypestr != null">
+        #{groundingTypestr,jdbcType=VARCHAR},
+      </if>
+      <if test="positionInfo != null">
+        #{positionInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="reimid != null">
+        #{reimid,jdbcType=VARCHAR},
+      </if>
+      <if test="salesPredict != null">
+        #{salesPredict,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfCheckNumberstr != null">
+        #{shelfCheckNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfPosition != null">
+        #{shelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="storeeq != null">
+        #{storeeq,jdbcType=VARCHAR},
+      </if>
+      <if test="storeType != null">
+        #{storeType,jdbcType=VARCHAR},
+      </if>
+      <if test="tamponShelfNumberstr != null">
+        #{tamponShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="tamponVindaShelfNumberstr != null">
+        #{tamponVindaShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="tamponVindaShelfPosition != null">
+        #{tamponVindaShelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="wetShelfNumberstr != null">
+        #{wetShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="wetVindaShelfNumberstr != null">
+        #{wetVindaShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="wetVindaShelfPosition != null">
+        #{wetVindaShelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="coredPromotionNumber != null">
+        #{coredPromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="corelessPromotionNumber != null">
+        #{corelessPromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="handPagePromotionNumber != null">
+        #{handPagePromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="softPromotionNumber != null">
+        #{softPromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="wipesPromotionNumber != null">
+        #{wipesPromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPosId != null">
+        #{applyPosId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkGtReimTempEntity">
+    <!--@mbg.generated-->
+    update gk_gt_reim_temp
+    <set>
+      <if test="createdBy != null">
+        createdBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="djCheckNumberstr != null">
+        DJ_Check_NumberStr = #{djCheckNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="djListPosition != null">
+        DJ_List_Position = #{djListPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="tgCheckNumberstr != null">
+        TG_Check_NumberStr = #{tgCheckNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="tgPosition != null">
+        TG_Position = #{tgPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="adultShelfNumberstr != null">
+        adult_Shelf_NumberStr = #{adultShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="adultVindaShelfNumberstr != null">
+        adult_Vinda_Shelf_NumberStr = #{adultVindaShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="adultVindaShelfPosition != null">
+        adult_Vinda_Shelf_Position = #{adultVindaShelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="checkProblem != null">
+        check_Problem = #{checkProblem,jdbcType=VARCHAR},
+      </if>
+      <if test="dryShelfNumberstr != null">
+        dry_Shelf_NumberStr = #{dryShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="dryVindaShelfNumberstr != null">
+        dry_Vinda_Shelf_NumberStr = #{dryVindaShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="dryVindaShelfPosition != null">
+        dry_Vinda_Shelf_Position = #{dryVindaShelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="groundingTypestr != null">
+        grounding_TypeStr = #{groundingTypestr,jdbcType=VARCHAR},
+      </if>
+      <if test="positionInfo != null">
+        position_Info = #{positionInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="reimid != null">
+        reimId = #{reimid,jdbcType=VARCHAR},
+      </if>
+      <if test="salesPredict != null">
+        sales_Predict = #{salesPredict,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfCheckNumberstr != null">
+        shelf_Check_NumberStr = #{shelfCheckNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfPosition != null">
+        shelf_Position = #{shelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="storeeq != null">
+        storeEq = #{storeeq,jdbcType=VARCHAR},
+      </if>
+      <if test="storeType != null">
+        store_Type = #{storeType,jdbcType=VARCHAR},
+      </if>
+      <if test="tamponShelfNumberstr != null">
+        tampon_Shelf_NumberStr = #{tamponShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="tamponVindaShelfNumberstr != null">
+        tampon_Vinda_Shelf_NumberStr = #{tamponVindaShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="tamponVindaShelfPosition != null">
+        tampon_Vinda_Shelf_Position = #{tamponVindaShelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="wetShelfNumberstr != null">
+        wet_Shelf_NumberStr = #{wetShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="wetVindaShelfNumberstr != null">
+        wet_Vinda_Shelf_NumberStr = #{wetVindaShelfNumberstr,jdbcType=VARCHAR},
+      </if>
+      <if test="wetVindaShelfPosition != null">
+        wet_Vinda_Shelf_Position = #{wetVindaShelfPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="coredPromotionNumber != null">
+        cored_Promotion_Number = #{coredPromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="corelessPromotionNumber != null">
+        coreless_Promotion_Number = #{corelessPromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="handPagePromotionNumber != null">
+        hand_Page_Promotion_Number = #{handPagePromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="softPromotionNumber != null">
+        soft_Promotion_Number = #{softPromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="wipesPromotionNumber != null">
+        wipes_Promotion_Number = #{wipesPromotionNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="applyPosId != null">
+        ApplyPosId = #{applyPosId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkGtReimTempEntity">
+    <!--@mbg.generated-->
+    update gk_gt_reim_temp
+    set createdBy = #{createdBy,jdbcType=VARCHAR},
+      createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      DJ_Check_NumberStr = #{djCheckNumberstr,jdbcType=VARCHAR},
+      DJ_List_Position = #{djListPosition,jdbcType=VARCHAR},
+      TG_Check_NumberStr = #{tgCheckNumberstr,jdbcType=VARCHAR},
+      TG_Position = #{tgPosition,jdbcType=VARCHAR},
+      adult_Shelf_NumberStr = #{adultShelfNumberstr,jdbcType=VARCHAR},
+      adult_Vinda_Shelf_NumberStr = #{adultVindaShelfNumberstr,jdbcType=VARCHAR},
+      adult_Vinda_Shelf_Position = #{adultVindaShelfPosition,jdbcType=VARCHAR},
+      check_Problem = #{checkProblem,jdbcType=VARCHAR},
+      dry_Shelf_NumberStr = #{dryShelfNumberstr,jdbcType=VARCHAR},
+      dry_Vinda_Shelf_NumberStr = #{dryVindaShelfNumberstr,jdbcType=VARCHAR},
+      dry_Vinda_Shelf_Position = #{dryVindaShelfPosition,jdbcType=VARCHAR},
+      grounding_TypeStr = #{groundingTypestr,jdbcType=VARCHAR},
+      position_Info = #{positionInfo,jdbcType=VARCHAR},
+      reimId = #{reimid,jdbcType=VARCHAR},
+      sales_Predict = #{salesPredict,jdbcType=VARCHAR},
+      shelf_Check_NumberStr = #{shelfCheckNumberstr,jdbcType=VARCHAR},
+      shelf_Position = #{shelfPosition,jdbcType=VARCHAR},
+      storeEq = #{storeeq,jdbcType=VARCHAR},
+      store_Type = #{storeType,jdbcType=VARCHAR},
+      tampon_Shelf_NumberStr = #{tamponShelfNumberstr,jdbcType=VARCHAR},
+      tampon_Vinda_Shelf_NumberStr = #{tamponVindaShelfNumberstr,jdbcType=VARCHAR},
+      tampon_Vinda_Shelf_Position = #{tamponVindaShelfPosition,jdbcType=VARCHAR},
+      wet_Shelf_NumberStr = #{wetShelfNumberstr,jdbcType=VARCHAR},
+      wet_Vinda_Shelf_NumberStr = #{wetVindaShelfNumberstr,jdbcType=VARCHAR},
+      wet_Vinda_Shelf_Position = #{wetVindaShelfPosition,jdbcType=VARCHAR},
+      cored_Promotion_Number = #{coredPromotionNumber,jdbcType=VARCHAR},
+      coreless_Promotion_Number = #{corelessPromotionNumber,jdbcType=VARCHAR},
+      hand_Page_Promotion_Number = #{handPagePromotionNumber,jdbcType=VARCHAR},
+      soft_Promotion_Number = #{softPromotionNumber,jdbcType=VARCHAR},
+      wipes_Promotion_Number = #{wipesPromotionNumber,jdbcType=VARCHAR},
+      ApplyPosId = #{applyPosId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

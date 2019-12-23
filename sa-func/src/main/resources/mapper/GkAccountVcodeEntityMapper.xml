@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkAccountVcodeEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkAccountVcodeEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_account_vcode-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="vCode" jdbcType="VARCHAR" property="vCode"/>
+        <result column="accountId" jdbcType="VARCHAR" property="accountId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, vCode, accountId
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_account_vcode
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_account_vcode
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountVcodeEntity">
+        <!--@mbg.generated-->
+        insert into gk_account_vcode (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        vCode, accountId)
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{vCode,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountVcodeEntity">
+        <!--@mbg.generated-->
+        insert into gk_account_vcode
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="vCode != null">
+                vCode,
+            </if>
+            <if test="accountId != null">
+                accountId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="vCode != null">
+                #{vCode,jdbcType=VARCHAR},
+            </if>
+            <if test="accountId != null">
+                #{accountId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.guanke.vinda.samodels.model.entity.GkAccountVcodeEntity">
+        <!--@mbg.generated-->
+        update gk_account_vcode
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="vCode != null">
+                vCode = #{vCode,jdbcType=VARCHAR},
+            </if>
+            <if test="accountId != null">
+                accountId = #{accountId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountVcodeEntity">
+        <!--@mbg.generated-->
+        update gk_account_vcode
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        vCode = #{vCode,jdbcType=VARCHAR},
+        accountId = #{accountId,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectShopVCodeCnt" resultType="java.util.Map">
+        select ifnull(count(1), 0) as vCodeCnt
+        from gk_account_vcode avc
+        where accountId = #{shopId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectStockOrdersIdByAccountId" resultType="map">
+        select s.id
+        from gk_account_vCode v
+        left join gk_stock_order s on v.vCode = s.vCode and s.visitId = #{visitId,jdbcType=VARCHAR}
+        left join gk_list_of_value lov on lov.code = v.vCode and lov.type = 'PROD_V_CODE'
+        where v.accountId = #{accountId,jdbcType=VARCHAR}
+        and s.writeTime is not null
+    </select>
+
+    <select id="selectStockOrdersIdByVisitId" resultType="map">
+        select s.id
+        from gk_stock_order s
+        left join gk_list_of_value lov on lov.code = s.vCode and lov.type = 'PROD_V_CODE'
+        where s.visitId = #{visitId,jdbcType=VARCHAR}
+        group by s.vCode, lov.value
+        order by lov.value
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-29-->
+    <select id="selectByAccountIdAndVCode" resultMap="BaseResultMap">
+        select distinct
+        <include refid="Base_Column_List"/>
+        from gk_account_vcode
+        where accountId=#{accountId,jdbcType=VARCHAR} and vCode=#{vCode,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectVCodeInfoByVisitId" resultType="map" parameterType="string">
+        select s.id,
+        s.vCode,
+        s.stockQty,
+        s.orderQty,
+        s.price,
+        lov.value as vCode_value,
+        lov.code,
+        lov.comments as category
+        from gk_stock_order s
+        left join gk_list_of_value lov
+        on lov.code = s.vCode and lov.type = 'PROD_V_CODE'
+        where s.visitId = #{visitId,jdbcType=VARCHAR}
+        group by s.vCode, lov.value
+        order by lov.value
+    </select>
+
+    <!--根据门店Id查询门店V码-->
+    <select id="selectGkAccountVcodeByCondition" resultType="map" parameterType="string">
+        select gk_account_vcode.*,
+        gk_list_of_value.comments
+        from gk_account_vcode
+        left join gk_list_of_value
+        on gk_account_vcode.vCode = gk_list_of_value.code
+        and gk_list_of_value.type = 'PROD_V_CODE'
+
+        where 1 = 1
+        <if test="accountId != null and accountId != '' and accountId != 'null'">
+            and gk_account_vcode.accountId = #{accountId,jdbcType=VARCHAR}
+        </if>
+        order by gk_account_vcode.createdTime desc
+    </select>
+</mapper>

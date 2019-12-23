@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkStockOrderEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkStockOrderEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_stock_order-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="vCode" jdbcType="VARCHAR" property="vCode"/>
+        <result column="accountId" jdbcType="VARCHAR" property="accountId"/>
+        <result column="empId" jdbcType="VARCHAR" property="empId"/>
+        <result column="orderQty" jdbcType="INTEGER" property="orderQty"/>
+        <result column="positionId" jdbcType="VARCHAR" property="positionId"/>
+        <result column="stockQty" jdbcType="INTEGER" property="stockQty"/>
+        <result column="visitId" jdbcType="VARCHAR" property="visitId"/>
+        <result column="writeTime" jdbcType="DATE" property="writeTime"/>
+        <result column="price" jdbcType="DECIMAL" property="price"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, vCode, accountId, empId,
+        orderQty, positionId, stockQty, visitId, writeTime, price
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_stock_order
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_stock_order
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkStockOrderEntity">
+        <!--@mbg.generated-->
+        insert into gk_stock_order (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        vCode, accountId, empId,
+        orderQty, positionId, stockQty,
+        visitId, writeTime, price
+        )
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{vCode,jdbcType=VARCHAR}, #{accountId,jdbcType=VARCHAR}, #{empId,jdbcType=VARCHAR},
+        #{orderQty,jdbcType=INTEGER}, #{positionId,jdbcType=VARCHAR}, #{stockQty,jdbcType=INTEGER},
+        #{visitId,jdbcType=VARCHAR}, #{writeTime,jdbcType=DATE}, #{price,jdbcType=DECIMAL}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkStockOrderEntity">
+        <!--@mbg.generated-->
+        insert into gk_stock_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="vCode != null">
+                vCode,
+            </if>
+            <if test="accountId != null">
+                accountId,
+            </if>
+            <if test="empId != null">
+                empId,
+            </if>
+            <if test="orderQty != null">
+                orderQty,
+            </if>
+            <if test="positionId != null">
+                positionId,
+            </if>
+            <if test="stockQty != null">
+                stockQty,
+            </if>
+            <if test="visitId != null">
+                visitId,
+            </if>
+            <if test="writeTime != null">
+                writeTime,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="vCode != null">
+                #{vCode,jdbcType=VARCHAR},
+            </if>
+            <if test="accountId != null">
+                #{accountId,jdbcType=VARCHAR},
+            </if>
+            <if test="empId != null">
+                #{empId,jdbcType=VARCHAR},
+            </if>
+            <if test="orderQty != null">
+                #{orderQty,jdbcType=INTEGER},
+            </if>
+            <if test="positionId != null">
+                #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="stockQty != null">
+                #{stockQty,jdbcType=INTEGER},
+            </if>
+            <if test="visitId != null">
+                #{visitId,jdbcType=VARCHAR},
+            </if>
+            <if test="writeTime != null">
+                #{writeTime,jdbcType=DATE},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkStockOrderEntity">
+        <!--@mbg.generated-->
+        update gk_stock_order
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="vCode != null">
+                vCode = #{vCode,jdbcType=VARCHAR},
+            </if>
+            <if test="accountId != null">
+                accountId = #{accountId,jdbcType=VARCHAR},
+            </if>
+            <if test="empId != null">
+                empId = #{empId,jdbcType=VARCHAR},
+            </if>
+            <if test="orderQty != null">
+                orderQty = #{orderQty,jdbcType=INTEGER},
+            </if>
+            <if test="positionId != null">
+                positionId = #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="stockQty != null">
+                stockQty = #{stockQty,jdbcType=INTEGER},
+            </if>
+            <if test="visitId != null">
+                visitId = #{visitId,jdbcType=VARCHAR},
+            </if>
+            <if test="writeTime != null">
+                writeTime = #{writeTime,jdbcType=DATE},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkStockOrderEntity">
+        <!--@mbg.generated-->
+        update gk_stock_order
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        vCode = #{vCode,jdbcType=VARCHAR},
+        accountId = #{accountId,jdbcType=VARCHAR},
+        empId = #{empId,jdbcType=VARCHAR},
+        orderQty = #{orderQty,jdbcType=INTEGER},
+        positionId = #{positionId,jdbcType=VARCHAR},
+        stockQty = #{stockQty,jdbcType=INTEGER},
+        visitId = #{visitId,jdbcType=VARCHAR},
+        writeTime = #{writeTime,jdbcType=DATE},
+        price = #{price,jdbcType=DECIMAL}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectCountByVisitIdAndAccountIdAndToday" resultType="integer">
+        SELECT count(1) AS isPass
+        FROM gk_stock_order
+        WHERE visitId = #{visitId,jdbcType=VARCHAR}
+        AND accountId = #{accountId,jdbcType=VARCHAR}
+        AND createdTime LIKE concat('%', #{todayStr,jdbcType=VARCHAR}, '%')
+    </select>
+
+    <select id="selectVCodeInfoByAccountIdAndVisitIdAndToday" resultType="map">
+        select v.id as accountVCodeId,
+        s.id as stockAndOrderMaskId,
+        v.vCode,
+        s.price,
+        s.orderQty,
+        s.stockQty,
+        s.writeTime,
+        lov.comments as category
+        from gk_account_vCode v
+        left join gk_stock_order s on v.vCode = s.vCode
+        <if test="visitId != null and visitId != '' and visitId != 'null'">
+            and s.visitId = #{visitId,jdbcType=VARCHAR}
+        </if>
+        and date_format(s.writeTime, '%Y-%m-%d') = #{todayStr,jdbcType=VARCHAR}
+        left join gk_list_of_value lov on lov.code = v.vCode and lov.type = 'PROD_V_CODE'
+        where v.accountId = #{accountId,jdbcType=VARCHAR}
+        group by v.vCode
+        order by v.vCode
+    </select>
+
+    <select id="selectExistVCodeInfoByAccountIdAndVisitIdAndToday" resultType="map">
+        select v.id as accountVCodeId,
+        s.id as stockAndOrderMaskId,
+        v.vCode,
+        IFNULL(s.price, s1.price) AS price,
+        IFNULL(s.orderQty, s1.orderQty) AS orderQty,
+        IFNULL(s.stockQty, s1.stockQty) AS stockQty,
+        s.writeTime,
+        lov.comments as category
+        from gk_account_vCode v
+        left join gk_stock_order s on v.vCode = s.vCode
+        <if test="visitId != null and visitId != '' and visitId != 'null'">
+            and s.visitId = #{visitId,jdbcType=VARCHAR}
+        </if>
+        and date_format(s.writeTime, '%Y-%m-%d') = #{todayStr,jdbcType=VARCHAR}
+        left join gk_list_of_value lov on lov.code = v.vCode and lov.type = 'PROD_V_CODE'
+        LEFT JOIN (SELECT *
+        FROM (
+        SELECT s.stockQty, s.orderQty, s.price, s.vCode
+        FROM gk_stock_order s
+        LEFT JOIN gk_list_of_value lov ON lov.CODE = s.vCode AND lov.type = 'PROD_V_CODE'
+        INNER JOIN gk_visit v
+        ON s.visitId = v.id AND v.cancelReason IS NULL AND v.STATUS = '已完成'
+        WHERE s.accountId = #{accountId,jdbcType=VARCHAR}
+        ORDER BY s.createdTime DESC
+        LIMIT 1000
+        ) t
+        GROUP BY t.vCode) s1 ON v.vCode = s1.vCode
+        where v.accountId = #{accountId,jdbcType=VARCHAR}
+        group by v.vCode
+        order by v.vCode
+    </select>
+
+    <select id="getGkStockOrderByCondition" resultType="java.util.Map">
+        select s.*, l.comments from gk_stock_order s
+        left join gk_list_of_value l
+        on s.vCode = l.code
+        and l.active = 1
+        and l.type ='PROD_V_CODE'
+        where 1 = 1
+        <if test="accountId != null and accountId != '' and accountId != 'null'">
+            and s.accountId = #{accountId,jdbcType=VARCHAR}
+        </if>
+        <if test="empId != null and empId != '' and empId != 'null'">
+            and s.empId = #{empId,jdbcType=VARCHAR}
+        </if>
+        <if test="positionId != null and positionId != '' and positionId != 'null'">
+            and s.positionId = #{positionId,jdbcType=VARCHAR}
+        </if>
+        <if test="visitId != null and visitId != '' and visitId != 'null'">
+            and s.visitId = #{visitId,jdbcType=VARCHAR}
+        </if>
+        order by s.createdTime desc, s.vCode
+    </select>
+
+    <!--auto generated by MybatisCodeHelper on 2019-12-10-->
+    <select id="selectOneByVisitIdAndAccountIdAndWriteTime" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gk_stock_order
+        where visitId=#{visitId,jdbcType=VARCHAR}
+        and accountId=#{accountId,jdbcType=VARCHAR}
+        and date_format(writeTime, '%Y-%m-%d')=#{writeTime,jdbcType=DATE}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-10-->
+    <delete id="deleteByVisitIdAndAccountIdAndEmpId">
+        delete from gk_stock_order
+        where visitId=#{visitId,jdbcType=VARCHAR} and accountId=#{accountId,jdbcType=VARCHAR} and
+        empId=#{empId,jdbcType=VARCHAR}
+    </delete>
+
+</mapper>

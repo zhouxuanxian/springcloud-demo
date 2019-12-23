@@ -1,0 +1,13 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: vinda-gate
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+  instance:
+    prefer-ip-address: true

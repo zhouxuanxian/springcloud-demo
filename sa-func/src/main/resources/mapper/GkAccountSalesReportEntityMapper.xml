@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkAccountSalesReportEntityMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    <!--@Table gk_account_sales_report-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="createdBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="accountId" jdbcType="VARCHAR" property="accountId" />
+    <result column="empId" jdbcType="VARCHAR" property="empId" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="submitTime" jdbcType="TIMESTAMP" property="submitTime" />
+    <result column="positionId" jdbcType="VARCHAR" property="positionId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, createdBy, createdTime, updatedBy, updatedTime, version, accountId, empId, `status`,
+    str_to_date(date_format(submitTime, '%Y-%m'),'%Y-%m') submitTime, positionId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from gk_account_sales_report
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByIdAndTime" resultType="map">
+    <!--@mbg.generated-->
+    select
+    id, createdBy, createdTime, updatedBy, updatedTime, version, accountId, empId, `status`
+    from gk_account_sales_report
+    where accountId = #{shopId,jdbcType=VARCHAR} and submitTime like concat(#{date,jdbcType=VARCHAR},'%')
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from gk_account_sales_report
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    insert into gk_account_sales_report (id, createdBy, createdTime, 
+      updatedBy, updatedTime, version, 
+      accountId, empId, `status`, 
+      submitTime, positionId)
+    values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, 
+      #{accountId,jdbcType=VARCHAR}, #{empId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{submitTime,jdbcType=TIMESTAMP}, #{positionId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    insert into gk_account_sales_report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createdBy != null">
+        createdBy,
+      </if>
+      <if test="createdTime != null">
+        createdTime,
+      </if>
+      <if test="updatedBy != null">
+        updatedBy,
+      </if>
+      <if test="updatedTime != null">
+        updatedTime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="accountId != null">
+        accountId,
+      </if>
+      <if test="empId != null">
+        empId,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="submitTime != null">
+        submitTime,
+      </if>
+      <if test="positionId != null">
+        positionId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="positionId != null">
+        #{positionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    update gk_account_sales_report
+    <set>
+      <if test="createdBy != null">
+        createdBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        accountId = #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="empId != null">
+        empId = #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        submitTime = #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="positionId != null">
+        positionId = #{positionId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    update gk_account_sales_report
+    set createdBy = #{createdBy,jdbcType=VARCHAR},
+      createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      accountId = #{accountId,jdbcType=VARCHAR},
+      empId = #{empId,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=VARCHAR},
+      submitTime = #{submitTime,jdbcType=TIMESTAMP},
+      positionId = #{positionId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update gk_account_sales_report
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="createdBy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createdBy,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="createdTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createdTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="updatedBy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedBy,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="updatedTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updatedTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="version = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.version,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="accountId = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.accountId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="empId = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.empId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.status,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="submitTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.submitTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="positionId = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.positionId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into gk_account_sales_report
+    (id, createdBy, createdTime, updatedBy, updatedTime, version, accountId, empId, `status`, 
+      submitTime, positionId)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=VARCHAR}, #{item.createdBy,jdbcType=VARCHAR}, #{item.createdTime,jdbcType=TIMESTAMP}, 
+        #{item.updatedBy,jdbcType=VARCHAR}, #{item.updatedTime,jdbcType=TIMESTAMP}, #{item.version,jdbcType=INTEGER}, 
+        #{item.accountId,jdbcType=VARCHAR}, #{item.empId,jdbcType=VARCHAR}, #{item.status,jdbcType=VARCHAR}, 
+        #{item.submitTime,jdbcType=TIMESTAMP}, #{item.positionId,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    insert into gk_account_sales_report
+    (id, createdBy, createdTime, updatedBy, updatedTime, version, accountId, empId, `status`, 
+      submitTime, positionId)
+    values
+    (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, 
+      #{accountId,jdbcType=VARCHAR}, #{empId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{submitTime,jdbcType=TIMESTAMP}, #{positionId,jdbcType=VARCHAR})
+    on duplicate key update 
+    id = #{id,jdbcType=VARCHAR}, 
+    createdBy = #{createdBy,jdbcType=VARCHAR}, 
+    createdTime = #{createdTime,jdbcType=TIMESTAMP}, 
+    updatedBy = #{updatedBy,jdbcType=VARCHAR}, 
+    updatedTime = #{updatedTime,jdbcType=TIMESTAMP}, 
+    version = #{version,jdbcType=INTEGER}, 
+    accountId = #{accountId,jdbcType=VARCHAR}, 
+    empId = #{empId,jdbcType=VARCHAR}, 
+    `status` = #{status,jdbcType=VARCHAR}, 
+    submitTime = #{submitTime,jdbcType=TIMESTAMP}, 
+    positionId = #{positionId,jdbcType=VARCHAR}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountSalesReportEntity">
+    <!--@mbg.generated-->
+    insert into gk_account_sales_report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createdBy != null">
+        createdBy,
+      </if>
+      <if test="createdTime != null">
+        createdTime,
+      </if>
+      <if test="updatedBy != null">
+        updatedBy,
+      </if>
+      <if test="updatedTime != null">
+        updatedTime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="accountId != null">
+        accountId,
+      </if>
+      <if test="empId != null">
+        empId,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="submitTime != null">
+        submitTime,
+      </if>
+      <if test="positionId != null">
+        positionId,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="positionId != null">
+        #{positionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        createdBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="accountId != null">
+        accountId = #{accountId,jdbcType=VARCHAR},
+      </if>
+      <if test="empId != null">
+        empId = #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="submitTime != null">
+        submitTime = #{submitTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="positionId != null">
+        positionId = #{positionId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+
+
+
+
+
+  <select id="getWxType" parameterType="java.lang.String" resultType="map">
+    select WxType,get_lov_value('POSITION_TYPE',WXTYPE) WxName,orgId from gk_position where 1=1
+    <if test="positionId != null ">
+      and Id= #{positionId,jdbcType=VARCHAR}
+    </if>
+    <if test="intId != null ">
+      and intId= #{intId,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+  <select id="selectSaleReportListsByPosId" resultType="map">
+    select a.id, a.intId, a.name, a.type,0 as needVisit,aa.name as parentName,asr.status,asr.id AS salesReportId
+    FROM gk_account a
+    INNER JOIN (
+      SELECT ap.accountId FROM  gk_account_position ap,gk_party_rpt_rel pr
+      WHERE ap.positionId = pr.subObjId AND pr.objId = #{positionId,jdbcType=VARCHAR} ) tt on a.id = tt.accountId
+    left join gk_account aa on a.parentId = aa.id
+    LEFT JOIN ( SELECT  IFNULL(status,'待提报') AS status,positionId,accountId,submitTime,id
+        FROM gk_account_sales_report  WHERE  submitTime LIKE concat(#{date,jdbcType=VARCHAR}, '%') ) asr ON  asr.accountId = a.id
+    WHERE (a.status = 'Active' OR a.status = 'New' OR a.status = 'Wait Valid')  and a.shopType = 'GT Store' and a.type = 'shop'
+    <if test="parentId != null ">
+      and a.parentId = #{parentId,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != 'null' and status != '' ">
+      <choose>
+        <when test="status == '待提报'">
+          AND asr.status  is null
+        </when>
+        <otherwise> AND asr.status = #{status,jdbcType=VARCHAR}</otherwise>
+      </choose>
+    </if>
+    <if test="keyword != null and keyword != 'null' and keyword != ''  ">
+      and (a.name like concat('%', #{keyword,jdbcType=VARCHAR}, '%') or aa.name like concat('%', #{keyword,jdbcType=VARCHAR}, '%') )
+    </if>
+    group by a.id
+    ORDER BY convert(asr.status using gbk) asc
+  </select>
+
+<select id="selectSaleReportListsByOrgId" resultType="map">
+    SELECT a.id, a.intId, a.name, a.province, a.city, a.district, a.address,  a.type,0 as needVisit,aa.name as parentName,asr.status,asr.id AS salesReportId
+    FROM gk_account a
+    INNER JOIN (SELECT ao.accountId FROM  gk_account_org ao,gk_org o,gk_party_rpt_rel pr
+       WHERE ao.orgId = o.id AND o.parBuId = pr.subObjId  AND pr.objId = #{orgId,jdbcType=VARCHAR} ) tt on a.id = tt.accountId
+    left join gk_account aa on a.parentId = aa.id
+    LEFT JOIN (SELECT IFNULL(status,'待提报') AS status,positionId,accountId,submitTime,id
+       FROM gk_account_sales_report  WHERE  submitTime LIKE concat(#{date,jdbcType=VARCHAR}, '%')  ) asr ON  asr.accountId = a.id
+    WHERE (a.status = 'Active' OR a.status = 'New' OR a.status = 'Wait Valid')  and a.shopType = 'GT Store'  and a.type = 'shop'
+    <if test="parentId != null ">
+      and a.parentId = #{parentId,jdbcType=VARCHAR}
+    </if>
+    <if test="status != null and status != 'null' and status != '' ">
+      <choose>
+        <when test="status == '待提报'">
+          AND asr.status  is null
+        </when>
+        <otherwise> AND asr.status = #{positionId,jdbcType=VARCHAR}</otherwise>
+      </choose>
+    </if>
+    <if test="keyword != null and keyword != 'null' and keyword != ''  ">
+      and (a.name like  concat('%', #{keyword,jdbcType=VARCHAR}, '%') or aa.name like concat('%', #{keyword,jdbcType=VARCHAR}, '%') )
+    </if>
+    group by a.id
+    ORDER BY convert(asr.status using gbk) asc
+  </select>
+
+  <insert id="insertSaleReport">
+    INSERT INTO gk_account_sales_report (id,accountId,submitTime,createdBy,updatedBy,empId,positionId,status)
+                SELECT a.*,str_to_date(#{date,jdbcType=VARCHAR},'%Y-%m') AS date,
+                'sync' AS createdBy,'sync' AS updatedBy,'sync' AS empId,'sync' AS positionId,'已提报' AS status
+                FROM (
+                SELECT c.ROW_ID,ac.id FROM CX_STOCK_FORMAL c
+                INNER JOIN gk_account ac ON ac.intId=c.ACCNT_ID
+                WHERE DATE_FORMAT(c.NOW_DATE,'%Y-%m')= #{date,jdbcType=VARCHAR} GROUP BY c.ACCNT_ID) a
+                WHERE NOT EXISTS (
+                SELECT 1 FROM gk_account_sales_report WHERE a.id=accountId AND DATE_FORMAT(submitTime,'%Y-%m') = #{date,jdbcType=VARCHAR} )
+  </insert>
+
+
+  <select id="getAccountSalesReportByShopId" resultType="map">
+    SELECT a.intId,a.id AS shopId,a.name AS name,aa.name AS parentName,asr.id,IFNULL(asr.status,'未提报') AS status,a.shopType
+    FROM gk_account a
+    LEFT JOIN gk_account aa ON a.parentId =aa.id
+    LEFT JOIN gk_account_sales_report asr ON asr.accountId = a.id
+        AND asr.empId = #{empId,jdbcType=VARCHAR} AND asr.positionId = #{positionId,jdbcType=VARCHAR}
+        AND asr.id = #{salesReportId,jdbcType=VARCHAR}
+    WHERE a.id = #{shopId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getCrmSalesReport" resultType="map">
+    SELECT c1.NOW_DATE,SUM(ROUND(c1.POS_SALES,2)) AS quantity,c1.BRAND,c1.ACCNT_ID,c1.COMMENTS
+    FROM CX_STOCK_FORMAL c1
+    WHERE DATE_FORMAT( c1.NOW_DATE, '%Y-%m' ) = #{date,jdbcType=VARCHAR}
+        AND c1.ACCNT_ID = #{intId,jdbcType=VARCHAR}
+        GROUP BY c1.BRAND
+  </select>
+
+  <select id="getBrandSalesReport" resultType="map">
+    SELECT name,val FROM gk_account_brand ab
+            WHERE ab.type = 'VD_PROD_BRAND' AND ab.status = 'Y' ORDER BY orderBy
+  </select>
+
+  <select id="selectVindaBrandShow" parameterType="java.lang.String" resultType="map">
+    select p.wxType,v1.par_Ebs_Name from gk_position p inner join gk_org o1 on p.orgId = o1.id left join
+        cx_wx_area_division_v v1 on o1.intId = v1.SUB_ROW_ID where p.id=#{positionId,jdbcType=VARCHAR}
+  </select>
+  <select id="getShopName" parameterType="java.lang.String" resultType="map">
+    SELECT a.name,aa.name AS parentName,a.id,a.intId FROM gk_account a
+        LEFT JOIN gk_account aa ON a.parentId= aa.id WHERE a.intId = #{shopIntId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getSalesReportCount" resultType="map">
+    SELECT b.weeks,IFNULL(a.totalAmount,0) AS totalAmount FROM (
+    SELECT DATE_FORMAT(NOW_DATE,'%Y-%m') AS weeks,SUM(POS_SALES) AS totalAmount
+    FROM CX_STOCK_FORMAL WHERE ACCNT_ID= #{shopIntId,jdbcType=VARCHAR}
+    AND DATE_FORMAT(NOW_DATE,'%Y-%m') &lt;= #{startDate,jdbcType=VARCHAR}
+    AND DATE_FORMAT(NOW_DATE,'%Y-%m') &gt;= #{endDate,jdbcType=VARCHAR}
+    GROUP BY weeks) a RIGHT JOIN (
+    SELECT DATE_FORMAT(DATE_SUB(CURDATE(),INTERVAL 5 MONTH),'%Y-%m') AS weeks UNION ALL
+    SELECT DATE_FORMAT(DATE_SUB(CURDATE(),INTERVAL 4 MONTH),'%Y-%m') AS weeks UNION ALL
+    SELECT DATE_FORMAT(DATE_SUB(CURDATE(),INTERVAL 3 MONTH),'%Y-%m') AS weeks UNION ALL
+    SELECT DATE_FORMAT(DATE_SUB(CURDATE(),INTERVAL 2 MONTH),'%Y-%m') AS weeks UNION ALL
+    SELECT DATE_FORMAT(DATE_SUB(CURDATE(),INTERVAL 1 MONTH),'%Y-%m') AS weeks UNION ALL
+    SELECT DATE_FORMAT(CURDATE(),'%Y-%m') AS weeks) b ON b.weeks=a.weeks ORDER BY b.weeks
+  </select>
+
+  <select id="getSalesReportCountDetail" resultType="map">
+     SELECT t1.name,IFNULL(replace(FORMAT(t1.sales,2),',',''),'0') AS quantity,t1.val,
+     IFNULL(CONCAT(ROUND((t1.sales-t2.sales)/t2.sales*100,2),'%'),'-') AS ringRatio
+     FROM (
+        SELECT sov.name,sov.val,sov.orderBy,csf.* FROM gk_account_brand sov
+        LEFT JOIN (
+            SELECT SUM(POS_SALES) AS sales,BRAND FROM CX_STOCK_FORMAL
+            WHERE ACCNT_ID=#{shopIntId,jdbcType=VARCHAR} AND DATE_FORMAT(NOW_DATE,'%Y-%m')=#{date,jdbcType=VARCHAR} GROUP BY BRAND  ) csf ON sov.name = csf.BRAND
+        WHERE sov.type='VD_PROD_BRAND' AND sov.status = 'Y'
+    ) t1,
+    (SELECT sov.name,csf.* FROM gk_account_brand sov LEFT JOIN (
+        SELECT SUM(POS_SALES) AS sales,BRAND FROM CX_STOCK_FORMAL
+        WHERE ACCNT_ID=#{shopIntId,jdbcType=VARCHAR} AND DATE_FORMAT(NOW_DATE,'%Y-%m')=#{lastDate,jdbcType=VARCHAR} GROUP BY BRAND  ) csf ON sov.name = csf.BRAND
+      WHERE sov.type = 'VD_PROD_BRAND' AND sov.status = 'Y'
+    ) t2  WHERE t1.name=t2.name ORDER BY t1.orderBy
+
+  </select>
+
+
+
+
+</mapper>

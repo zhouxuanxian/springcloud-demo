@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.SaCompetitorPhotoTempEntityMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.SaCompetitorPhotoTempEntity">
+    <!--@mbg.generated-->
+    <!--@Table sa_competitor_photo_temp-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="row_version" jdbcType="INTEGER" property="rowVersion" />
+    <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag" />
+    <result column="emp_id" jdbcType="VARCHAR" property="empId" />
+    <result column="photo_key" jdbcType="VARCHAR" property="photoKey" />
+    <result column="temp_competitor_id" jdbcType="VARCHAR" property="tempCompetitorId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, create_time, update_time, row_version, delete_flag, emp_id, photo_key, temp_competitor_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sa_competitor_photo_temp
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from sa_competitor_photo_temp
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorPhotoTempEntity">
+    <!--@mbg.generated-->
+    insert into sa_competitor_photo_temp (id, create_time, update_time, 
+      row_version, delete_flag, emp_id, 
+      photo_key, temp_competitor_id)
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{empId,jdbcType=VARCHAR}, 
+      #{photoKey,jdbcType=VARCHAR}, #{tempCompetitorId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorPhotoTempEntity">
+    <!--@mbg.generated-->
+    insert into sa_competitor_photo_temp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="rowVersion != null">
+        row_version,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="photoKey != null">
+        photo_key,
+      </if>
+      <if test="tempCompetitorId != null">
+        temp_competitor_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="photoKey != null">
+        #{photoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="tempCompetitorId != null">
+        #{tempCompetitorId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorPhotoTempEntity">
+    <!--@mbg.generated-->
+    update sa_competitor_photo_temp
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        row_version = #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="empId != null">
+        emp_id = #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="photoKey != null">
+        photo_key = #{photoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="tempCompetitorId != null">
+        temp_competitor_id = #{tempCompetitorId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorPhotoTempEntity">
+    <!--@mbg.generated-->
+    update sa_competitor_photo_temp
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      row_version = #{rowVersion,jdbcType=INTEGER},
+      delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      emp_id = #{empId,jdbcType=VARCHAR},
+      photo_key = #{photoKey,jdbcType=VARCHAR},
+      temp_competitor_id = #{tempCompetitorId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sa_competitor_photo_temp
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updateTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="row_version = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.rowVersion,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="delete_flag = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.deleteFlag,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="emp_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.empId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="photo_key = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.photoKey,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="temp_competitor_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.tempCompetitorId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into sa_competitor_photo_temp
+    (id, create_time, update_time, row_version, delete_flag, emp_id, photo_key, temp_competitor_id
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP}, 
+        #{item.rowVersion,jdbcType=INTEGER}, #{item.deleteFlag,jdbcType=INTEGER}, #{item.empId,jdbcType=VARCHAR}, 
+        #{item.photoKey,jdbcType=VARCHAR}, #{item.tempCompetitorId,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorPhotoTempEntity">
+    <!--@mbg.generated-->
+    insert into sa_competitor_photo_temp
+    (id, create_time, update_time, row_version, delete_flag, emp_id, photo_key, temp_competitor_id
+      )
+    values
+    (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{empId,jdbcType=VARCHAR}, 
+      #{photoKey,jdbcType=VARCHAR}, #{tempCompetitorId,jdbcType=VARCHAR})
+    on duplicate key update 
+    id = #{id,jdbcType=VARCHAR}, 
+    create_time = #{createTime,jdbcType=TIMESTAMP}, 
+    update_time = #{updateTime,jdbcType=TIMESTAMP}, 
+    row_version = #{rowVersion,jdbcType=INTEGER}, 
+    delete_flag = #{deleteFlag,jdbcType=INTEGER}, 
+    emp_id = #{empId,jdbcType=VARCHAR}, 
+    photo_key = #{photoKey,jdbcType=VARCHAR}, 
+    temp_competitor_id = #{tempCompetitorId,jdbcType=VARCHAR}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaCompetitorPhotoTempEntity">
+    <!--@mbg.generated-->
+    insert into sa_competitor_photo_temp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="rowVersion != null">
+        row_version,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="empId != null">
+        emp_id,
+      </if>
+      <if test="photoKey != null">
+        photo_key,
+      </if>
+      <if test="tempCompetitorId != null">
+        temp_competitor_id,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="empId != null">
+        #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="photoKey != null">
+        #{photoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="tempCompetitorId != null">
+        #{tempCompetitorId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        row_version = #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="empId != null">
+        emp_id = #{empId,jdbcType=VARCHAR},
+      </if>
+      <if test="photoKey != null">
+        photo_key = #{photoKey,jdbcType=VARCHAR},
+      </if>
+      <if test="tempCompetitorId != null">
+        temp_competitor_id = #{tempCompetitorId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

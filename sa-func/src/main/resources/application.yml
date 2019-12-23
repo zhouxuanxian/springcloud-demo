@@ -1,0 +1,41 @@
+logging:
+  level:
+    com.guanke.vinda: DEBUG
+    com.jacky.cloud.feign.UserFeignClient: DEBUG
+
+server:
+  port: 8100
+
+spring:
+  application:
+    name: sa-func
+  profiles:
+    active: dev
+
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 50000
+        readTimeout: 50000
+        loggerLevel: basic
+
+ribbon:
+  eureka:
+    enabled: true
+  eager-load:
+    clients:  sa-schedule，sa-sync
+    enabled:  true
+
+show-api:
+  appId: 53362
+  secret: a4cd92ef50e94373a66688143315e2c9

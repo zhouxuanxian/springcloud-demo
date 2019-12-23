@@ -1,0 +1,70 @@
+version: '2'
+services:
+  sa-wx:
+    scale: 1
+    start_on_create: true
+  qywechat-fronted:
+    scale: 1
+    start_on_create: true
+  WEB:
+    scale: 1
+    start_on_create: true
+    lb_config:
+      certs: []
+      port_rules:
+      - hostname: ''
+        path: ''
+        priority: 1
+        protocol: http
+        service: qywechat-fronted
+        source_port: 8200
+        target_port: 80
+      - priority: 2
+        protocol: tcp
+        service: sa-core
+        source_port: 18761
+        target_port: 8761
+      - priority: 3
+        protocol: tcp
+        service: rabbitmq
+        source_port: 18058
+        target_port: 8058
+      - priority: 4
+        protocol: tcp
+        service: vinda-gate
+        source_port: 8201
+        target_port: 8765
+      - priority: 5
+        protocol: tcp
+        service: redis
+        source_port: 16379
+        target_port: 6379
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 2000
+      port: 42
+      unhealthy_threshold: 3
+      initializing_timeout: 60000
+      interval: 2000
+      reinitializing_timeout: 60000
+  sa-core:
+    scale: 1
+    start_on_create: true
+  sa-schedule:
+    scale: 1
+    start_on_create: true
+  sa-sync:
+    scale: 1
+    start_on_create: true
+  vinda-gate:
+    scale: 1
+    start_on_create: true
+  rabbitmq:
+    scale: 1
+    start_on_create: true
+  redis:
+    scale: 1
+    start_on_create: true
+  sa-func:
+    scale: 1
+    start_on_create: true

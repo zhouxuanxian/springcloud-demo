@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.SaUserTimeRecodeMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.SaUserTimeRecodeEntity">
+    <!--@mbg.generated-->
+    <!--@Table sa_user_time_recode-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="row_version" jdbcType="INTEGER" property="rowVersion" />
+    <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag" />
+    <result column="position_id" jdbcType="VARCHAR" property="positionId" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="row_id" jdbcType="VARCHAR" property="rowId" />
+    <result column="last_login" jdbcType="TIMESTAMP" property="lastLogin" />
+    <result column="daily_message_check" jdbcType="TIMESTAMP" property="dailyMessageCheck" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, create_time, update_time, row_version, delete_flag, position_id, phone, row_id, 
+    last_login, daily_message_check
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sa_user_time_recode
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from sa_user_time_recode
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.SaUserTimeRecodeEntity">
+    <!--@mbg.generated-->
+    insert into sa_user_time_recode (id, create_time, update_time, 
+      row_version, delete_flag, position_id, 
+      phone, row_id, last_login, 
+      daily_message_check)
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{positionId,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{rowId,jdbcType=VARCHAR}, #{lastLogin,jdbcType=TIMESTAMP}, 
+      #{dailyMessageCheck,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaUserTimeRecodeEntity">
+    <!--@mbg.generated-->
+    insert into sa_user_time_recode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="rowVersion != null">
+        row_version,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="positionId != null">
+        position_id,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="rowId != null">
+        row_id,
+      </if>
+      <if test="lastLogin != null">
+        last_login,
+      </if>
+      <if test="dailyMessageCheck != null">
+        daily_message_check,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="positionId != null">
+        #{positionId,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="rowId != null">
+        #{rowId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLogin != null">
+        #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dailyMessageCheck != null">
+        #{dailyMessageCheck,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.SaUserTimeRecodeEntity">
+    <!--@mbg.generated-->
+    update sa_user_time_recode
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        row_version = #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="positionId != null">
+        position_id = #{positionId,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="rowId != null">
+        row_id = #{rowId,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLogin != null">
+        last_login = #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dailyMessageCheck != null">
+        daily_message_check = #{dailyMessageCheck,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.SaUserTimeRecodeEntity">
+    <!--@mbg.generated-->
+    update sa_user_time_recode
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      row_version = #{rowVersion,jdbcType=INTEGER},
+      delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      position_id = #{positionId,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      row_id = #{rowId,jdbcType=VARCHAR},
+      last_login = #{lastLogin,jdbcType=TIMESTAMP},
+      daily_message_check = #{dailyMessageCheck,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-10-31-->
+  <select id="selectByRowId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sa_user_time_recode
+    where row_id=#{rowId,jdbcType=VARCHAR}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-08-->
+  <select id="selectByPhone" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from sa_user_time_recode
+    where phone=#{phone,jdbcType=VARCHAR}
+  </select>
+
+
+</mapper>

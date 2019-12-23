@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.sasync.mapper.GkCostHistoryTempMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkCostHistoryTemp">
+    <!--@mbg.generated-->
+    <!--@Table gk_cost_history_temp-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="createdBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="appro_Datetime" jdbcType="TIMESTAMP" property="approDatetime" />
+    <result column="appro_Emp_Id" jdbcType="VARCHAR" property="approEmpId" />
+    <result column="appro_Emp_Pos_Id" jdbcType="VARCHAR" property="approEmpPosId" />
+    <result column="appro_Remark" jdbcType="LONGVARCHAR" property="approRemark" />
+    <result column="reim_Id" jdbcType="VARCHAR" property="reimId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, createdBy, createdTime, updatedBy, updatedTime, version, appro_Datetime, appro_Emp_Id, 
+    appro_Emp_Pos_Id, appro_Remark, reim_Id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from gk_cost_history_temp
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from gk_cost_history_temp
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkCostHistoryTemp">
+    <!--@mbg.generated-->
+    insert into gk_cost_history_temp (id, createdBy, createdTime, 
+      updatedBy, updatedTime, version, 
+      appro_Datetime, appro_Emp_Id, appro_Emp_Pos_Id, 
+      appro_Remark, reim_Id)
+    values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}, 
+      #{approDatetime,jdbcType=TIMESTAMP}, #{approEmpId,jdbcType=VARCHAR}, #{approEmpPosId,jdbcType=VARCHAR}, 
+      #{approRemark,jdbcType=LONGVARCHAR}, #{reimId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkCostHistoryTemp">
+    <!--@mbg.generated-->
+    insert into gk_cost_history_temp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createdBy != null">
+        createdBy,
+      </if>
+      <if test="createdTime != null">
+        createdTime,
+      </if>
+      <if test="updatedBy != null">
+        updatedBy,
+      </if>
+      <if test="updatedTime != null">
+        updatedTime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="approDatetime != null">
+        appro_Datetime,
+      </if>
+      <if test="approEmpId != null">
+        appro_Emp_Id,
+      </if>
+      <if test="approEmpPosId != null">
+        appro_Emp_Pos_Id,
+      </if>
+      <if test="approRemark != null">
+        appro_Remark,
+      </if>
+      <if test="reimId != null">
+        reim_Id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="approDatetime != null">
+        #{approDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approEmpId != null">
+        #{approEmpId,jdbcType=VARCHAR},
+      </if>
+      <if test="approEmpPosId != null">
+        #{approEmpPosId,jdbcType=VARCHAR},
+      </if>
+      <if test="approRemark != null">
+        #{approRemark,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reimId != null">
+        #{reimId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkCostHistoryTemp">
+    <!--@mbg.generated-->
+    update gk_cost_history_temp
+    <set>
+      <if test="createdBy != null">
+        createdBy = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null">
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null">
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="approDatetime != null">
+        appro_Datetime = #{approDatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="approEmpId != null">
+        appro_Emp_Id = #{approEmpId,jdbcType=VARCHAR},
+      </if>
+      <if test="approEmpPosId != null">
+        appro_Emp_Pos_Id = #{approEmpPosId,jdbcType=VARCHAR},
+      </if>
+      <if test="approRemark != null">
+        appro_Remark = #{approRemark,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="reimId != null">
+        reim_Id = #{reimId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkCostHistoryTemp">
+    <!--@mbg.generated-->
+    update gk_cost_history_temp
+    set createdBy = #{createdBy,jdbcType=VARCHAR},
+      createdTime = #{createdTime,jdbcType=TIMESTAMP},
+      updatedBy = #{updatedBy,jdbcType=VARCHAR},
+      updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=INTEGER},
+      appro_Datetime = #{approDatetime,jdbcType=TIMESTAMP},
+      appro_Emp_Id = #{approEmpId,jdbcType=VARCHAR},
+      appro_Emp_Pos_Id = #{approEmpPosId,jdbcType=VARCHAR},
+      appro_Remark = #{approRemark,jdbcType=LONGVARCHAR},
+      reim_Id = #{reimId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

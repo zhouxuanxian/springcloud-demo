@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.SaVisitContentEntityMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.SaVisitContentEntity">
+    <!--@mbg.generated-->
+    <!--@Table sa_visit_content-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="row_version" jdbcType="INTEGER" property="rowVersion" />
+    <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag" />
+    <result column="gk_visit_id" jdbcType="VARCHAR" property="gkVisitId" />
+    <result column="shelf_content" jdbcType="VARCHAR" property="shelfContent" />
+    <result column="stack_content" jdbcType="VARCHAR" property="stackContent" />
+    <result column="end_frame_content" jdbcType="VARCHAR" property="endFrameContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, create_time, update_time, row_version, delete_flag, gk_visit_id, shelf_content, 
+    stack_content, end_frame_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sa_visit_content
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from sa_visit_content
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitContentEntity">
+    <!--@mbg.generated-->
+    insert into sa_visit_content (id, create_time, update_time, 
+      row_version, delete_flag, gk_visit_id, 
+      shelf_content, stack_content, end_frame_content
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{gkVisitId,jdbcType=VARCHAR}, 
+      #{shelfContent,jdbcType=VARCHAR}, #{stackContent,jdbcType=VARCHAR}, #{endFrameContent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitContentEntity">
+    <!--@mbg.generated-->
+    insert into sa_visit_content
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="rowVersion != null">
+        row_version,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="gkVisitId != null">
+        gk_visit_id,
+      </if>
+      <if test="shelfContent != null">
+        shelf_content,
+      </if>
+      <if test="stackContent != null">
+        stack_content,
+      </if>
+      <if test="endFrameContent != null">
+        end_frame_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="gkVisitId != null">
+        #{gkVisitId,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfContent != null">
+        #{shelfContent,jdbcType=VARCHAR},
+      </if>
+      <if test="stackContent != null">
+        #{stackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="endFrameContent != null">
+        #{endFrameContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitContentEntity">
+    <!--@mbg.generated-->
+    update sa_visit_content
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        row_version = #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="gkVisitId != null">
+        gk_visit_id = #{gkVisitId,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfContent != null">
+        shelf_content = #{shelfContent,jdbcType=VARCHAR},
+      </if>
+      <if test="stackContent != null">
+        stack_content = #{stackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="endFrameContent != null">
+        end_frame_content = #{endFrameContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitContentEntity">
+    <!--@mbg.generated-->
+    update sa_visit_content
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      row_version = #{rowVersion,jdbcType=INTEGER},
+      delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      gk_visit_id = #{gkVisitId,jdbcType=VARCHAR},
+      shelf_content = #{shelfContent,jdbcType=VARCHAR},
+      stack_content = #{stackContent,jdbcType=VARCHAR},
+      end_frame_content = #{endFrameContent,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sa_visit_content
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updateTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="row_version = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.rowVersion,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="delete_flag = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.deleteFlag,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="gk_visit_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.gkVisitId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="shelf_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.shelfContent,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="stack_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.stackContent,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="end_frame_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.endFrameContent,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into sa_visit_content
+    (id, create_time, update_time, row_version, delete_flag, gk_visit_id, shelf_content, 
+      stack_content, end_frame_content)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP}, 
+        #{item.rowVersion,jdbcType=INTEGER}, #{item.deleteFlag,jdbcType=INTEGER}, #{item.gkVisitId,jdbcType=VARCHAR}, 
+        #{item.shelfContent,jdbcType=VARCHAR}, #{item.stackContent,jdbcType=VARCHAR}, #{item.endFrameContent,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitContentEntity">
+    <!--@mbg.generated-->
+    insert into sa_visit_content
+    (id, create_time, update_time, row_version, delete_flag, gk_visit_id, shelf_content, 
+      stack_content, end_frame_content)
+    values
+    (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{gkVisitId,jdbcType=VARCHAR}, 
+      #{shelfContent,jdbcType=VARCHAR}, #{stackContent,jdbcType=VARCHAR}, #{endFrameContent,jdbcType=VARCHAR}
+      )
+    on duplicate key update 
+    id = #{id,jdbcType=VARCHAR}, 
+    create_time = #{createTime,jdbcType=TIMESTAMP}, 
+    update_time = #{updateTime,jdbcType=TIMESTAMP}, 
+    row_version = #{rowVersion,jdbcType=INTEGER}, 
+    delete_flag = #{deleteFlag,jdbcType=INTEGER}, 
+    gk_visit_id = #{gkVisitId,jdbcType=VARCHAR}, 
+    shelf_content = #{shelfContent,jdbcType=VARCHAR}, 
+    stack_content = #{stackContent,jdbcType=VARCHAR}, 
+    end_frame_content = #{endFrameContent,jdbcType=VARCHAR}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitContentEntity">
+    <!--@mbg.generated-->
+    insert into sa_visit_content
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="rowVersion != null">
+        row_version,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="gkVisitId != null">
+        gk_visit_id,
+      </if>
+      <if test="shelfContent != null">
+        shelf_content,
+      </if>
+      <if test="stackContent != null">
+        stack_content,
+      </if>
+      <if test="endFrameContent != null">
+        end_frame_content,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="gkVisitId != null">
+        #{gkVisitId,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfContent != null">
+        #{shelfContent,jdbcType=VARCHAR},
+      </if>
+      <if test="stackContent != null">
+        #{stackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="endFrameContent != null">
+        #{endFrameContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        row_version = #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="gkVisitId != null">
+        gk_visit_id = #{gkVisitId,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfContent != null">
+        shelf_content = #{shelfContent,jdbcType=VARCHAR},
+      </if>
+      <if test="stackContent != null">
+        stack_content = #{stackContent,jdbcType=VARCHAR},
+      </if>
+      <if test="endFrameContent != null">
+        end_frame_content = #{endFrameContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-02-->
+  <select id="selectFirstByGkVisitId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sa_visit_content
+        where gk_visit_id=#{gkVisitId,jdbcType=VARCHAR} limit 1
+    </select>
+</mapper>

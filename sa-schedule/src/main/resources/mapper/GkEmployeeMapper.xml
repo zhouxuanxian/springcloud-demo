@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.saschedule.mapper.GkEmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkEmployeeEntity">
+    <!--@mbg.generated-->
+    <!--@Table gk_employee-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="createdBy" jdbcType="VARCHAR" property="createdBy" />
+    <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="accountExpired" jdbcType="BOOLEAN" property="accountExpired" />
+    <result column="accountLocked" jdbcType="BOOLEAN" property="accountLocked" />
+    <result column="credentialsExpired" jdbcType="BOOLEAN" property="credentialsExpired" />
+    <result column="deptId" jdbcType="VARCHAR" property="deptId" />
+    <result column="enabled" jdbcType="BOOLEAN" property="enabled" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgId" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phoneNumber" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="photoUrl" jdbcType="VARCHAR" property="photoUrl" />
+    <result column="intId" jdbcType="VARCHAR" property="intId" />
+    <result column="likeQty" jdbcType="INTEGER" property="likeQty" />
+    <result column="login" jdbcType="VARCHAR" property="login" />
+    <result column="priShopId" jdbcType="VARCHAR" property="priShopId" />
+    <result column="guideMark" jdbcType="VARCHAR" property="guideMark" />
+    <result column="lastLoginTime" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="superAdminFlag" jdbcType="BOOLEAN" property="superAdminFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, createdBy, createdTime, updatedBy, updatedTime, version, accountExpired, accountLocked, 
+    credentialsExpired, deptId, enabled, `name`, orgId, `password`, phoneNumber, `status`, 
+    photoUrl, intId, likeQty, `login`, priShopId, guideMark, lastLoginTime, superAdminFlag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <!--@mbg.generated-->
+  select
+  <include refid="Base_Column_List" />
+  from gk_employee
+  where id = #{id,jdbcType=VARCHAR}
+</select>
+
+  <select id="countDutyByLogin"  resultType="java.lang.Integer">
+        select count(*) as Duty from gk_employee e
+                    inner join S_PER_RESP pr on pr.per_id=e.intid
+                    inner join S_RESP r on r.row_id = pr.RESP_ID
+                    inner join S_APP_VIEW_RESP sv on r.Row_id=sv.RESP_ID
+                    inner join S_APP_VIEW v on sv.VIEW_ID=v.row_id
+                    where  v.X_WECHAT_LABEL='Sales Helper' and e.login=#{login};
+
+
+  </select>
+  <select id="getEmpNoListOfNoSubmitDaily" resultType="map">
+        select e.id as empId, e.login from gk_employee e, gk_emp_postn epstn, gk_position p
+					where e.id = epstn.empId and epstn.positionId = p.id
+					and e.status = '在职'
+					and (p.wxType = 'KA Store Clerk' or p.wxType = 'GT Store Clerk' or p.wxType = 'HD KA Store Clerk'
+					or p.wxType = 'HD GT Store Clerk' or p.wxType = 'KA Director' or p.wxType = 'GT Director'
+					or p.wxType = 'HD KA Director' or p.wxType = 'HD GT Director')
+					and not exists ( select 1 from
+					(select positionId from gk_daily d
+					 where d.status = '已提交' and d.dailyDate ={#today,jdbc.TYPE=TIMESTAMP}
+					group by positionId) pp
+					where pp.positionId = p.id)
+					group by e.id;
+  </select>
+
+
+  <select id="getEmpNoListOfNoVisit" resultType="map">
+       select e.id as empId, e.login from gk_employee e, gk_emp_postn epstn, gk_position p
+					where e.id = epstn.empId and epstn.positionId = p.id
+					and e.status = '在职'
+					and (p.wxType = 'KA Store Clerk' or p.wxType = 'GT Store Clerk' or p.wxType = 'HD KA Store Clerk'
+					or p.wxType = 'HD GT Store Clerk' or p.wxType = 'KA Director' or p.wxType = 'GT Director'
+					or p.wxType = 'HD KA Director' or p.wxType = 'HD GT Director')
+					and not exists ( select 1 from gk_visit v
+					where p.id = v.positionId and
+					(v.status = '未完成' or v.status = '已完成')  and v.visitDate ={#today,jdbc.TYPE=TIMESTAMP})
+					group by e.id;
+  </select>
+
+  <select id="queryKaCostVerify" resultType="map">
+    select e.login as wxUserId,a.name Name,cr.Row_Id , a2.name as System ,'' as contents
+     from  gk_employee e
+     inner join gk_emp_postn ep on e.Id = ep.empId
+     inner join gk_position p on p.Id = ep.positionId
+     inner join gk_account_position ap on ep.positionId = ap.positionId
+     inner join gk_account a on ap.accountId = a.Id
+     inner join cx_hz_reim cr on a.intId = cr.STORE_NAME
+    left join gk_account a1 on a.parentid=a1.id left join gk_account a2 on a1.parentid=a2.id
+    where p.wxtype in ('KA Store Clerk','KA Agency Manager','KA Province Manager','Region Finance')
+    and cr.APPRO_STATUS ='新建' and cr.REIM_STATUS ='新建'
+    and cr.created > date_sub(now(),interval 5 minute)
+    union all
+    select gwm.wxUserId,'' as Name,gwm.recordId Row_Id,'' as System,contents from sa_wx_message gwm
+    inner join cx_hz_reim cr on gwm.recordId=cr.row_Id where gwm.tableName='cx_hz_reim' and gwm.status=2
+    and  cr.APPRO_STATUS ='新建' and cr.REIM_STATUS ='新建'  ");
+
+  </select>
+
+
+
+</mapper>

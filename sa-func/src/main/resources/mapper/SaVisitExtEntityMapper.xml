@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.SaVisitExtEntityMapper">
+  <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.SaVisitExtEntity">
+    <!--@mbg.generated-->
+    <!--@Table sa_visit_ext-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="row_version" jdbcType="INTEGER" property="rowVersion" />
+    <result column="delete_flag" jdbcType="INTEGER" property="deleteFlag" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="shelf_location" jdbcType="VARCHAR" property="shelfLocation" />
+    <result column="stack_location" jdbcType="VARCHAR" property="stackLocation" />
+    <result column="end_frame_location" jdbcType="VARCHAR" property="endFrameLocation" />
+    <result column="soft_count" jdbcType="INTEGER" property="softCount" />
+    <result column="non_core_count" jdbcType="INTEGER" property="nonCoreCount" />
+    <result column="had_core_count" jdbcType="INTEGER" property="hadCoreCount" />
+    <result column="paper_count" jdbcType="INTEGER" property="paperCount" />
+    <result column="wet_count" jdbcType="INTEGER" property="wetCount" />
+    <result column="expand_content" jdbcType="VARCHAR" property="expandContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, create_time, update_time, row_version, delete_flag, parent_id, shelf_location, 
+    stack_location, end_frame_location, soft_count, non_core_count, had_core_count, paper_count, 
+    wet_count, expand_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sa_visit_ext
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from sa_visit_ext
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitExtEntity">
+    <!--@mbg.generated-->
+    insert into sa_visit_ext (id, create_time, update_time, 
+      row_version, delete_flag, parent_id, 
+      shelf_location, stack_location, end_frame_location, 
+      soft_count, non_core_count, had_core_count, 
+      paper_count, wet_count, expand_content
+      )
+    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{parentId,jdbcType=VARCHAR}, 
+      #{shelfLocation,jdbcType=VARCHAR}, #{stackLocation,jdbcType=VARCHAR}, #{endFrameLocation,jdbcType=VARCHAR}, 
+      #{softCount,jdbcType=INTEGER}, #{nonCoreCount,jdbcType=INTEGER}, #{hadCoreCount,jdbcType=INTEGER}, 
+      #{paperCount,jdbcType=INTEGER}, #{wetCount,jdbcType=INTEGER}, #{expandContent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitExtEntity">
+    <!--@mbg.generated-->
+    insert into sa_visit_ext
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="rowVersion != null">
+        row_version,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="shelfLocation != null">
+        shelf_location,
+      </if>
+      <if test="stackLocation != null">
+        stack_location,
+      </if>
+      <if test="endFrameLocation != null">
+        end_frame_location,
+      </if>
+      <if test="softCount != null">
+        soft_count,
+      </if>
+      <if test="nonCoreCount != null">
+        non_core_count,
+      </if>
+      <if test="hadCoreCount != null">
+        had_core_count,
+      </if>
+      <if test="paperCount != null">
+        paper_count,
+      </if>
+      <if test="wetCount != null">
+        wet_count,
+      </if>
+      <if test="expandContent != null">
+        expand_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfLocation != null">
+        #{shelfLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="stackLocation != null">
+        #{stackLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="endFrameLocation != null">
+        #{endFrameLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="softCount != null">
+        #{softCount,jdbcType=INTEGER},
+      </if>
+      <if test="nonCoreCount != null">
+        #{nonCoreCount,jdbcType=INTEGER},
+      </if>
+      <if test="hadCoreCount != null">
+        #{hadCoreCount,jdbcType=INTEGER},
+      </if>
+      <if test="paperCount != null">
+        #{paperCount,jdbcType=INTEGER},
+      </if>
+      <if test="wetCount != null">
+        #{wetCount,jdbcType=INTEGER},
+      </if>
+      <if test="expandContent != null">
+        #{expandContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitExtEntity">
+    <!--@mbg.generated-->
+    update sa_visit_ext
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        row_version = #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfLocation != null">
+        shelf_location = #{shelfLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="stackLocation != null">
+        stack_location = #{stackLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="endFrameLocation != null">
+        end_frame_location = #{endFrameLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="softCount != null">
+        soft_count = #{softCount,jdbcType=INTEGER},
+      </if>
+      <if test="nonCoreCount != null">
+        non_core_count = #{nonCoreCount,jdbcType=INTEGER},
+      </if>
+      <if test="hadCoreCount != null">
+        had_core_count = #{hadCoreCount,jdbcType=INTEGER},
+      </if>
+      <if test="paperCount != null">
+        paper_count = #{paperCount,jdbcType=INTEGER},
+      </if>
+      <if test="wetCount != null">
+        wet_count = #{wetCount,jdbcType=INTEGER},
+      </if>
+      <if test="expandContent != null">
+        expand_content = #{expandContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitExtEntity">
+    <!--@mbg.generated-->
+    update sa_visit_ext
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      row_version = #{rowVersion,jdbcType=INTEGER},
+      delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      parent_id = #{parentId,jdbcType=VARCHAR},
+      shelf_location = #{shelfLocation,jdbcType=VARCHAR},
+      stack_location = #{stackLocation,jdbcType=VARCHAR},
+      end_frame_location = #{endFrameLocation,jdbcType=VARCHAR},
+      soft_count = #{softCount,jdbcType=INTEGER},
+      non_core_count = #{nonCoreCount,jdbcType=INTEGER},
+      had_core_count = #{hadCoreCount,jdbcType=INTEGER},
+      paper_count = #{paperCount,jdbcType=INTEGER},
+      wet_count = #{wetCount,jdbcType=INTEGER},
+      expand_content = #{expandContent,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sa_visit_ext
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.updateTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="row_version = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.rowVersion,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="delete_flag = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.deleteFlag,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="parent_id = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.parentId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="shelf_location = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.shelfLocation,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="stack_location = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.stackLocation,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="end_frame_location = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.endFrameLocation,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="soft_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.softCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="non_core_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.nonCoreCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="had_core_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.hadCoreCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="paper_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.paperCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="wet_count = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.wetCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="expand_content = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=VARCHAR} then #{item.expandContent,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into sa_visit_ext
+    (id, create_time, update_time, row_version, delete_flag, parent_id, shelf_location, 
+      stack_location, end_frame_location, soft_count, non_core_count, had_core_count, 
+      paper_count, wet_count, expand_content)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.id,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP}, 
+        #{item.rowVersion,jdbcType=INTEGER}, #{item.deleteFlag,jdbcType=INTEGER}, #{item.parentId,jdbcType=VARCHAR}, 
+        #{item.shelfLocation,jdbcType=VARCHAR}, #{item.stackLocation,jdbcType=VARCHAR}, 
+        #{item.endFrameLocation,jdbcType=VARCHAR}, #{item.softCount,jdbcType=INTEGER}, 
+        #{item.nonCoreCount,jdbcType=INTEGER}, #{item.hadCoreCount,jdbcType=INTEGER}, #{item.paperCount,jdbcType=INTEGER}, 
+        #{item.wetCount,jdbcType=INTEGER}, #{item.expandContent,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitExtEntity">
+    <!--@mbg.generated-->
+    insert into sa_visit_ext
+    (id, create_time, update_time, row_version, delete_flag, parent_id, shelf_location, 
+      stack_location, end_frame_location, soft_count, non_core_count, had_core_count, 
+      paper_count, wet_count, expand_content)
+    values
+    (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{rowVersion,jdbcType=INTEGER}, #{deleteFlag,jdbcType=INTEGER}, #{parentId,jdbcType=VARCHAR}, 
+      #{shelfLocation,jdbcType=VARCHAR}, #{stackLocation,jdbcType=VARCHAR}, #{endFrameLocation,jdbcType=VARCHAR}, 
+      #{softCount,jdbcType=INTEGER}, #{nonCoreCount,jdbcType=INTEGER}, #{hadCoreCount,jdbcType=INTEGER}, 
+      #{paperCount,jdbcType=INTEGER}, #{wetCount,jdbcType=INTEGER}, #{expandContent,jdbcType=VARCHAR}
+      )
+    on duplicate key update 
+    id = #{id,jdbcType=VARCHAR}, 
+    create_time = #{createTime,jdbcType=TIMESTAMP}, 
+    update_time = #{updateTime,jdbcType=TIMESTAMP}, 
+    row_version = #{rowVersion,jdbcType=INTEGER}, 
+    delete_flag = #{deleteFlag,jdbcType=INTEGER}, 
+    parent_id = #{parentId,jdbcType=VARCHAR}, 
+    shelf_location = #{shelfLocation,jdbcType=VARCHAR}, 
+    stack_location = #{stackLocation,jdbcType=VARCHAR}, 
+    end_frame_location = #{endFrameLocation,jdbcType=VARCHAR}, 
+    soft_count = #{softCount,jdbcType=INTEGER}, 
+    non_core_count = #{nonCoreCount,jdbcType=INTEGER}, 
+    had_core_count = #{hadCoreCount,jdbcType=INTEGER}, 
+    paper_count = #{paperCount,jdbcType=INTEGER}, 
+    wet_count = #{wetCount,jdbcType=INTEGER}, 
+    expand_content = #{expandContent,jdbcType=VARCHAR}
+  </insert>
+  <insert id="insertOrUpdateSelective" parameterType="com.guanke.vinda.samodels.model.entity.SaVisitExtEntity">
+    <!--@mbg.generated-->
+    insert into sa_visit_ext
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="rowVersion != null">
+        row_version,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="shelfLocation != null">
+        shelf_location,
+      </if>
+      <if test="stackLocation != null">
+        stack_location,
+      </if>
+      <if test="endFrameLocation != null">
+        end_frame_location,
+      </if>
+      <if test="softCount != null">
+        soft_count,
+      </if>
+      <if test="nonCoreCount != null">
+        non_core_count,
+      </if>
+      <if test="hadCoreCount != null">
+        had_core_count,
+      </if>
+      <if test="paperCount != null">
+        paper_count,
+      </if>
+      <if test="wetCount != null">
+        wet_count,
+      </if>
+      <if test="expandContent != null">
+        expand_content,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfLocation != null">
+        #{shelfLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="stackLocation != null">
+        #{stackLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="endFrameLocation != null">
+        #{endFrameLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="softCount != null">
+        #{softCount,jdbcType=INTEGER},
+      </if>
+      <if test="nonCoreCount != null">
+        #{nonCoreCount,jdbcType=INTEGER},
+      </if>
+      <if test="hadCoreCount != null">
+        #{hadCoreCount,jdbcType=INTEGER},
+      </if>
+      <if test="paperCount != null">
+        #{paperCount,jdbcType=INTEGER},
+      </if>
+      <if test="wetCount != null">
+        #{wetCount,jdbcType=INTEGER},
+      </if>
+      <if test="expandContent != null">
+        #{expandContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        id = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rowVersion != null">
+        row_version = #{rowVersion,jdbcType=INTEGER},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=INTEGER},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="shelfLocation != null">
+        shelf_location = #{shelfLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="stackLocation != null">
+        stack_location = #{stackLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="endFrameLocation != null">
+        end_frame_location = #{endFrameLocation,jdbcType=VARCHAR},
+      </if>
+      <if test="softCount != null">
+        soft_count = #{softCount,jdbcType=INTEGER},
+      </if>
+      <if test="nonCoreCount != null">
+        non_core_count = #{nonCoreCount,jdbcType=INTEGER},
+      </if>
+      <if test="hadCoreCount != null">
+        had_core_count = #{hadCoreCount,jdbcType=INTEGER},
+      </if>
+      <if test="paperCount != null">
+        paper_count = #{paperCount,jdbcType=INTEGER},
+      </if>
+      <if test="wetCount != null">
+        wet_count = #{wetCount,jdbcType=INTEGER},
+      </if>
+      <if test="expandContent != null">
+        expand_content = #{expandContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-02-->
+  <select id="selectFirstByParentId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from sa_visit_ext
+        where parent_id=#{parentId,jdbcType=VARCHAR} limit 1
+    </select>
+</mapper>

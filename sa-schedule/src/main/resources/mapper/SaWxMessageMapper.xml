@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.saschedule.mapper.SaWxMessageMapper">
+
+
+    <select id="findByStatusAndSendTime"  resultType="com.guanke.vinda.samodels.model.entity.SaWxMessageEntity">
+        <!--@mbg.generated-->
+        select
+       *
+        from sa_wx_message
+        where status = #{status,jdbcType=INTEGER}
+        and (sendTime is null or now()>#{sendTime,jdbcType=TIMESTAMP})
+    </select>
+
+    <insert id="save" parameterType="com.guanke.vinda.samodels.model.entity.SaWxMessageEntity">
+        <!--@mbg.generated-->
+        insert into sa_wx_message
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="saWxMessageId != null">saWxMessageId,</if>
+            <if test="createdBy != null">createdBy,</if>
+            <if test="createdTime != null">createdTime,</if>
+            <if test="updatedBy != null">updatedBy,</if>
+            <if test="updatedTime != null">updatedTime,</if>
+            <if test="version != null">version,</if>
+            <if test="tableName != null">tableName,</if>
+            <if test="recordId != null">recordId,</if>
+            <if test="toUser != null">toUser,</if>
+            <if test="toParty != null">toParty,</if>
+            <if test="toTag != null">toTag,</if>
+            <if test="status != null">status,</if>
+            <if test="sendTime != null">sendTime,</if>
+            <if test="wxResult!= null">wxResult,</if>
+            <if test="title != null">title,</if>
+            <if test="description != null">description,</if>
+            <if test="url != null">url,</if>
+            <if test="btnTxt != null">btnTxt,</if>
+            <if test="mediaId!= null">mediaId,</if>
+            <if test="msgType != null">msgType,</if>
+            <if test="content != null">content,</if>
+            <if test="agentId != null">agentId,</if>
+        </trim>
+
+
+
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="saWxMessageId != null">#{saWxMessageId,jdbcType=VARCHAR},</if>
+            <if test="createdBy != null">#{createdBy,jdbcType=TIMESTAMP},</if>
+            <if test="createdTime != null">#{createdTime,jdbcType=TIMESTAMP},</if>
+            <if test="updatedBy != null">#{updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updatedTime != null">#{updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="version != null">#{version,jdbcType=INTEGER},</if>
+            <if test="tableName != null">#{tableName,jdbcType=VARCHAR},</if>
+            <if test="recordId != null">#{recordId,jdbcType=VARCHAR},</if>
+            <if test="toUser != null">#{toUser,jdbcType=VARCHAR},</if>
+            <if test="toParty != null">#{toParty,jdbcType=VARCHAR},</if>
+            <if test="toTag != null">#{toTag,jdbcType=VARCHAR},</if>
+            <if test="status != null">#{status,jdbcType=INTEGER},</if>
+            <if test="sendTime != null">#{sendTime,jdbcType=TIMESTAMP},</if>
+            <if test="wxResult != null">#{wxResult,jdbcType=VARCHAR},</if>
+            <if test="title != null">#{title,jdbcType=VARCHAR},</if>
+            <if test="description != null">#{description,jdbcType=VARCHAR},</if>
+            <if test="url != null">#{url,jdbcType=VARCHAR},</if>
+            <if test="btnTxt != null">#{btnTxt,jdbcType=VARCHAR},</if>
+            <if test="mediaId!= null">#{mediaId,jdbcType=INTEGER},</if>
+            <if test="msgType != null">#{msgType,jdbcType=VARCHAR},</if>
+            <if test="content != null">#{content,jdbcType=VARCHAR},</if>
+            <if test="agentId != null">#{agentId,jdbcType=VARCHAR},</if>
+        </trim>
+        ON DUPLICATE KEY UPDATE
+        <trim suffixOverrides=",">
+            <if test="updatedBy != null">updatedBy=#{updatedBy,jdbcType=VARCHAR},</if>
+            <if test="updatedTime != null">updatedTime=#{updatedTime,jdbcType=TIMESTAMP},</if>
+            <if test="version != null">version=#{version,jdbcType=INTEGER},</if>
+            <if test="tableName != null">tableName=#{tableName,jdbcType=VARCHAR},</if>
+            <if test="recordId != null">recordId=#{recordId,jdbcType=VARCHAR},</if>
+            <if test="toUser != null">toUser=#{toUser,jdbcType=VARCHAR},</if>
+            <if test="toParty != null">toParty=#{toParty,jdbcType=VARCHAR},</if>
+            <if test="toTag != null">toTag=#{toTag,jdbcType=VARCHAR},</if>
+            <if test="status != null">status=#{status,jdbcType=INTEGER},</if>
+            <if test="sendTime != null">sendTime=#{sendTime,jdbcType=TIMESTAMP},</if>
+            <if test="wxResult != null">wxResult=#{wxResult,jdbcType=VARCHAR},</if>
+            <if test="title != null">title=#{title,jdbcType=VARCHAR},</if>
+            <if test="description != null">description=#{description,jdbcType=VARCHAR},</if>
+            <if test="url != null">url=#{url,jdbcType=VARCHAR},</if>
+            <if test="btnTxt != null">btnTxt=#{btnTxt,jdbcType=VARCHAR},</if>
+            <if test="mediaId!= null">mediaId=#{mediaId,jdbcType=INTEGER},</if>
+            <if test="msgType != null">msgType=#{msgType,jdbcType=VARCHAR},</if>
+            <if test="content != null">content=#{content,jdbcType=VARCHAR},</if>
+            <if test="agentId != null">agentId=#{agentId,jdbcType=VARCHAR},</if>
+        </trim>
+    </insert>
+
+
+
+</mapper>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkDataEmpMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkDataEmpEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_data_emp-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="competitorCnt" jdbcType="INTEGER" property="competitorCnt"/>
+        <result column="dailyCnt" jdbcType="INTEGER" property="dailyCnt"/>
+        <result column="loginFlag" jdbcType="INTEGER" property="loginFlag"/>
+        <result column="month" jdbcType="INTEGER" property="month"/>
+        <result column="orderVerifyCnt" jdbcType="INTEGER" property="orderVerifyCnt"/>
+        <result column="photosCnt" jdbcType="INTEGER" property="photosCnt"/>
+        <result column="positionId" jdbcType="VARCHAR" property="positionId"/>
+        <result column="recordDate" jdbcType="DATE" property="recordDate"/>
+        <result column="shopUpdateCnt" jdbcType="INTEGER" property="shopUpdateCnt"/>
+        <result column="visitCnt" jdbcType="INTEGER" property="visitCnt"/>
+        <result column="year" jdbcType="INTEGER" property="year"/>
+        <result column="visitCancelCnt" jdbcType="INTEGER" property="visitCancelCnt"/>
+        <result column="visitCreatedCnt" jdbcType="INTEGER" property="visitCreatedCnt"/>
+        <result column="visitNonAccntCnt" jdbcType="INTEGER" property="visitNonAccntCnt"/>
+        <result column="dailyCreatedCnt" jdbcType="INTEGER" property="dailyCreatedCnt"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, competitorCnt, dailyCnt,
+        loginFlag, `month`, orderVerifyCnt, photosCnt, positionId, recordDate, shopUpdateCnt,
+        visitCnt, `year`, visitCancelCnt, visitCreatedCnt, visitNonAccntCnt, dailyCreatedCnt
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_data_emp
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_data_emp
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkDataEmpEntity">
+        <!--@mbg.generated-->
+        insert into gk_data_emp (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        competitorCnt, dailyCnt, loginFlag,
+        `month`, orderVerifyCnt, photosCnt,
+        positionId, recordDate, shopUpdateCnt,
+        visitCnt, `year`, visitCancelCnt,
+        visitCreatedCnt, visitNonAccntCnt, dailyCreatedCnt
+        )
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{competitorCnt,jdbcType=INTEGER}, #{dailyCnt,jdbcType=INTEGER}, #{loginFlag,jdbcType=INTEGER},
+        #{month,jdbcType=INTEGER}, #{orderVerifyCnt,jdbcType=INTEGER}, #{photosCnt,jdbcType=INTEGER},
+        #{positionId,jdbcType=VARCHAR}, #{recordDate,jdbcType=DATE}, #{shopUpdateCnt,jdbcType=INTEGER},
+        #{visitCnt,jdbcType=INTEGER}, #{year,jdbcType=INTEGER}, #{visitCancelCnt,jdbcType=INTEGER},
+        #{visitCreatedCnt,jdbcType=INTEGER}, #{visitNonAccntCnt,jdbcType=INTEGER}, #{dailyCreatedCnt,jdbcType=INTEGER}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkDataEmpEntity">
+        <!--@mbg.generated-->
+        insert into gk_data_emp
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="competitorCnt != null">
+                competitorCnt,
+            </if>
+            <if test="dailyCnt != null">
+                dailyCnt,
+            </if>
+            <if test="loginFlag != null">
+                loginFlag,
+            </if>
+            <if test="month != null">
+                `month`,
+            </if>
+            <if test="orderVerifyCnt != null">
+                orderVerifyCnt,
+            </if>
+            <if test="photosCnt != null">
+                photosCnt,
+            </if>
+            <if test="positionId != null">
+                positionId,
+            </if>
+            <if test="recordDate != null">
+                recordDate,
+            </if>
+            <if test="shopUpdateCnt != null">
+                shopUpdateCnt,
+            </if>
+            <if test="visitCnt != null">
+                visitCnt,
+            </if>
+            <if test="year != null">
+                `year`,
+            </if>
+            <if test="visitCancelCnt != null">
+                visitCancelCnt,
+            </if>
+            <if test="visitCreatedCnt != null">
+                visitCreatedCnt,
+            </if>
+            <if test="visitNonAccntCnt != null">
+                visitNonAccntCnt,
+            </if>
+            <if test="dailyCreatedCnt != null">
+                dailyCreatedCnt,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="competitorCnt != null">
+                #{competitorCnt,jdbcType=INTEGER},
+            </if>
+            <if test="dailyCnt != null">
+                #{dailyCnt,jdbcType=INTEGER},
+            </if>
+            <if test="loginFlag != null">
+                #{loginFlag,jdbcType=INTEGER},
+            </if>
+            <if test="month != null">
+                #{month,jdbcType=INTEGER},
+            </if>
+            <if test="orderVerifyCnt != null">
+                #{orderVerifyCnt,jdbcType=INTEGER},
+            </if>
+            <if test="photosCnt != null">
+                #{photosCnt,jdbcType=INTEGER},
+            </if>
+            <if test="positionId != null">
+                #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="recordDate != null">
+                #{recordDate,jdbcType=DATE},
+            </if>
+            <if test="shopUpdateCnt != null">
+                #{shopUpdateCnt,jdbcType=INTEGER},
+            </if>
+            <if test="visitCnt != null">
+                #{visitCnt,jdbcType=INTEGER},
+            </if>
+            <if test="year != null">
+                #{year,jdbcType=INTEGER},
+            </if>
+            <if test="visitCancelCnt != null">
+                #{visitCancelCnt,jdbcType=INTEGER},
+            </if>
+            <if test="visitCreatedCnt != null">
+                #{visitCreatedCnt,jdbcType=INTEGER},
+            </if>
+            <if test="visitNonAccntCnt != null">
+                #{visitNonAccntCnt,jdbcType=INTEGER},
+            </if>
+            <if test="dailyCreatedCnt != null">
+                #{dailyCreatedCnt,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkDataEmpEntity">
+        <!--@mbg.generated-->
+        update gk_data_emp
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="competitorCnt != null">
+                competitorCnt = #{competitorCnt,jdbcType=INTEGER},
+            </if>
+            <if test="dailyCnt != null">
+                dailyCnt = #{dailyCnt,jdbcType=INTEGER},
+            </if>
+            <if test="loginFlag != null">
+                loginFlag = #{loginFlag,jdbcType=INTEGER},
+            </if>
+            <if test="month != null">
+                `month` = #{month,jdbcType=INTEGER},
+            </if>
+            <if test="orderVerifyCnt != null">
+                orderVerifyCnt = #{orderVerifyCnt,jdbcType=INTEGER},
+            </if>
+            <if test="photosCnt != null">
+                photosCnt = #{photosCnt,jdbcType=INTEGER},
+            </if>
+            <if test="positionId != null">
+                positionId = #{positionId,jdbcType=VARCHAR},
+            </if>
+            <if test="recordDate != null">
+                recordDate = #{recordDate,jdbcType=DATE},
+            </if>
+            <if test="shopUpdateCnt != null">
+                shopUpdateCnt = #{shopUpdateCnt,jdbcType=INTEGER},
+            </if>
+            <if test="visitCnt != null">
+                visitCnt = #{visitCnt,jdbcType=INTEGER},
+            </if>
+            <if test="year != null">
+                `year` = #{year,jdbcType=INTEGER},
+            </if>
+            <if test="visitCancelCnt != null">
+                visitCancelCnt = #{visitCancelCnt,jdbcType=INTEGER},
+            </if>
+            <if test="visitCreatedCnt != null">
+                visitCreatedCnt = #{visitCreatedCnt,jdbcType=INTEGER},
+            </if>
+            <if test="visitNonAccntCnt != null">
+                visitNonAccntCnt = #{visitNonAccntCnt,jdbcType=INTEGER},
+            </if>
+            <if test="dailyCreatedCnt != null">
+                dailyCreatedCnt = #{dailyCreatedCnt,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkDataEmpEntity">
+        <!--@mbg.generated-->
+        update gk_data_emp
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        competitorCnt = #{competitorCnt,jdbcType=INTEGER},
+        dailyCnt = #{dailyCnt,jdbcType=INTEGER},
+        loginFlag = #{loginFlag,jdbcType=INTEGER},
+        `month` = #{month,jdbcType=INTEGER},
+        orderVerifyCnt = #{orderVerifyCnt,jdbcType=INTEGER},
+        photosCnt = #{photosCnt,jdbcType=INTEGER},
+        positionId = #{positionId,jdbcType=VARCHAR},
+        recordDate = #{recordDate,jdbcType=DATE},
+        shopUpdateCnt = #{shopUpdateCnt,jdbcType=INTEGER},
+        visitCnt = #{visitCnt,jdbcType=INTEGER},
+        `year` = #{year,jdbcType=INTEGER},
+        visitCancelCnt = #{visitCancelCnt,jdbcType=INTEGER},
+        visitCreatedCnt = #{visitCreatedCnt,jdbcType=INTEGER},
+        visitNonAccntCnt = #{visitNonAccntCnt,jdbcType=INTEGER},
+        dailyCreatedCnt = #{dailyCreatedCnt,jdbcType=INTEGER}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-04-->
+    <select id="selectByPositionIdAndRecordDate" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gk_data_emp
+        where positionId=#{positionId,jdbcType=VARCHAR}
+        and recordDate=#{recordDate,jdbcType=DATE}
+    </select>
+</mapper>

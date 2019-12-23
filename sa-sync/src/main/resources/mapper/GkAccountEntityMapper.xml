@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.sasync.mapper.GkAccountEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkAccountEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_account-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="code" jdbcType="VARCHAR" property="code"/>
+        <result column="district" jdbcType="VARCHAR" property="district"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="orgId" jdbcType="VARCHAR" property="orgid"/>
+        <result column="parentId" jdbcType="VARCHAR" property="parentid"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="shopArea" jdbcType="DECIMAL" property="shoparea"/>
+        <result column="shopBizCoverage" jdbcType="VARCHAR" property="shopbizcoverage"/>
+        <result column="shopBooth" jdbcType="INTEGER" property="shopbooth"/>
+        <result column="shopBracket" jdbcType="INTEGER" property="shopbracket"/>
+        <result column="shopLevel" jdbcType="VARCHAR" property="shoplevel"/>
+        <result column="shopProp" jdbcType="VARCHAR" property="shopprop"/>
+        <result column="shopSalesmanFlag" jdbcType="INTEGER" property="shopsalesmanflag"/>
+        <result column="shopSecondType" jdbcType="VARCHAR" property="shopsecondtype"/>
+        <result column="shopShelf" jdbcType="INTEGER" property="shopshelf"/>
+        <result column="shopThirdType" jdbcType="VARCHAR" property="shopthirdtype"/>
+        <result column="shopTissueCapacity" jdbcType="DECIMAL" property="shoptissuecapacity"/>
+        <result column="shopType" jdbcType="VARCHAR" property="shoptype"/>
+        <result column="shopVindaRanking" jdbcType="INTEGER" property="shopvindaranking"/>
+        <result column="shopVindaSales" jdbcType="DECIMAL" property="shopvindasales"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="contactEmail" jdbcType="VARCHAR" property="contactemail"/>
+        <result column="contactName" jdbcType="VARCHAR" property="contactname"/>
+        <result column="contactPhone" jdbcType="VARCHAR" property="contactphone"/>
+        <result column="addrIntId" jdbcType="VARCHAR" property="addrintid"/>
+        <result column="creditExcess" jdbcType="DECIMAL" property="creditexcess"/>
+        <result column="dealerAreaOffice" jdbcType="VARCHAR" property="dealerareaoffice"/>
+        <result column="dealerCityOffice" jdbcType="VARCHAR" property="dealercityoffice"/>
+        <result column="dealerProvinceOffice" jdbcType="VARCHAR" property="dealerprovinceoffice"/>
+        <result column="intId" jdbcType="VARCHAR" property="intid"/>
+        <result column="primaryAccntId" jdbcType="VARCHAR" property="primaryaccntid"/>
+        <result column="visitLastDate" jdbcType="DATE" property="visitlastdate"/>
+        <result column="needVisitFlag" jdbcType="INTEGER" property="needvisitflag"/>
+        <result column="dealerSecondType" jdbcType="VARCHAR" property="dealersecondtype"/>
+        <result column="dealerThirdType" jdbcType="VARCHAR" property="dealerthirdtype"/>
+        <result column="virtualClientType" jdbcType="VARCHAR" property="virtualclienttype"/>
+        <result column="createEmpId" jdbcType="VARCHAR" property="createempid"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, address, city, code,
+        district, `name`, orgId, parentId, province, shopArea, shopBizCoverage, shopBooth,
+        shopBracket, shopLevel, shopProp, shopSalesmanFlag, shopSecondType, shopShelf, shopThirdType,
+        shopTissueCapacity, shopType, shopVindaRanking, shopVindaSales, `status`, `type`,
+        contactEmail, contactName, contactPhone, addrIntId, creditExcess, dealerAreaOffice,
+        dealerCityOffice, dealerProvinceOffice, intId, primaryAccntId, visitLastDate, needVisitFlag,
+        dealerSecondType, dealerThirdType, virtualClientType, createEmpId
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_account
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_account
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountEntity">
+        <!--@mbg.generated-->
+        insert into gk_account (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        address, city, code,
+        district, `name`, orgId,
+        parentId, province, shopArea,
+        shopBizCoverage, shopBooth, shopBracket,
+        shopLevel, shopProp, shopSalesmanFlag,
+        shopSecondType, shopShelf, shopThirdType,
+        shopTissueCapacity, shopType, shopVindaRanking,
+        shopVindaSales, `status`, `type`,
+        contactEmail, contactName, contactPhone,
+        addrIntId, creditExcess, dealerAreaOffice,
+        dealerCityOffice, dealerProvinceOffice,
+        intId, primaryAccntId, visitLastDate,
+        needVisitFlag, dealerSecondType, dealerThirdType,
+        virtualClientType, createEmpId)
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{address,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+        #{district,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{orgid,jdbcType=VARCHAR},
+        #{parentid,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{shoparea,jdbcType=DECIMAL},
+        #{shopbizcoverage,jdbcType=VARCHAR}, #{shopbooth,jdbcType=INTEGER}, #{shopbracket,jdbcType=INTEGER},
+        #{shoplevel,jdbcType=VARCHAR}, #{shopprop,jdbcType=VARCHAR}, #{shopsalesmanflag,jdbcType=INTEGER},
+        #{shopsecondtype,jdbcType=VARCHAR}, #{shopshelf,jdbcType=INTEGER}, #{shopthirdtype,jdbcType=VARCHAR},
+        #{shoptissuecapacity,jdbcType=DECIMAL}, #{shoptype,jdbcType=VARCHAR}, #{shopvindaranking,jdbcType=INTEGER},
+        #{shopvindasales,jdbcType=DECIMAL}, #{status,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR},
+        #{contactemail,jdbcType=VARCHAR}, #{contactname,jdbcType=VARCHAR}, #{contactphone,jdbcType=VARCHAR},
+        #{addrintid,jdbcType=VARCHAR}, #{creditexcess,jdbcType=DECIMAL}, #{dealerareaoffice,jdbcType=VARCHAR},
+        #{dealercityoffice,jdbcType=VARCHAR}, #{dealerprovinceoffice,jdbcType=VARCHAR},
+        #{intid,jdbcType=VARCHAR}, #{primaryaccntid,jdbcType=VARCHAR}, #{visitlastdate,jdbcType=DATE},
+        #{needvisitflag,jdbcType=INTEGER}, #{dealersecondtype,jdbcType=VARCHAR}, #{dealerthirdtype,jdbcType=VARCHAR},
+        #{virtualclienttype,jdbcType=VARCHAR}, #{createempid,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountEntity">
+        <!--@mbg.generated-->
+        insert into gk_account
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="address != null">
+                address,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+            <if test="code != null">
+                code,
+            </if>
+            <if test="district != null">
+                district,
+            </if>
+            <if test="name != null">
+                `name`,
+            </if>
+            <if test="orgid != null">
+                orgId,
+            </if>
+            <if test="parentid != null">
+                parentId,
+            </if>
+            <if test="province != null">
+                province,
+            </if>
+            <if test="shoparea != null">
+                shopArea,
+            </if>
+            <if test="shopbizcoverage != null">
+                shopBizCoverage,
+            </if>
+            <if test="shopbooth != null">
+                shopBooth,
+            </if>
+            <if test="shopbracket != null">
+                shopBracket,
+            </if>
+            <if test="shoplevel != null">
+                shopLevel,
+            </if>
+            <if test="shopprop != null">
+                shopProp,
+            </if>
+            <if test="shopsalesmanflag != null">
+                shopSalesmanFlag,
+            </if>
+            <if test="shopsecondtype != null">
+                shopSecondType,
+            </if>
+            <if test="shopshelf != null">
+                shopShelf,
+            </if>
+            <if test="shopthirdtype != null">
+                shopThirdType,
+            </if>
+            <if test="shoptissuecapacity != null">
+                shopTissueCapacity,
+            </if>
+            <if test="shoptype != null">
+                shopType,
+            </if>
+            <if test="shopvindaranking != null">
+                shopVindaRanking,
+            </if>
+            <if test="shopvindasales != null">
+                shopVindaSales,
+            </if>
+            <if test="status != null">
+                `status`,
+            </if>
+            <if test="type != null">
+                `type`,
+            </if>
+            <if test="contactemail != null">
+                contactEmail,
+            </if>
+            <if test="contactname != null">
+                contactName,
+            </if>
+            <if test="contactphone != null">
+                contactPhone,
+            </if>
+            <if test="addrintid != null">
+                addrIntId,
+            </if>
+            <if test="creditexcess != null">
+                creditExcess,
+            </if>
+            <if test="dealerareaoffice != null">
+                dealerAreaOffice,
+            </if>
+            <if test="dealercityoffice != null">
+                dealerCityOffice,
+            </if>
+            <if test="dealerprovinceoffice != null">
+                dealerProvinceOffice,
+            </if>
+            <if test="intid != null">
+                intId,
+            </if>
+            <if test="primaryaccntid != null">
+                primaryAccntId,
+            </if>
+            <if test="visitlastdate != null">
+                visitLastDate,
+            </if>
+            <if test="needvisitflag != null">
+                needVisitFlag,
+            </if>
+            <if test="dealersecondtype != null">
+                dealerSecondType,
+            </if>
+            <if test="dealerthirdtype != null">
+                dealerThirdType,
+            </if>
+            <if test="virtualclienttype != null">
+                virtualClientType,
+            </if>
+            <if test="createempid != null">
+                createEmpId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="district != null">
+                #{district,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="orgid != null">
+                #{orgid,jdbcType=VARCHAR},
+            </if>
+            <if test="parentid != null">
+                #{parentid,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="shoparea != null">
+                #{shoparea,jdbcType=DECIMAL},
+            </if>
+            <if test="shopbizcoverage != null">
+                #{shopbizcoverage,jdbcType=VARCHAR},
+            </if>
+            <if test="shopbooth != null">
+                #{shopbooth,jdbcType=INTEGER},
+            </if>
+            <if test="shopbracket != null">
+                #{shopbracket,jdbcType=INTEGER},
+            </if>
+            <if test="shoplevel != null">
+                #{shoplevel,jdbcType=VARCHAR},
+            </if>
+            <if test="shopprop != null">
+                #{shopprop,jdbcType=VARCHAR},
+            </if>
+            <if test="shopsalesmanflag != null">
+                #{shopsalesmanflag,jdbcType=INTEGER},
+            </if>
+            <if test="shopsecondtype != null">
+                #{shopsecondtype,jdbcType=VARCHAR},
+            </if>
+            <if test="shopshelf != null">
+                #{shopshelf,jdbcType=INTEGER},
+            </if>
+            <if test="shopthirdtype != null">
+                #{shopthirdtype,jdbcType=VARCHAR},
+            </if>
+            <if test="shoptissuecapacity != null">
+                #{shoptissuecapacity,jdbcType=DECIMAL},
+            </if>
+            <if test="shoptype != null">
+                #{shoptype,jdbcType=VARCHAR},
+            </if>
+            <if test="shopvindaranking != null">
+                #{shopvindaranking,jdbcType=INTEGER},
+            </if>
+            <if test="shopvindasales != null">
+                #{shopvindasales,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="contactemail != null">
+                #{contactemail,jdbcType=VARCHAR},
+            </if>
+            <if test="contactname != null">
+                #{contactname,jdbcType=VARCHAR},
+            </if>
+            <if test="contactphone != null">
+                #{contactphone,jdbcType=VARCHAR},
+            </if>
+            <if test="addrintid != null">
+                #{addrintid,jdbcType=VARCHAR},
+            </if>
+            <if test="creditexcess != null">
+                #{creditexcess,jdbcType=DECIMAL},
+            </if>
+            <if test="dealerareaoffice != null">
+                #{dealerareaoffice,jdbcType=VARCHAR},
+            </if>
+            <if test="dealercityoffice != null">
+                #{dealercityoffice,jdbcType=VARCHAR},
+            </if>
+            <if test="dealerprovinceoffice != null">
+                #{dealerprovinceoffice,jdbcType=VARCHAR},
+            </if>
+            <if test="intid != null">
+                #{intid,jdbcType=VARCHAR},
+            </if>
+            <if test="primaryaccntid != null">
+                #{primaryaccntid,jdbcType=VARCHAR},
+            </if>
+            <if test="visitlastdate != null">
+                #{visitlastdate,jdbcType=DATE},
+            </if>
+            <if test="needvisitflag != null">
+                #{needvisitflag,jdbcType=INTEGER},
+            </if>
+            <if test="dealersecondtype != null">
+                #{dealersecondtype,jdbcType=VARCHAR},
+            </if>
+            <if test="dealerthirdtype != null">
+                #{dealerthirdtype,jdbcType=VARCHAR},
+            </if>
+            <if test="virtualclienttype != null">
+                #{virtualclienttype,jdbcType=VARCHAR},
+            </if>
+            <if test="createempid != null">
+                #{createempid,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountEntity">
+        <!--@mbg.generated-->
+        update gk_account
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                address = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="district != null">
+                district = #{district,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                `name` = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="orgid != null">
+                orgId = #{orgid,jdbcType=VARCHAR},
+            </if>
+            <if test="parentid != null">
+                parentId = #{parentid,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                province = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="shoparea != null">
+                shopArea = #{shoparea,jdbcType=DECIMAL},
+            </if>
+            <if test="shopbizcoverage != null">
+                shopBizCoverage = #{shopbizcoverage,jdbcType=VARCHAR},
+            </if>
+            <if test="shopbooth != null">
+                shopBooth = #{shopbooth,jdbcType=INTEGER},
+            </if>
+            <if test="shopbracket != null">
+                shopBracket = #{shopbracket,jdbcType=INTEGER},
+            </if>
+            <if test="shoplevel != null">
+                shopLevel = #{shoplevel,jdbcType=VARCHAR},
+            </if>
+            <if test="shopprop != null">
+                shopProp = #{shopprop,jdbcType=VARCHAR},
+            </if>
+            <if test="shopsalesmanflag != null">
+                shopSalesmanFlag = #{shopsalesmanflag,jdbcType=INTEGER},
+            </if>
+            <if test="shopsecondtype != null">
+                shopSecondType = #{shopsecondtype,jdbcType=VARCHAR},
+            </if>
+            <if test="shopshelf != null">
+                shopShelf = #{shopshelf,jdbcType=INTEGER},
+            </if>
+            <if test="shopthirdtype != null">
+                shopThirdType = #{shopthirdtype,jdbcType=VARCHAR},
+            </if>
+            <if test="shoptissuecapacity != null">
+                shopTissueCapacity = #{shoptissuecapacity,jdbcType=DECIMAL},
+            </if>
+            <if test="shoptype != null">
+                shopType = #{shoptype,jdbcType=VARCHAR},
+            </if>
+            <if test="shopvindaranking != null">
+                shopVindaRanking = #{shopvindaranking,jdbcType=INTEGER},
+            </if>
+            <if test="shopvindasales != null">
+                shopVindaSales = #{shopvindasales,jdbcType=DECIMAL},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                `type` = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="contactemail != null">
+                contactEmail = #{contactemail,jdbcType=VARCHAR},
+            </if>
+            <if test="contactname != null">
+                contactName = #{contactname,jdbcType=VARCHAR},
+            </if>
+            <if test="contactphone != null">
+                contactPhone = #{contactphone,jdbcType=VARCHAR},
+            </if>
+            <if test="addrintid != null">
+                addrIntId = #{addrintid,jdbcType=VARCHAR},
+            </if>
+            <if test="creditexcess != null">
+                creditExcess = #{creditexcess,jdbcType=DECIMAL},
+            </if>
+            <if test="dealerareaoffice != null">
+                dealerAreaOffice = #{dealerareaoffice,jdbcType=VARCHAR},
+            </if>
+            <if test="dealercityoffice != null">
+                dealerCityOffice = #{dealercityoffice,jdbcType=VARCHAR},
+            </if>
+            <if test="dealerprovinceoffice != null">
+                dealerProvinceOffice = #{dealerprovinceoffice,jdbcType=VARCHAR},
+            </if>
+            <if test="intid != null">
+                intId = #{intid,jdbcType=VARCHAR},
+            </if>
+            <if test="primaryaccntid != null">
+                primaryAccntId = #{primaryaccntid,jdbcType=VARCHAR},
+            </if>
+            <if test="visitlastdate != null">
+                visitLastDate = #{visitlastdate,jdbcType=DATE},
+            </if>
+            <if test="needvisitflag != null">
+                needVisitFlag = #{needvisitflag,jdbcType=INTEGER},
+            </if>
+            <if test="dealersecondtype != null">
+                dealerSecondType = #{dealersecondtype,jdbcType=VARCHAR},
+            </if>
+            <if test="dealerthirdtype != null">
+                dealerThirdType = #{dealerthirdtype,jdbcType=VARCHAR},
+            </if>
+            <if test="virtualclienttype != null">
+                virtualClientType = #{virtualclienttype,jdbcType=VARCHAR},
+            </if>
+            <if test="createempid != null">
+                createEmpId = #{createempid,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkAccountEntity">
+        <!--@mbg.generated-->
+        update gk_account
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        address = #{address,jdbcType=VARCHAR},
+        city = #{city,jdbcType=VARCHAR},
+        code = #{code,jdbcType=VARCHAR},
+        district = #{district,jdbcType=VARCHAR},
+        `name` = #{name,jdbcType=VARCHAR},
+        orgId = #{orgid,jdbcType=VARCHAR},
+        parentId = #{parentid,jdbcType=VARCHAR},
+        province = #{province,jdbcType=VARCHAR},
+        shopArea = #{shoparea,jdbcType=DECIMAL},
+        shopBizCoverage = #{shopbizcoverage,jdbcType=VARCHAR},
+        shopBooth = #{shopbooth,jdbcType=INTEGER},
+        shopBracket = #{shopbracket,jdbcType=INTEGER},
+        shopLevel = #{shoplevel,jdbcType=VARCHAR},
+        shopProp = #{shopprop,jdbcType=VARCHAR},
+        shopSalesmanFlag = #{shopsalesmanflag,jdbcType=INTEGER},
+        shopSecondType = #{shopsecondtype,jdbcType=VARCHAR},
+        shopShelf = #{shopshelf,jdbcType=INTEGER},
+        shopThirdType = #{shopthirdtype,jdbcType=VARCHAR},
+        shopTissueCapacity = #{shoptissuecapacity,jdbcType=DECIMAL},
+        shopType = #{shoptype,jdbcType=VARCHAR},
+        shopVindaRanking = #{shopvindaranking,jdbcType=INTEGER},
+        shopVindaSales = #{shopvindasales,jdbcType=DECIMAL},
+        `status` = #{status,jdbcType=VARCHAR},
+        `type` = #{type,jdbcType=VARCHAR},
+        contactEmail = #{contactemail,jdbcType=VARCHAR},
+        contactName = #{contactname,jdbcType=VARCHAR},
+        contactPhone = #{contactphone,jdbcType=VARCHAR},
+        addrIntId = #{addrintid,jdbcType=VARCHAR},
+        creditExcess = #{creditexcess,jdbcType=DECIMAL},
+        dealerAreaOffice = #{dealerareaoffice,jdbcType=VARCHAR},
+        dealerCityOffice = #{dealercityoffice,jdbcType=VARCHAR},
+        dealerProvinceOffice = #{dealerprovinceoffice,jdbcType=VARCHAR},
+        intId = #{intid,jdbcType=VARCHAR},
+        primaryAccntId = #{primaryaccntid,jdbcType=VARCHAR},
+        visitLastDate = #{visitlastdate,jdbcType=DATE},
+        needVisitFlag = #{needvisitflag,jdbcType=INTEGER},
+        dealerSecondType = #{dealersecondtype,jdbcType=VARCHAR},
+        dealerThirdType = #{dealerthirdtype,jdbcType=VARCHAR},
+        virtualClientType = #{virtualclienttype,jdbcType=VARCHAR},
+        createEmpId = #{createempid,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectCountByAccountNameAndAccountId" resultType="integer"
+            parameterType="string">
+        SELECT count(1)
+        FROM gk_account
+        WHERE name = #{name,jdbcType=VARCHAR}
+        AND id != #{id,jdbcType=VARCHAR}
+    </select>
+
+</mapper>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guanke.vinda.safunc.mapper.GkVisitPhotoEntityMapper">
+    <resultMap id="BaseResultMap" type="com.guanke.vinda.samodels.model.entity.GkVisitPhotoEntity">
+        <!--@mbg.generated-->
+        <!--@Table gk_visit_photo-->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="createdBy" jdbcType="VARCHAR" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="updatedBy" jdbcType="VARCHAR" property="updatedBy"/>
+        <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedTime"/>
+        <result column="version" jdbcType="INTEGER" property="version"/>
+        <result column="photoKey" jdbcType="VARCHAR" property="photoKey"/>
+        <result column="visitId" jdbcType="VARCHAR" property="visitId"/>
+        <result column="photoNumber" jdbcType="VARCHAR" property="photoNumber"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        id, createdBy, createdTime, updatedBy, updatedTime, version, photoKey, visitId, photoNumber
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from gk_visit_photo
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete from gk_visit_photo
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.guanke.vinda.samodels.model.entity.GkVisitPhotoEntity">
+        <!--@mbg.generated-->
+        insert into gk_visit_photo (id, createdBy, createdTime,
+        updatedBy, updatedTime, version,
+        photoKey, visitId, photoNumber
+        )
+        values (#{id,jdbcType=VARCHAR}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP},
+        #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER},
+        #{photoKey,jdbcType=VARCHAR}, #{visitId,jdbcType=VARCHAR}, #{photoNumber,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.guanke.vinda.samodels.model.entity.GkVisitPhotoEntity">
+        <!--@mbg.generated-->
+        insert into gk_visit_photo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="createdBy != null">
+                createdBy,
+            </if>
+            <if test="createdTime != null">
+                createdTime,
+            </if>
+            <if test="updatedBy != null">
+                updatedBy,
+            </if>
+            <if test="updatedTime != null">
+                updatedTime,
+            </if>
+            <if test="version != null">
+                version,
+            </if>
+            <if test="photoKey != null">
+                photoKey,
+            </if>
+            <if test="visitId != null">
+                visitId,
+            </if>
+            <if test="photoNumber != null">
+                photoNumber,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="createdBy != null">
+                #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                #{version,jdbcType=INTEGER},
+            </if>
+            <if test="photoKey != null">
+                #{photoKey,jdbcType=VARCHAR},
+            </if>
+            <if test="visitId != null">
+                #{visitId,jdbcType=VARCHAR},
+            </if>
+            <if test="photoNumber != null">
+                #{photoNumber,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.guanke.vinda.samodels.model.entity.GkVisitPhotoEntity">
+        <!--@mbg.generated-->
+        update gk_visit_photo
+        <set>
+            <if test="createdBy != null">
+                createdBy = #{createdBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createdTime != null">
+                createdTime = #{createdTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedBy != null">
+                updatedBy = #{updatedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updatedTime != null">
+                updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="version != null">
+                version = #{version,jdbcType=INTEGER},
+            </if>
+            <if test="photoKey != null">
+                photoKey = #{photoKey,jdbcType=VARCHAR},
+            </if>
+            <if test="visitId != null">
+                visitId = #{visitId,jdbcType=VARCHAR},
+            </if>
+            <if test="photoNumber != null">
+                photoNumber = #{photoNumber,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.guanke.vinda.samodels.model.entity.GkVisitPhotoEntity">
+        <!--@mbg.generated-->
+        update gk_visit_photo
+        set createdBy = #{createdBy,jdbcType=VARCHAR},
+        createdTime = #{createdTime,jdbcType=TIMESTAMP},
+        updatedBy = #{updatedBy,jdbcType=VARCHAR},
+        updatedTime = #{updatedTime,jdbcType=TIMESTAMP},
+        version = #{version,jdbcType=INTEGER},
+        photoKey = #{photoKey,jdbcType=VARCHAR},
+        visitId = #{visitId,jdbcType=VARCHAR},
+        photoNumber = #{photoNumber,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+
+    <!--auto generated by MybatisCodeHelper on 2019-11-29-->
+    <select id="selectByVisitIdOrderByCreatedTime" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from gk_visit_photo
+        where visitId=#{visitId,jdbcType=VARCHAR} order by createdTime asc
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-12-10-->
+    <delete id="deleteByVisitId">
+        delete from gk_visit_photo
+        where visitId=#{visitId,jdbcType=VARCHAR}
+    </delete>
+
+
+</mapper>
